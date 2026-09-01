@@ -10,6 +10,20 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ## [Unreleased]
 
+### Added
+
+- GitHub links in the app: top-bar link, welcome-card link, and a page
+  footer with copyright, GPLv3 license link, GitHub link, and the
+  local-parsing note. Repository metadata (`repository`, `homepage`,
+  `bugs`) now points at anantshri/HiveWalker.
+- README privacy section updated to reflect the Plausible analytics on the
+  deployed site (domain-bound, cookieless, silent on localhost/file://)
+  while keeping the hive-data-stays-local guarantee.
+- Plausible analytics: SRI deliberately omitted (operator-accepted risk —
+  lets Plausible rotate the script without breaking analytics; the script is
+  domain-bound and silent on localhost/file://), with a documented
+  `nosemgrep` suppression for the corresponding scanner rule.
+
 ## [0.1.0] - 2026-09-01
 
 First public release: **HiveWalker** — walk the Windows registry, hive by

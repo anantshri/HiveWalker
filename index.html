@@ -7,8 +7,11 @@
 <meta name="description" content="Open Windows registry hive files (SAM, SYSTEM, SOFTWARE, SECURITY, NTUSER.DAT, UsrClass.dat) entirely in your browser. No upload, no server, no install.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="src/styles.css">
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-TmNlD8-tk11JnFD0UxYRs.js"></script>
+<!-- Privacy-friendly analytics by Plausible.
+     Operator-accepted risk: SRI deliberately omitted so Plausible can rotate
+     the script server-side without silently breaking analytics. Script is
+     domain-bound and reports nothing when run from localhost or file://. -->
+<script async src="https://plausible.io/js/pa-TmNlD8-tk11JnFD0UxYRs.js"></script> <!-- nosemgrep: html.security.audit.missing-integrity.missing-integrity -->
 <script>
 window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
 plausible.init()
@@ -18,6 +21,8 @@ plausible.init()
 <div id="app" data-state="empty">
   <header id="topbar">
     <span id="brand"><img src="favicon.svg" alt="" width="18" height="18" class="brand-logo"> HiveWalker</span>
+    <a id="github-link" href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener"
+       title="HiveWalker on GitHub — source, issues, releases">GitHub</a>
     <label id="open-btn" for="file-input">Open hive…</label>
     <input id="file-input" type="file" hidden>
     <span id="file-name" title=""></span>
@@ -34,6 +39,9 @@ plausible.init()
       <p>Suitable files: <code>SAM</code> · <code>SYSTEM</code> · <code>SOFTWARE</code> ·
          <code>SECURITY</code> · <code>NTUSER.DAT</code> · <code>UsrClass.dat</code></p>
       <p class="muted">Everything is parsed locally in your browser. Nothing is uploaded.</p>
+      <p class="welcome-links">
+        <a href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener">Source &amp; releases on GitHub</a>
+      </p>
     </div>
     <div id="error-card" class="card error" hidden></div>
 
@@ -47,6 +55,16 @@ plausible.init()
   <div id="hex-pane" hidden></div>
 
   <footer id="statusbar" hidden></footer>
+
+  <footer id="page-footer">
+    <span>© 2026 HiveWalker contributors</span>
+    <span class="sep">·</span>
+    <a href="https://github.com/anantshri/HiveWalker/blob/main/LICENSE" target="_blank" rel="noopener">GPL-3.0-or-later</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <span>All parsing happens in your browser — hive files never leave your machine.</span>
+  </footer>
 </div>
 
 <!-- Single global namespace; classic scripts in dependency order. -->

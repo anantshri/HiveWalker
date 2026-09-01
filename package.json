@@ -15,7 +15,7 @@
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/example/HiveWalker.git"
+    "url": "git+https://github.com/anantshri/HiveWalker.git"
   },
   "keywords": [
     "windows-registry",
@@ -25,5 +25,7 @@
     "forensics",
     "viewer",
     "offline"
-  ]
+  ],
+  "homepage": "https://anantshri.github.io/HiveWalker/",
+  "bugs": "https://github.com/anantshri/HiveWalker/issues"
 }

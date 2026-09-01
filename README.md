@@ -56,10 +56,14 @@ That's it. There is no step 4.
 ## Privacy
 
 Hive files contain sensitive data — password hashes, MRU lists, machine and
-user identifiers. HiveWalker parses **everything locally**: no server, no
-network request, no telemetry. Unplug your network cable and it behaves
-exactly the same. The entire app is a few thousand lines of dependency-free
-JavaScript you can audit in an afternoon.
+user identifiers. **Hive file data never leaves your browser** — parsing is
+entirely local, with no server and no upload. The only network request the
+deployed site makes is cookieless, privacy-friendly analytics (Plausible),
+which reports nothing when the page runs from `localhost` or `file://` (the
+script is domain-bound, so self-hosted and offline use generate no traffic).
+Unplug your network cable and the viewer behaves exactly the same. The
+entire app is a few thousand lines of dependency-free JavaScript you can
+audit in an afternoon.
 
 ## Value types decoded
 

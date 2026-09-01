@@ -166,6 +166,35 @@ html, body {
 }
 #open-btn:hover { filter: brightness(1.1); }
 
+/* Session controls: attach another hive + switch the viewed one. */
+#add-btn {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-raised, #2a2a2a);
+  color: var(--fg, #eee);
+  cursor: pointer;
+}
+#add-btn:hover { filter: brightness(1.15); }
+
+#hive-select {
+  max-width: 300px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-raised, #1e1e1e);
+  color: var(--fg, #eee);
+  font-size: 12px;
+}
+
+.session-note {
+  border: 1px dashed var(--accent);
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-style: normal;
+}
+
 #file-name {
   max-width: 220px;
   overflow: hidden;

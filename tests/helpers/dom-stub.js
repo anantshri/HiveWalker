@@ -83,7 +83,13 @@ function makeDom() {
   const appEl = seed(body, 'app');
   appEl.dataset.state = 'empty';
   appEl.dataset.tab = 'viewer';
-  seed(appEl, 'topbar', 'header');
+  const topbar = seed(appEl, 'topbar', 'header');
+  seed(topbar, 'file-input', 'input');
+  seed(topbar, 'add-btn', 'label');
+  seed(topbar, 'add-file-input', 'input');
+  const hiveSelect = seed(topbar, 'hive-select', 'select');
+  hiveSelect.hidden = true;
+  seed(topbar, 'file-name', 'span');
   seed(appEl, 'tabbar', 'nav');
   const viewerTab = seed(appEl, 'viewer-tab', 'main');
   const panes = seed(viewerTab, 'panes');

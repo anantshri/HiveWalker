@@ -165,4 +165,182 @@
       if (rows.length) { const t = ctx.table(['Name', 'Command']); rows.forEach((r) => t.row(r)); }
     },
   });
+
+  // ---------------------------------------------------------------------------
+  // New bespoke plugins (not from the RR corpus — see docs/regripper-plugins.md):
+  // tsclient, wordwheelquery, mountpoints2, opensavepidl.
+
+  R.register({
+    name: 'tsclient',
+    hives: ['ntuser'],
+    category: 'lateral movement',
+    mitre: 'T1021.001',
+    version: '20260901',
+    shortDescr: 'Outbound RDP history: MRU servers + per-host username hints',
+    run(hive, ctx) {
+      ctx.section('Terminal Server Client (outbound RDP)');
+      const base = 'Software\\Microsoft\\Terminal Server Client';
+      const root = H.subkey(hive, base);
+      if (!root) { ctx.rptMsg(base + ' not found.'); return; }
+
+      const def = root.getSubkey('Default');
+      if (def) {
+        ctx.section('MRU servers');
+        const entries = [];
+        for (const v of def.getValues()) {
+          const m = /^MRU(\d+)$/.exec(v.name);
+          if (m) entries.push([Number(m[1]), v.name, String(v.getData().value)]);
+        }
+        entries.sort((a, b) => a[0] - b[0]);
+        const t = ctx.table(['Order', 'Value', 'Server']);
+        entries.forEach(([n, name, val]) => t.row([String(n), name, val]));
+        if (entries.length === 0) ctx.rptMsg('(no MRU entries)');
+      }
+      const servers = root.getSubkey('Servers');
+      if (servers) {
+        ctx.section('Per-server history');
+        const t = ctx.table(['Server', 'Username hint', 'Key LastWrite (UTC)']);
+        for (const s of servers.getSubkeys()) {
+          const hint = H.getValueString(s, 'UsernameHint', '');
+          t.row([s.name, hint || '-', H.formatDate(s.lastWriteDate)]);
+        }
+      }
+    },
+  });
+
+  R.register({
+    name: 'wordwheelquery',
+    hives: ['ntuser'],
+    category: 'user activity',
+    version: '20260901',
+    shortDescr: 'Explorer search box terms in MRU order',
+    run(hive, ctx) {
+      ctx.section('WordWheelQuery (Explorer searches)');
+      const path = 'Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\WordWheelQuery';
+      const key = H.subkey(hive, path);
+      if (!key) { ctx.rptMsg(path + ' not found.'); return; }
+      ctx.rptMsg('Key LastWrite: ' + H.formatDate(key.lastWriteDate));
+      const mruRaw = H.getValueData(key, 'MRUListEx');
+      let order = [];
+      if (mruRaw && mruRaw.length >= 4) {
+        const dv = new DataView(mruRaw.buffer, mruRaw.byteOffset, mruRaw.byteLength);
+        for (let i = 0; i + 4 <= mruRaw.length; i += 4) {
+          const n = dv.getInt32(i, true);
+          if (n === -1) break;
+          order.push(n);
+        }
+      } else {
+        // numeric-named values without MRUListEx: fall back to numeric order
+        const idx = [];
+        for (const v of key.getValues()) {
+          const m = /^\d+$/.exec(v.name);
+          if (m) idx.push(Number(v.name));
+        }
+        order = idx.sort((a, b) => a - b);
+      }
+      const t = ctx.table(['Order', 'Index', 'Search term']);
+      order.forEach((n, i) => {
+        const v = key.getValue(String(n));
+        if (!v) return;
+        const raw = v.getRawData();
+        let s = '';
+        if (raw) {
+          for (let j = 0; j + 1 < raw.length; j += 2) {
+            const c = raw[j] | (raw[j + 1] << 8);
+            if (c === 0) break;
+            s += String.fromCharCode(c);
+          }
+        }
+        t.row([String(i), String(n), s]);
+      });
+      if (order.length === 0) ctx.rptMsg('(empty)');
+    },
+  });
+
+  R.register({
+    name: 'mountpoints2',
+    hives: ['ntuser'],
+    category: 'user activity',
+    version: '20260901',
+    shortDescr: 'Drive letters, UNC shares and CSP volumes mounted by this user',
+    run(hive, ctx) {
+      ctx.section('MountPoints2');
+      const path = 'Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MountPoints2';
+      const key = H.subkey(hive, path);
+      if (!key) { ctx.rptMsg(path + ' not found.'); return; }
+      const t = ctx.table(['Mount', 'Type', 'Label', 'LastWrite (UTC)']);
+      let rows = 0;
+      for (const k of key.getSubkeys()) {
+        let type = 'unknown';
+        let label = '';
+        if (/^##/.test(k.name)) type = 'UNC share';
+        else if (/^[A-Za-z]:$/.test(k.name)) type = 'Drive letter';
+        else if (/^\{[0-9a-f-]+\}$/i.test(k.name)) type = 'Volume (CSP/BitLocker)';
+        else if (/^_/.test(k.name)) type = 'OneDrive/sync';
+        if (type === 'Drive letter') {
+          label = H.getValueString(k, '_LabelFromReg', '') || H.getValueString(k, 'Label', '');
+        }
+        t.row([k.name, type, label || '-', H.formatDate(k.lastWriteDate)]);
+        rows++;
+        if (rows >= H.MAX_PLUGIN_ROWS) { ctx.note('(truncated)'); break; }
+      }
+      if (rows === 0) ctx.rptMsg('(no mount points)');
+    },
+  });
+
+  R.register({
+    name: 'opensavepidl',
+    hives: ['ntuser'],
+    category: 'user activity',
+    version: '20260901',
+    shortDescr: 'Open/Save dialog MRUs: paths + launching programs (string extraction)',
+    run(hive, ctx) {
+      ctx.section('ComDlg32 OpenSave / LastVisited MRUs');
+      const base = 'Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32';
+      const root = H.subkey(hive, base);
+      if (!root) { ctx.rptMsg(base + ' not found.'); return; }
+
+      const dumpExtKey = (key, title) => {
+        ctx.section(title);
+        const mruRaw = H.getValueData(key, 'MRUListEx');
+        let order = [];
+        if (mruRaw && mruRaw.length >= 4) {
+          const dv = new DataView(mruRaw.buffer, mruRaw.byteOffset, mruRaw.byteLength);
+          for (let i = 0; i + 4 <= mruRaw.length; i += 4) {
+            const n = dv.getInt32(i, true);
+            if (n === -1) break;
+            order.push(n);
+          }
+        }
+        const t = ctx.table(['Order', 'Index', 'Extracted strings']);
+        order.forEach((n, i) => {
+          const v = key.getValue(String(n));
+          if (!v) return;
+          const runs = H.utf16Runs(v.getRawData(), 3);
+          t.row([String(i), String(n), runs.join(' | ') || '(binary)']);
+        });
+        if (order.length === 0) ctx.rptMsg('(empty)');
+      };
+
+      const osr = root.getSubkey('OpenSavePidlMRU');
+      if (osr) {
+        const star = osr.getSubkey('*');
+        if (star) dumpExtKey(star, 'OpenSavePidlMRU\\* (all extensions)');
+        for (const ext of osr.getSubkeys()) {
+          if (ext.name === '*') continue;
+          dumpExtKey(ext, 'OpenSavePidlMRU\\' + ext.name);
+        }
+      } else {
+        ctx.rptMsg('OpenSavePidlMRU not found.');
+      }
+      const lv = root.getSubkey('LastVisitedPidlMRU');
+      if (lv) {
+        const star = lv.getSubkey('*');
+        if (star) dumpExtKey(star, 'LastVisitedPidlMRU\\* (program → last folder)');
+      } else {
+        ctx.rptMsg('LastVisitedPidlMRU not found.');
+      }
+      ctx.note('Paths are extracted as UTF-16 strings from shell-item blobs; full shellbag structure parsing is not implemented.');
+    },
+  });
 })(window.RV);

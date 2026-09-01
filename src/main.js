@@ -5,12 +5,38 @@
 
   const $ = (id) => document.getElementById(id);
 
+  function filesOf(ev) {
+    if (!ev.target.files && !ev.dataTransfer) return [];
+    const list = ev.target.files || (ev.dataTransfer && ev.dataTransfer.files);
+    return list ? Array.from(list) : [];
+  }
+
   $('file-input').addEventListener('change', (ev) => {
-    const file = ev.target.files && ev.target.files[0];
-    if (file) RV.ui.app.loadFile(file);
+    const files = filesOf(ev);
+    if (files.length > 0) RV.ui.app.loadFiles(files);
+    ev.target.value = ''; // allow re-selecting the same file later
   });
 
-  // Drag-drop anywhere on the page.
+  // Attach additional hives to the running session (cross-hive reports).
+  $('add-file-input').addEventListener('change', (ev) => {
+    const files = filesOf(ev);
+    if (files.length > 0) RV.ui.app.addHives(files);
+    ev.target.value = '';
+  });
+
+  // Show the + Add button once a session exists.
+  const app = RV.ui.app;
+  const syncAddBtn = () => { $('add-btn').hidden = app.state.hives.length === 0; };
+  RV.plugins.session.onAttach(syncAddBtn);
+  RV.plugins.session.onDetach(syncAddBtn);
+
+  // Switch the viewed (primary) hive from the dropdown.
+  $('hive-select').addEventListener('change', (ev) => {
+    if (ev.target.value) app.setPrimaryHive(ev.target.value);
+  });
+
+  // Drag-drop anywhere on the page: several files at once replace the
+  // session; a single file appends when a session is already open.
   document.addEventListener('dragover', (ev) => {
     ev.preventDefault();
     document.body.classList.add('dragging');
@@ -19,8 +45,13 @@
   document.addEventListener('drop', (ev) => {
     ev.preventDefault();
     document.body.classList.remove('dragging');
-    const file = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
-    if (file) RV.ui.app.loadFile(file);
+    const files = ev.dataTransfer && ev.dataTransfer.files ? Array.from(ev.dataTransfer.files) : [];
+    if (files.length === 0) return;
+    if (files.length > 1 || RV.plugins.session.hives().length === 0) {
+      RV.ui.app.loadFiles(files);
+    } else {
+      RV.ui.app.addHives(files);
+    }
   });
 
   // Search

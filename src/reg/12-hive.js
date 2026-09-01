@@ -16,6 +16,7 @@
       this._rec = null; // parsed nk record
       this._subkeys = undefined; // undefined = not loaded
       this._values = undefined;
+      this._securityDescriptor = undefined;
       this.warnings = [];
     }
 
@@ -46,6 +47,26 @@
       return `${this._parent.path}\\${this.name}`;
     }
     isSymbolicLink() { this._ensure(); return (this._rec.flags & KEY_SYM_LINK) !== 0; }
+
+    /**
+     * Parsed self-relative security descriptor for this key (owner SID, DACL
+     * ACEs), or null when the key has no sk reference, the descriptor is
+     * unparseable, or the decoder layer is absent. Never throws.
+     */
+    getSecurityDescriptor() {
+      this._ensure();
+      if (this._rec.skRel == null) return null;
+      if (this._securityDescriptor !== undefined) return this._securityDescriptor;
+      this._securityDescriptor = null;
+      try {
+        const raw = RV.reg.readSkDescriptor(this._hive.reader, this._hive.binMap, this._rec.skRel);
+        if (raw && raw.descriptor && RV.decoders) {
+          const parsed = RV.decoders.parseSecurityDescriptor(raw.descriptor);
+          if (parsed && !parsed.unknown) this._securityDescriptor = parsed;
+        }
+      } catch { /* untrusted input; leave null */ }
+      return this._securityDescriptor;
+    }
 
     /** Children, sorted case-insensitively (regedit order). Cached. */
     getSubkeys() {

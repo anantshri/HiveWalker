@@ -36,8 +36,8 @@
   "hive": "amcache",
   "category": "program execution",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke amcache_file/amcache_app"
  },
  {
   "name": "amcache_tln",
@@ -82,8 +82,8 @@
   "hive": "system",
   "category": "file existence",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke shimcache (AppCompatCache binary decode)"
  },
  {
   "name": "appcompatcache_json",
@@ -246,8 +246,8 @@
   "hive": "security",
   "category": "config",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke auditpol"
  },
  {
   "name": "auth",
@@ -302,8 +302,8 @@
   "hive": "system",
   "category": "execution",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke bam (bam+dam State\\UserSettings)"
  },
  {
   "name": "bam_tln",
@@ -492,8 +492,8 @@
   "hive": "ntuser\\.dat",
   "category": "user activity",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke opensavepidl (string extraction only)"
  },
  {
   "name": "compdesc",
@@ -803,8 +803,8 @@
   "hive": "software",
   "category": "devices",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke emdmgmt"
  },
  {
   "name": "enablelinkedconn",
@@ -937,8 +937,8 @@
   "hive": "software",
   "category": "defense evasion",
   "output": "report",
-  "status": "deferred",
-  "reason": "dynamic path assembly"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke taskcache (SD-less Tree entries flagged)"
  },
  {
   "name": "identities",
@@ -1390,8 +1390,8 @@
   "hive": "software",
   "category": "config",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke networklist"
  },
  {
   "name": "networklist_tln",
@@ -1960,7 +1960,8 @@
   "hive": "sam",
   "category": "user activity",
   "output": "report",
-  "status": "done-bespoke"
+  "status": "done-bespoke",
+  "reason": "upgraded in place: full F/V decode + samhashes sibling"
  },
  {
   "name": "samparse_tln",
@@ -2051,8 +2052,8 @@
   "hive": "security",
   "category": "credential access",
   "output": "report",
-  "status": "deferred",
-  "reason": "no values/subkeys/named reads detected"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke lsasecrets (enumeration + classification; Win10+ AES decrypt UNVERIFIED)"
  },
  {
   "name": "secrets_tln",
@@ -2142,8 +2143,8 @@
   "hive": "system",
   "category": "file existence",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke shimcache (AppCompatCache binary decode)"
  },
  {
   "name": "shimcache_tln",
@@ -2361,8 +2362,8 @@
   "hive": "software",
   "category": "persistence",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke taskcache"
  },
  {
   "name": "tasks_tln",
@@ -2500,8 +2501,8 @@
   "hive": "ntuser\\.dat",
   "category": "lateral movement",
   "output": "report",
-  "status": "deferred",
-  "reason": "dynamic path assembly"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke tsclient"
  },
  {
   "name": "tsclient_tln",
@@ -2863,8 +2864,8 @@
   "hive": "ntuser\\.dat",
   "category": "user activity",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke wordwheelquery"
  },
  {
   "name": "wordwheelquery_tln",
@@ -2893,8 +2894,8 @@
   "hive": "system",
   "category": "devices",
   "output": "report",
-  "status": "deferred",
-  "reason": "binary decoder (uses unpack)"
+  "status": "done-bespoke",
+  "reason": "covered by bespoke wpdbusenum"
  },
  {
   "name": "wpdbusenum_tln",
@@ -2947,5 +2948,101 @@
   "output": "report",
   "status": "deferred",
   "reason": "dynamic path assembly"
+ },
+ {
+  "name": "bootkey",
+  "hive": "system",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "svcacls",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "portabledevices",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "mountpoints2",
+  "hive": "ntuser.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "opensavepidl",
+  "hive": "ntuser.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "samhashes",
+  "hive": "sam",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "machine_sid",
+  "hive": "security",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "lsasecrets",
+  "hive": "security",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "amcache_file",
+  "hive": "amcache",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "amcache_app",
+  "hive": "amcache",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "autostarts",
+  "hive": "software, ntuser.dat, system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
+ },
+ {
+  "name": "defposture",
+  "hive": "software, system",
+  "category": "defense evasion (audit)",
+  "output": "report",
+  "status": "done-bespoke-new",
+  "reason": "new plugin beyond the RR corpus (crypto/DFIR/offense expansion 2026-09-01)"
  }
 ]

@@ -25,9 +25,12 @@ Companion machine-readable file: [`regripper-plugin-status.json`](regripper-plug
   in JS on top of HiveWalker's parser (`RV.reg`, which mirrors
   `Parse::Win32Registry`). None of the plugins need user intervention — they are
   all non-interactive — so the real axis is **portability**, not interaction.
-- **Current status: 150 of 325 report plugins imported** (17 bespoke + 133
-  descriptor-driven). 61 are `_tln` duplicates (never port). 175 remain, all
-  needing bespoke decoders.
+- **Current status: 171 plugins registered** — 133 descriptor-driven, 14
+  RR-corpus bespoke (17 minus `samparse` counted below once upgraded), 12
+  new beyond the RR corpus, plus the crypto/DFIR/offense expansion of
+  2026-09-01 (`bootkey`, `samhashes`, `shimcache`, `amcache_*`, `taskcache`,
+  `autostarts`, `defposture`, SECURITY-hive pack, …). 61 `_tln` duplicates are
+  never ported; 161 remain deferred.
 
 ## Corpus breakdown (RegRipper 4.0)
 
@@ -46,9 +49,42 @@ the base *report* semantics only; json/yara/csv/tln are formatting variants.
 
 | Status | Count | Where |
 |---|---:|---|
-| done — bespoke `run()` | 17 | `src/plugins/40-system.js`, `41-software.js`, `42-ntuser.js`, `43-sam.js` |
+| done — bespoke `run()` | 31 | `src/plugins/40-system.js`, `41-software.js`, `42-ntuser.js`, `43-sam.js`, `44-security.js`, `45-amcache.js`, `46-offense.js` |
 | done — descriptor | 133 | `src/plugins/50-descriptors.js` (engine: `32-simple.js`) |
-| **deferred** | **175** | not yet ported — see below |
+| done — bespoke, beyond the RR corpus | 12 | `44-security.js`, `45-amcache.js`, `46-offense.js` + `bootkey`/`svcacls`/`portabledevices`/`mountpoints2`/`opensavepidl`/`samhashes` (see below) |
+| **deferred** | **161** | not yet ported — see below |
+
+### New bespoke plugins (beyond the RR corpus, 2026-09-01 expansion)
+
+| Plugin | Hive(s) | What it extracts |
+|---|---|---|
+| `bootkey` | system | SysKey bootkey from `Control\Lsa\{JD,Skew1,GBG,Data}` class names |
+| `shimcache` | system | AppCompatCache file-execution traces (XP→Win10 formats) |
+| `bam` | system | BAM/DAM per-SID program execution times |
+| `wpdbusenum` | system | MTP/PTP portable-device enumeration |
+| `svcacls` | system | Service-key DACLs writable by non-admins (offline accesschk, T1574.011) |
+| `taskcache` | software | Scheduled tasks incl. hidden (SD-less) and orphan entries (T1053.005) |
+| `networklist` | software | Network profiles: names, categories, first/last connection, gateway MACs |
+| `emdmgmt` | software | Volume serial numbers for removable-media correlation |
+| `portabledevices` | software | Phone/tablet identity (FriendlyName, model, firmware) |
+| `tsclient` | ntuser | Outbound RDP history + username hints (T1021.001) |
+| `wordwheelquery` | ntuser | Explorer search terms in MRU order |
+| `mountpoints2` | ntuser | Drive letters / UNC shares / CSP volumes mounted by the user |
+| `opensavepidl` | ntuser | Open/Save dialog MRUs (UTF-16 string extraction; no shellbag parsing) |
+| `samhashes` | sam | NT/LM hash extraction; XP-generation decrypt via the session's SYSTEM bootkey |
+| `machine_sid` | security | Machine/domain names + SIDs |
+| `auditpol` | security | Per-category audit policy + high-value-silenced flags |
+| `lsasecrets` | security | LSA Secrets enumeration + classification (Win10+ AES decrypt UNVERIFIED → listed only) |
+| `amcache_file` | amcache | File inventory: paths, SHA-1s, sizes, times (Win8 + Win10 shapes) |
+| `amcache_app` | amcache | Installed applications |
+| `autostarts` | software/ntuser/system | Consolidated autostart sweep with per-row MITRE tags + StartupApproved decode |
+| `defposture` | software/system | Defense posture verdicts (Defender/UAC/WDigest/PowerShell/SmartScreen/…) |
+
+Supporting layers: `src/crypto/` (hand-rolled MD4/MD5/SHA-1/RC4/DES/3DES/AES
+with spec KATs), `src/decoders/` (SID, security descriptors, ShimCache, SAM
+F/V), `src/plugins/33-session.js` (multi-hive sessions — SAM + SYSTEM
+together) and the `+ Add hive…` / hive-switcher topbar. Provenance and
+verified constants: `docs/crypto-notes.md`.
 
 Deferred = 61 binary-decoder + 114 simple-but-not-declaratively-representable.
 Full per-plugin detail (name, hive, status, reason/mode) is in

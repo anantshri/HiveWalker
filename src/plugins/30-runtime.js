@@ -40,12 +40,15 @@
   /**
    * Run one plugin against a hive. Never throws: a plugin error is captured in
    * the result's `error` field so one bad plugin can't crash the page.
+   * `opts.session` (optional, from RV.plugins.session or the app) is exposed
+   * to the plugin as ctx.session for cross-hive lookups (e.g. SAM + SYSTEM).
    * @returns the structured result shape documented in the plan.
    */
-  function run(plugin, hive) {
+  function run(plugin, hive, opts) {
     const p = typeof plugin === 'string' ? get(plugin) : plugin;
     if (!p) throw new Error(`unknown plugin: ${plugin}`);
     const ctx = RV.plugins.helpers.makeContext();
+    ctx.session = (opts && opts.session) || null;
     let error = null;
     try {
       p.run(hive, ctx);
@@ -75,7 +78,7 @@
     let aborted = false;
     for (const p of applicableTo(hive)) {
       if (signal && signal.aborted) { aborted = true; break; }
-      results.push(run(p, hive));
+      results.push(run(p, hive, opts));
     }
     return { results, aborted };
   }

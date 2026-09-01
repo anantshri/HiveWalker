@@ -94,6 +94,7 @@ class KeySpec {
     this.lastWrite = opts.lastWrite ?? 0n;
     this.className = opts.className ?? null;
     this.volatile = !!opts.volatile;
+    this.security = opts.security ?? null; // raw self-relative SECURITY_DESCRIPTOR bytes → sk cell
     this.children = [];
     this.values = [];
   }
@@ -241,6 +242,20 @@ class HiveBuilder {
         classRel = emitDataCell(Buffer.from(spec.className + '\0', 'utf16le'));
       }
 
+      // Optional sk cell so security-descriptor reads are testable end-to-end.
+      let skRel = 0xffffffff;
+      if (spec.security != null) {
+        const d = Buffer.isBuffer(spec.security) ? spec.security : Buffer.from(spec.security);
+        const payload = Buffer.alloc(0x14 + d.length);
+        payload.write('sk', 0, 'latin1');
+        payload.writeUInt32LE(0xffffffff, 0x04); // prev
+        payload.writeUInt32LE(0xffffffff, 0x08); // next
+        payload.writeUInt32LE(1, 0x0c);          // refCount
+        payload.writeUInt32LE(d.length, 0x10);   // descriptor length
+        d.copy(payload, 0x14);
+        skRel = img.appendCell(payload);
+      }
+
       const nameBytes = Buffer.from(spec.name, 'latin1');
       const isCM = o.nkLayout === 'CM_KEY_NODE';
       const header = NK_HEADER[isCM ? 'CM_KEY_NODE' : 'nk'];
@@ -257,7 +272,7 @@ class HiveBuilder {
       payload.writeUInt32LE(0xffffffff, p); p += 4; // volatile value count (-1)
       payload.writeUInt32LE(spec.values.length, p); p += 4;
       payload.writeUInt32LE(valueListRel, p); p += 4;
-      payload.writeUInt32LE(0xffffffff, p); p += 4; // sk
+      payload.writeUInt32LE(skRel, p); p += 4; // sk
       payload.writeUInt32LE(classRel, p); p += 4;
       payload.writeUInt32LE(64, p); p += 4; // max subkey name len
       payload.writeUInt32LE(64, p); p += 4; // max class len

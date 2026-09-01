@@ -1,0 +1,17 @@
+# Local reference copy (personal/academic licensed RegRipper — not distributable)
+supporting/
+
+# Working-session scratch (kept locally per repo convention)
+logs/
+plans/
+
+# Tooling / editor state
+.ai-container/
+.cursor/
+.devcontainer/
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+.npm/

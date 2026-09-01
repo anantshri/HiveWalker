@@ -1,0 +1,80 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: npm test
+
+      - name: Coverage
+        run: npm run test:coverage
+
+      - name: Smoke-test the CLI against a synthetic hive
+        shell: bash
+        run: |
+          node -e "
+            const{HiveBuilder}=require('./tests/helpers/hive-builder');
+            require('fs').writeFileSync('/tmp/smoke.reg',
+              Buffer.from(new HiveBuilder().build(r=>{
+                r.key('Software').key('Microsoft').value('Ver',1,'1.0');
+              }).toBuffer()));
+            console.log('synthetic hive written');
+          "
+          node bin/dump-hive.mjs /tmp/smoke.reg --json > /dev/null
+          node bin/dump-hive.mjs /tmp/smoke.reg > /dev/null
+          echo "CLI smoke ok (text + json)"
+
+  release-ready:
+    name: release artifact check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+
+      - name: App opens standalone (all referenced files exist)
+        run: |
+          set -euo pipefail
+          # every <script src> and asset reference in index.html must exist
+          grep -oE '(src|href)="[^"#]+"' index.html \
+            | sed -E 's/^(src|href)="//; s/"$//' \
+            | grep -v '^https\?://' \
+            | while read -r f; do
+                test -f "$f" || { echo "MISSING: $f"; exit 1; }
+              done
+          echo "all assets present"
+
+      - name: LICENSE exists and package metadata matches
+        run: |
+          set -euo pipefail
+          test -f LICENSE
+          head -2 LICENSE | grep -q "GNU GENERAL PUBLIC LICENSE"
+          grep -q '"license": "GPL-3.0-or-later"' package.json
+          grep -q '"name": "hivewalker"' package.json
+          echo "metadata ok"
+
+      - name: Zero runtime dependencies
+        run: |
+          set -euo pipefail
+          count=$(node -e "const p=require('./package.json'); console.log(Object.keys(p.dependencies||{}).length)")
+          test "$count" = "0"
+          echo "no runtime dependencies"

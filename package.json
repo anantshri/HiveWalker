@@ -1,0 +1,29 @@
+{
+  "name": "hivewalker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Walk Windows registry hive files (SAM, SYSTEM, SOFTWARE, SECURITY, NTUSER.DAT, UsrClass.dat) entirely in your browser \u2014 regedit-style UI, zero dependencies, no server, no upload.",
+  "scripts": {
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "dump": "node bin/dump-hive.mjs",
+    "scan": "aidc-scan"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/example/HiveWalker.git"
+  },
+  "keywords": [
+    "windows-registry",
+    "registry",
+    "regf",
+    "hive",
+    "forensics",
+    "viewer",
+    "offline"
+  ]
+}

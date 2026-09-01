@@ -1,0 +1,61 @@
+name: deploy-pages
+
+# Release-based GitHub Pages deployment: publishes the app when a v* tag is
+# pushed. The app is a static site (no build step), so deployment is a copy
+# of the working tree plus the decompressed-fixture note.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; superseded runs are cancelled.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09  # v5
+
+      - name: Assemble site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          # The app root is the site root: index.html, favicon, src/, docs/logo
+          cp index.html favicon.svg LICENSE README.md _site/
+          cp -r src _site/src
+          mkdir -p _site/docs
+          cp docs/logo.svg _site/docs/logo.svg
+
+      - name: Check the app is self-contained
+        run: |
+          set -euo pipefail
+          # every local asset referenced by the deployed pages must be present
+          grep -oE '(src|href)="[^"#]+"' _site/index.html \
+            | sed -E 's/^(src|href)="//; s/"$//' \
+            | grep -v -E '^https?://' \
+            | while read -r f; do
+                test -f "_site/$f" || { echo "MISSING from site: $f"; exit 1; }
+              done
+          echo "site is self-contained"
+
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b  # v5
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4
+PYEOF

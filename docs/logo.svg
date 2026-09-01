@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="HiveWalker logo">
+  <title>HiveWalker</title>
+  <defs>
+    <!-- Honeycomb cell gradient: warm amber, referencing registry "hives" -->
+    <linearGradient id="cell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6b93b"/>
+      <stop offset="1" stop-color="#e58e26"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4fc1ff"/>
+      <stop offset="1" stop-color="#0b63b8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Three stacked hive cells forming a hexagon cluster -->
+  <g fill="url(#cell)" stroke="#b06f12" stroke-width="1.5" stroke-linejoin="round">
+    <!-- top cell -->
+    <path d="M32 6 L46 14 L46 26 L32 34 L18 26 L18 14 Z"/>
+    <!-- lower-left cell -->
+    <path d="M18 26 L32 34 L32 48 L18 56 L4 48 L4 34 Z" opacity="0.92"/>
+    <!-- lower-right cell -->
+    <path d="M46 26 L60 34 L60 48 L46 56 L32 48 L32 34 Z" opacity="0.92"/>
+  </g>
+
+  <!-- The walker's path: a registry-tree branch descending through the cells -->
+  <path d="M32 12 L32 24
+           M32 24 L14 36
+           M32 24 L50 36
+           M14 36 L14 46
+           M50 36 L50 46"
+        fill="none" stroke="url(#path)" stroke-width="3.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Nodes at every key: the "keys" of the walked tree -->
+  <g fill="#ffffff" stroke="#0b63b8" stroke-width="1.6">
+    <circle cx="32" cy="12" r="3.4"/>
+    <circle cx="32" cy="24" r="3.4"/>
+    <circle cx="14" cy="36" r="3.0"/>
+    <circle cx="50" cy="36" r="3.0"/>
+    <circle cx="14" cy="46" r="3.0"/>
+    <circle cx="50" cy="46" r="3.0"/>
+  </g>
+</svg>

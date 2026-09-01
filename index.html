@@ -18,7 +18,7 @@ plausible.init()
 </script>
 </head>
 <body>
-<div id="app" data-state="empty">
+<div id="app" data-state="empty" data-tab="viewer">
   <header id="topbar">
     <span id="brand"><img src="favicon.svg" alt="" width="18" height="18" class="brand-logo"> HiveWalker</span>
     <a id="github-link" href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener"
@@ -31,30 +31,38 @@ plausible.init()
     <button id="meta-btn" type="button" hidden>Hive info</button>
   </header>
 
-  <main id="panes">
-    <div id="welcome" class="card">
-      <img src="docs/logo.svg" alt="HiveWalker" width="72" height="72" class="welcome-logo">
-      <h1>HiveWalker</h1>
-      <p>Drop a registry hive file anywhere on this page, or use <strong>Open hive…</strong></p>
-      <p>Suitable files: <code>SAM</code> · <code>SYSTEM</code> · <code>SOFTWARE</code> ·
-         <code>SECURITY</code> · <code>NTUSER.DAT</code> · <code>UsrClass.dat</code></p>
-      <p class="muted">Everything is parsed locally in your browser. Nothing is uploaded.</p>
-      <p class="welcome-links">
-        <a href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener">Source &amp; releases on GitHub</a>
-      </p>
-    </div>
-    <div id="error-card" class="card error" hidden></div>
+  <nav id="tabbar" aria-label="Main views" hidden>
+    <button id="tab-viewer" type="button" role="tab" aria-selected="true">Viewer</button>
+    <button id="tab-reports" type="button" role="tab" aria-selected="false">Reports</button>
+  </nav>
 
-    <nav id="tree-pane" aria-label="Registry keys" hidden></nav>
-    <section id="values-pane" hidden></section>
+  <main id="viewer-tab" aria-label="Registry viewer">
+    <div id="panes">
+      <div id="welcome" class="card">
+        <img src="docs/logo.svg" alt="HiveWalker" width="72" height="72" class="welcome-logo">
+        <h1>HiveWalker</h1>
+        <p>Drop a registry hive file anywhere on this page, or use <strong>Open hive…</strong></p>
+        <p>Suitable files: <code>SAM</code> · <code>SYSTEM</code> · <code>SOFTWARE</code> ·
+           <code>SECURITY</code> · <code>NTUSER.DAT</code> · <code>UsrClass.dat</code></p>
+        <p class="muted">Everything is parsed locally in your browser. Nothing is uploaded.</p>
+        <p class="welcome-links">
+          <a href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener">Source &amp; releases on GitHub</a>
+        </p>
+      </div>
+      <div id="error-card" class="card error" hidden></div>
+
+      <nav id="tree-pane" aria-label="Registry keys" hidden></nav>
+      <section id="values-pane" hidden></section>
+    </div>
+    <footer id="statusbar" hidden></footer>
   </main>
+
+  <section id="reports-tab" aria-label="Forensic reports" hidden></section>
 
   <div id="search-results" hidden></div>
 
   <aside id="meta-pane" hidden></aside>
   <div id="hex-pane" hidden></div>
-
-  <footer id="statusbar" hidden></footer>
 
   <footer id="page-footer">
     <span>© 2026 HiveWalker contributors</span>
@@ -68,7 +76,7 @@ plausible.init()
 </div>
 
 <!-- Single global namespace; classic scripts in dependency order. -->
-<script>window.RV = { reg: {}, ui: {} };</script>
+<script>window.RV = { reg: {}, ui: {}, plugins: {} };</script>
 <script src="src/reg/00-const.js"></script>
 <script src="src/reg/01-buffer-reader.js"></script>
 <script src="src/reg/02-filetime.js"></script>
@@ -83,6 +91,14 @@ plausible.init()
 <script src="src/reg/11-value-data.js"></script>
 <script src="src/reg/12-hive.js"></script>
 <script src="src/reg/13-index.js"></script>
+<script src="src/plugins/30-runtime.js"></script>
+<script src="src/plugins/31-helpers.js"></script>
+<script src="src/plugins/32-simple.js"></script>
+<script src="src/plugins/40-system.js"></script>
+<script src="src/plugins/41-software.js"></script>
+<script src="src/plugins/42-ntuser.js"></script>
+<script src="src/plugins/43-sam.js"></script>
+<script src="src/plugins/50-descriptors.js"></script>
 <script src="src/ui/20-view-model.js"></script>
 <script src="src/ui/21-app.js"></script>
 <script src="src/ui/22-tree.js"></script>
@@ -92,6 +108,8 @@ plausible.init()
 <script src="src/ui/26-hivemeta.js"></script>
 <script src="src/ui/27-statusbar.js"></script>
 <script src="src/ui/28-resizer.js"></script>
+<script src="src/ui/29-reports.js"></script>
+<script src="src/ui/30-pdf.js"></script>
 <script src="src/main.js"></script>
 </body>
 </html>

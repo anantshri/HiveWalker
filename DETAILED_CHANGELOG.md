@@ -9,6 +9,277 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — Viewer/Reports tabs + PDF report export
+
+**Summary:** The Reports feature moved from a 640px slide-over panel to a
+full-width workspace tab beside the Viewer, gained a filterable plugin rail,
+and a one-click **Export PDF** backed by a hand-rolled zero-dependency PDF
+writer.
+
+**Why:** User request: (1) "reports and viewer as 2 different tabs so we give
+more space to reports", (2) "report should be neatly extractable as PDF". For
+(2) the user explicitly chose direct `.pdf` download over print-to-PDF,
+accepting a dependency in principle — but a dependency turned out to be
+unnecessary: a text-report PDF needs only Base-14 fonts, text operators, and a
+correct xref table (~200 lines), which fits this repo's hand-rolled ethos
+(the whole regf parser is hand-rolled) and avoids ~350KB of vendored jsPDF +
+SBOM/license surface. Flagged to the user at plan approval; plan approved with
+the hand-rolled writer.
+
+**What changed:**
+- `index.html` — `#tabbar` (Viewer/Reports, `role="tab"` + `aria-selected`),
+  main area restructured to `#viewer-tab` (wrapping `#panes` + `#statusbar`)
+  and `#reports-tab`; topbar `#reports-btn` removed (superseded by the tab);
+  script tag for `src/ui/30-pdf.js`.
+- `src/ui/21-app.js` — `currentTab()`/`setTab(name)`: state on
+  `#app[data-tab]`, aria sync, topbar search disabled on Reports (it's
+  viewer-scoped). Both tabs stay in the DOM → viewer state persists.
+  `showPanes()` reveals the tabbar and pre-renders the Reports workspace.
+- `src/main.js` — tab click wiring, `Ctrl/Cmd+1|2`, Escape returns from
+  Reports to Viewer.
+- `src/ui/29-reports.js` — reworked from slide-over to workspace: left rail
+  (`#reports-rail`) with `#report-filter` + plugin list (applicable-first,
+  category/MITRE badges), main column with Run-all / Export-PDF / Copy and
+  `#report-output` result cards. API is now `render()`/`showResults()`
+  (tab-driven; `toggle`/`hide` removed).
+- `src/ui/30-pdf.js` (new, `RV.ui.pdf`) — minimal PDF 1.4 writer:
+  `makePdf(model, {footerBase})` → Uint8Array. A4 portrait, 40pt margins,
+  Courier 9 body (monospace keeps tables aligned) + Helvetica/-Bold headers,
+  automatic pagination, per-page footer (`<hive> — generated <UTC> — page N/M`
+  + unprintable-char note when needed), WinAnsi sanitisation with
+  typographic→ASCII mapping and `\ ( )` escaping, correct xref offsets.
+  `downloadReportPdf(results, slug)` → Blob + object-URL `<a download>` (URL
+  revoked after 5s). `fileNameFor` → `hivewalker-report-<slug>-<stamp>.pdf`.
+- `src/ui/20-view-model.js` — new pure `reportPdfModel(results)` flattening
+  structured results into styled lines (`title|section|meta|body|note`), the
+  DOM-free seam the PDF tests exercise.
+- `src/styles.css` — tabbar + tab-visibility rules (`#app[data-tab]`), the
+  reports workspace grid (rail + main), rail filter, wider result cards;
+  removed slide-over `#reports-pane` rules.
+- `tests/helpers/dom-stub.js` — seeded a connected skeleton of index.html's
+  static ids (`app/topbar/tabbar/viewer-tab/panes/reports-tab/page-footer`)
+  so renders attach into real shared elements; `getElementById` now walks the
+  tree (ids assigned after creation resolve like a browser); added
+  `setAttribute/getAttribute`, Blob + `URL.createObjectURL` stubs and
+  anchor-click download recording.
+- Tests: `tests/pdf.test.js` (10 — sanitisation, escaping, xref/offset
+  integrity, style→font mapping, pagination + footers, width wrapping,
+  replaced-char note, empty model, model flattening, filename);
+  `tests/reports-ui.test.js` rewritten for tabs (switching/persistence/search
+  scoping, run/filter/copy, error/empty/note branches, PDF download
+  validity, corrupt-hive error card); `tests/e2e-ui-sim.js` steps 6–7 now
+  drive the tab workflow end-to-end.
+
+**How / commands run:**
+```
+node --test                                  # 225 pass (was 212)
+node --test --experimental-test-coverage     # 20-view-model, 21-app, 29-reports, 30-pdf: 100% lines
+node tests/e2e-ui-sim.js                      # tabs, filter, run, run-all, PDF export: all true
+aidc-scan                                     # semgrep + gitleaks clean (one Blocking finding
+                                             #   in scripts/regripper/extract.js fixed by
+                                             #   hardcoding the four %config regexes; output
+                                             #   verified byte-identical afterward)
+```
+
+**Verification:** PDF structure asserted in tests (header/EOF, catalog/pages,
+fonts, xref offsets all point at object declarations, per-page footers, ≤95
+char wrapped lines with no character loss); a real download path exercised via
+the stubbed Blob/URL (`%PDF-1.4` envelope + report content present in the
+bytes); no `pdftotext`/`qpdf` in the container — browser eyeball check pending
+operator. Sanitisation: accented Latin passes through (WinAnsi), CJK → `?`
+counted and noted in the footer.
+
+**Notes / gotchas:**
+- The DOM stub's old `getElementById` auto-created elements per id, which
+  silently forked instances once code assigned ids after creation; the seeded
+  skeleton + tree-walking lookup fixed the tab tests and makes future UI tests
+  behave like a browser.
+- PDF body text is Courier (Base-14): no font embedding, so non-Latin-1 hive
+  data is substituted — the footer says how many; copy-to-text stays lossless.
+- Escape now doubles as "leave Reports tab"; overlay Escape behavior
+  (hex/meta) unchanged.
+- Known gremlin check: one raw NUL byte appeared in `30-pdf.js` (sanitiser
+  literal) — fixed; all touched files verified NUL-free.
+
+**Summary:** Captured the RegRipper import exercise as durable artifacts so it
+is never re-derived: a guide doc, a machine-readable per-plugin status file
+covering all 386 plugins, and the extraction pipeline as runnable scripts.
+
+**Why:** The corpus analysis (386 → 61 `_tln` → 325 report → 256 simple + 69
+binary), the descriptor schema, and the skip reasons lived only in session
+notes and ephemeral `/tmp` files. Anyone resuming the work — including us —
+would have had to redo the whole analysis.
+
+**What changed:**
+- `docs/regripper-plugins.md` — TL;DR, corpus breakdown tables, porting-status
+  tables, architecture map (`src/plugins/30-32`, `40-43`, `50`), the descriptor
+  schema, "how to add a plugin" instructions, the reproducible pipeline
+  description, and the NUL-byte gotcha.
+- `docs/regripper-plugin-status.json` — one row per RR4.0 plugin: name, hive,
+  category, output, status (`excluded` 61 / `done-bespoke` 17 /
+  `done-descriptor` 133 / `deferred` 175) with mode or deferral reason.
+- `scripts/regripper/analyze.js` — corpus analyser (+ `--batches N` chunking).
+- `scripts/regripper/extract.js` — the conservative heuristic extractor
+  (headered, batch-id parameterised, repo-relative paths).
+- `scripts/regripper/assemble.js` — merger/validator/generator; dedup set now
+  parsed from `src/plugins/4x-*.js` instead of hard-coded; globs
+  `/tmp/rr_desc_*.json`.
+- `scripts/regripper/status.js` — regenerates the status JSON from current
+  source (`analyze` first).
+
+**How / commands run:**
+```
+node scripts/regripper/analyze.js          # 386 | 61 _tln | 325 | 256/69
+node scripts/regripper/status.js           # {deferred:175, done-descriptor:133, excluded:61, done-bespoke:17}
+node scripts/regripper/assemble.js         # 133 accepted, 0 rejected → byte-identical 50-descriptors.js (idempotent)
+node --test                                # 212 pass
+```
+
+**Verification:** the pipeline reproduces the committed descriptor file
+byte-for-byte (idempotency proven with `cmp`); counts match the guide tables;
+NUL scan clean on all new files; tests unchanged at 212.
+
+## 2026-09-01 — Bulk import of RegRipper "simple" plugins (133 added → 150 total)
+
+**Summary:** Added a descriptor-driven plugin engine and auto-imported 133
+RegRipper 4.0 plugins that follow regular read patterns, on top of the 17
+bespoke ports from the earlier entry. The Reports panel now exposes 150
+plugins.
+
+**Why:** User asked to import every RegRipper plugin that doesn't need user
+intervention. RegRipper plugins are all non-interactive, so the real axis is
+*portability*: 386 plugins → 61 `_tln` output-duplicates → 325 report plugins,
+of which 256 are "simple" (no binary `unpack`) and 69 use bespoke binary
+decoders. Hand-writing hundreds of `run()` functions is neither maintainable
+nor testable, so the regular ones became declarative descriptors.
+
+**What changed:**
+- `src/plugins/32-simple.js` (new, `RV.plugins.simple`): `registerSimple(desc)`
+  / `registerAll(descs)`. A descriptor declares metadata + a read pattern
+  (`mode`: `values` | `named` | `subkeys` | `mru`), candidate `paths`, an
+  optional `ccs` flag (System-hive current-control-set prefix), and
+  `names`/`subkeyNames`. The engine builds a normal runtime plugin that tries
+  each path, prints LastWrite + the pattern's output, and degrades gracefully
+  to a "not found" note. `MAX_PLUGIN_ROWS` guard applies.
+- `src/plugins/50-descriptors.js` (new, generated): 133 validated descriptors,
+  registered via `registerAll`.
+- `index.html`: `32-simple.js` (after helpers) and `50-descriptors.js` (after
+  the bespoke `43-sam.js`) added in dependency order.
+
+**How the descriptors were produced:**
+- Analysed the corpus (`/tmp/rr_analysis.json`) to isolate the 247 simple
+  plugins not already ported.
+- Dispatched 6 parallel subagents to read the Perl and emit descriptor JSON
+  matching the engine schema, flagging non-conforming plugins as
+  `{skip,reason}`. **3 of 6 completed** (batches 0/1/3 → 68 descriptors)
+  before the org hit its monthly spend limit and killed all agents.
+- Extracted the remaining 3 batches with a conservative in-process heuristic
+  parser (`/tmp/extract.js`): pulls metadata reliably, detects `ccs`/`mode`/
+  `paths`/`names`, and **skips anything ambiguous** (runtime-assembled paths,
+  binary `unpack`, nested descent) to protect fidelity → 65 descriptors.
+- Assembled + validated (`/tmp/assemble.js`): shape + hive-tag + mode checks,
+  dedup against the 17 bespoke names. 133 accepted, 0 rejected, 114 skipped.
+
+**What was NOT imported (114, deferred — bespoke work, not user intervention):**
+nested subkey-of-subkey value reads, binary-structure decoders, runtime-built
+paths (e.g. Office-version probing), `::guessHive` multi-hive path branching in
+one plugin, data transforms (string splitting, lookup tables, timestamp
+decode), conditional alert logic, and `hive => "all"` scanners. These need
+bespoke `run()` functions and are the next wave.
+
+**How / commands run:**
+```
+node --test                                   # 212 pass (was 199)
+node --test --experimental-test-coverage      # 32-simple 100%, 50-descriptors 100%
+node tests/e2e-ui-sim.js                       # reports panel now lists 150 plugins
+aidc-scan                                      # semgrep + gitleaks clean
+```
+
+**Verification:** a validation test runs **all 133** descriptor plugins against
+a synthetic control-set hive and asserts none throw (every one produces a
+section, error === null); plus data-present checks for `values` mode
+(`screensaver`) and `ccs` path resolution (`trailersupport`).
+
+**Notes / gotchas:**
+- Descriptor `paths`/`mode` from the heuristic batches are best-effort; a wrong
+  path degrades to a harmless "not found", never a crash. Agent batches
+  (0/1/3) were read-and-understood, so higher confidence.
+- The recurring NUL-byte-in-generated-source issue reappeared in
+  `32-simple.js` (a MRUList filter literal) and was fixed with a \u0000 escape; all files verified NUL-free.
+
+## 2026-09-01 — Reports: RegRipper-style plugin/report system
+
+**Summary:** Added an in-browser plugin layer that reimplements the RegRipper
+plugin model in JS — a registry + executor, shared helpers mirroring
+RegRipper's framework globals, an initial batch of 17 ported plugins, and a
+"Reports" slide-over panel. Reports render as structured sections/tables and
+copy out as RegRipper-style plain text. Zero new dependencies; all parsing is
+local (privacy preserved).
+
+**Why:** HiveWalker already exposes a parser API deliberately shaped like
+`Parse::Win32Registry` (`getRootKey`/`getSubkey`/`getValue`/`getData`, per the
+comment in `src/reg/12-hive.js`). The `supporting/RegRipper{3,4}.0` Perl
+distributions can't run in-browser, but their plugin *logic* (read a few key
+paths from a hive type, emit a report) ports cleanly. This turns the viewer
+from "browse raw keys" into "run named forensic reports."
+
+**What changed:**
+- `src/plugins/30-runtime.js` (new, `RV.plugins.runtime`): `register`,
+  `all`, `get`, `applicableTo(hive)`, `run(plugin, hive)` (never throws — a
+  plugin error is captured in `result.error`), `runAll(hive, {signal})`
+  (cooperative abort between plugins). Returns a serialisable result:
+  `{plugin, shortDescr, hiveTypes, category, mitre, version, ranAt, error,
+  sections:[{title, blocks:[{kind:'text'|'kv'|'table'|'note', …}]}]}`.
+- `src/plugins/31-helpers.js` (new, `RV.plugins.helpers`): the `ctx` report
+  builder (`section`/`rptMsg`/`kv`/`table`/`note`, with a `MAX_PLUGIN_ROWS`
+  truncation guard); `guessHiveType(hive)` (Set of tags — embedded-name
+  basename + marker-key probes, mirroring `rr.pl guessHive`);
+  `getControlSet(hive)` (Select\Current → ControlSetNNN with fallbacks); null-
+  tolerant getters (`subkey`, `getValueData/String/Dword`); time helpers
+  (`filetimeFromBinary`, `unixToDate`, `formatDate`); `rot13`.
+- Plugin group files (new): `40-system.js` (compname, timezone, shutdown,
+  services, usbstor, ips, mountdev), `41-software.js` (winver, uninstall, run,
+  profilelist, networkcards — run/uninstall also tagged `ntuser`),
+  `42-ntuser.js` (userassist w/ ROT13 + XP/Win7 record decode, recentdocs w/
+  MRUList(Ex), typedpaths, runmru), `43-sam.js` (samparse — reduced: usernames
+  from `Names`, RIDs hex→dec; full F/V struct decode deferred).
+- `src/ui/20-view-model.js`: added DOM-free `pluginList`, `reportView`,
+  `reportText`, `reportTextAll` (the testable seam).
+- `src/ui/29-reports.js` (new, `RV.ui.reports`): slide-over panel modelled on
+  `26-hivemeta.js` — lists plugins (applicable first, with category/MITRE
+  badges), run-one / run-all, copy-to-text (clipboard + select-text fallback
+  from `23-values.js`).
+- Wiring: `index.html` (`plugins:{}` bootstrap, six plugin + one UI
+  `<script>` tags in dependency order, `#reports-btn`, `#reports-pane`),
+  `src/main.js` (button + Escape), `src/ui/21-app.js` (`showPanes` reveals the
+  button), `src/styles.css` (reports-panel rules, reusing `meta-table`/
+  `values-table`).
+- Tests (new): `tests/plugins-runtime.test.js`,
+  `tests/plugins-{system,software,ntuser,sam,edge}.test.js`,
+  `tests/report-view.test.js`, `tests/reports-ui.test.js`, plus
+  `tests/helpers/ft-bytes.js` and `tests/helpers/dom-stub.js` (the e2e DOM
+  stub extracted from `e2e-ui-sim.js` and shared). `e2e-ui-sim.js` now uses
+  the shared stub and drives the reports panel.
+
+**How / commands run:**
+```
+node --test                                   # 199 pass (was 131)
+node --test --experimental-test-coverage      # new src files: 100% lines
+node tests/e2e-ui-sim.js                       # reports open/run/run-all: ok
+aidc-scan                                      # semgrep + gitleaks clean
+```
+
+**Notes / gotchas:**
+- Load order matters: runtime+helpers+plugins load after `13-index.js` and
+  before `20-view-model.js`; the view-model references `RV.plugins.*` lazily.
+- `_tln`/`_json`/`_yara` RegRipper variants are output-format duplicates —
+  only the base "report" logic is ported; text vs. table are render modes.
+- `run`/`uninstall` apply to both Software and NTUSER; they probe all paths
+  (distinct per hive) rather than branching on detection.
+- FILETIME-in-binary values (ShutdownTime, USBStor properties, UserAssist)
+  are read as 8-byte LE via `filetimeFromBinary`; `winver InstallDate` is a
+  DWORD of unix-epoch seconds.
+
 ## 2026-09-01 — Remove shipped test hives (regipy fixtures)
 
 **Summary:** The six real-hive test fixtures (and their loader) are removed

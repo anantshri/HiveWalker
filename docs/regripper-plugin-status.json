@@ -1,0 +1,2951 @@
+[
+ {
+  "name": "activesetup",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "overrides subkey display name with Default value and filters output to subkeys that have a StubPath value"
+ },
+ {
+  "name": "adobe",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "determines app version by probing subkeys, descends into nested cRecentFiles subkeys, and transforms values (strips prefixes)"
+ },
+ {
+  "name": "allow_upgrade",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "allowedenum",
+  "hive": "ntuser\\.dat, software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "amcache",
+  "hive": "amcache",
+  "category": "program execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "amcache_tln",
+  "hive": "amcache",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "amsienable",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "amsiproviders",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "descends into nested Classes\\CLSID\\<name>\\InProcServer32 keys and emits conditional Windows Defender removal note"
+ },
+ {
+  "name": "appassoc",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "appcertdlls",
+  "hive": "system",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "appcompatcache",
+  "hive": "system",
+  "category": "file existence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "appcompatcache_json",
+  "hive": "system",
+  "category": "file existence",
+  "output": "json",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "appcompatcache_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "appcompatflags",
+  "hive": "ntuser\\.dat, software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "appenvironment",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "iterates service subkeys and descends into nested Parameters\\AppEnvironment and Parameters\\AppExit subkeys"
+ },
+ {
+  "name": "appinitdlls",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "transforms blank value to {blank} and emits conditional alertMsg when AppInit_DLLs is non-blank"
+ },
+ {
+  "name": "appkeys",
+  "hive": "ntuser\\.dat, software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "appkeys_tln",
+  "hive": "ntuser\\.dat, software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "applets",
+  "hive": "ntuser\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "descends into nested Paint\\Recent File List, Regedit and Favorites subkeys with string-splitting transforms"
+ },
+ {
+  "name": "applets_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "appmodel",
+  "hive": "software",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "apppaths",
+  "hive": "ntuser\\.dat,software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "apppaths_tln",
+  "hive": "ntuser\\.dat, software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "appsetup",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "appspecific",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "decodes a binary Timestamp value into a formatted date per subkey"
+ },
+ {
+  "name": "appx",
+  "hive": "ntuser\\.dat, usrclass\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "descends through nested ActivatableClasses\\Package\\<pkg>\\DebugInformation subkeys"
+ },
+ {
+  "name": "appx_tln",
+  "hive": "ntuser\\.dat, usrclass\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "arpcache",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "assoc",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "attachmgr",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "attachmgr_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "audiodev",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "descends into each device subkey's nested Properties subkey to read a GUID-named value"
+ },
+ {
+  "name": "auditpol",
+  "hive": "security",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "auth",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "autoadminlogon",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "autodialdll",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "automount",
+  "hive": "system",
+  "category": "initial access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "autorun",
+  "hive": "ntuser\\.dat, software",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "branches on ::guessHive to select different key paths per hive"
+ },
+ {
+  "name": "backuprestore",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "bam",
+  "hive": "system",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "bam_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "base",
+  "hive": "all",
+  "category": "base",
+  "output": "report",
+  "status": "deferred",
+  "reason": "hive is \"all\"; reads hive metadata (version/type/dirty), not registry keys"
+ },
+ {
+  "name": "baseline",
+  "hive": "all",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "hive is \"all\"; recursively traverses whole hive tallying binary value data sizes"
+ },
+ {
+  "name": "bcd",
+  "hive": "bcd",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "iterates Objects subkeys, descends into nested Elements subkeys and branches on subkey names"
+ },
+ {
+  "name": "bitbucket",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "blm",
+  "hive": "software,ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "branches on ::guessHive to select different key paths per hive"
+ },
+ {
+  "name": "btconfig",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "bthenum",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "bthport",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "bthport_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "cached",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "cached_tln",
+  "hive": "ntuser.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "calibrator",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "certpadding",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "certs",
+  "hive": "software, ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "branches on ::guessHive to select different key paths per hive"
+ },
+ {
+  "name": "clipbrd",
+  "hive": "software,ntuser\\.dat",
+  "category": "collection",
+  "output": "report",
+  "status": "deferred",
+  "reason": "branches on ::guessHive to select different keys and values per hive"
+ },
+ {
+  "name": "clsid",
+  "hive": "software, usrclass\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "branches on ::guessHive and descends into nested InprocServer32/ProgID/TreatAs subkeys"
+ },
+ {
+  "name": "clsid_tln",
+  "hive": "software, usrclass\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "cmd_shell",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "emits conditional alertMsg comparing the IExplore shell command against expected paths"
+ },
+ {
+  "name": "cmdproc",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "cmdproc_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "codepage",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "coinstallers",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "traverses two levels of nested Control\\Class subkeys reading DriverDesc/CoInstallers32"
+ },
+ {
+  "name": "comautoapproval",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "for each value name (GUID) descends into nested Classes\\CLSID\\<guid> keys (Elevation, InProcServer32)"
+ },
+ {
+  "name": "comdlg32",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "compdesc",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "compname",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "consentstore",
+  "hive": "software, ntuser\\.dat",
+  "category": "collection",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "consentstore_tln",
+  "hive": "software, ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "crashcontrol",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "decodes CrashDumpEnabled via lookup table and emits conditional notes for LogEvent/SendAlert"
+ },
+ {
+  "name": "cred",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "cred_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "credentialsdelegation",
+  "hive": "software",
+  "category": "credential access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey value reads (AllowDefCredentialsWhenNTLMOnly/AllowDefaultCredentials subkeys)"
+ },
+ {
+  "name": "dafupnp",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "databasepath",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "datatracing",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "dcom",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "ddo",
+  "hive": "ntuser\\.dat",
+  "category": "devices",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "defender",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "many nested subkey value reads (Exclusions, Features, Spynet, Real-Time Protection, etc.) and conditional logic"
+ },
+ {
+  "name": "defenderautologger",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey value reads (DefenderApiLogger/DefenderAuditLogger subkeys' Start value)"
+ },
+ {
+  "name": "defrag",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "del",
+  "hive": "all",
+  "category": "deleted",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "del_tln",
+  "hive": "all",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "denydeviceids",
+  "hive": "software",
+  "category": "initial access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "mixes named value reads with enumeration of DenyDeviceIDs subkey values"
+ },
+ {
+  "name": "devclass",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "string splitting/filtering of subkey names and timestamp-based grouping/sorting"
+ },
+ {
+  "name": "devicecache",
+  "hive": "ntuser\\.dat",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "DeviceType value decoded via lookup table"
+ },
+ {
+  "name": "deviceguard",
+  "hive": "system, software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive System/Software path branching in a single plugin"
+ },
+ {
+  "name": "diagnostics",
+  "hive": "software",
+  "category": "execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "direct",
+  "hive": "software",
+  "category": "program execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "filters Direct* subkeys and reads nested MostRecentApplication subkey values"
+ },
+ {
+  "name": "direct_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "disable445",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "disablelastaccess",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "hex decode plus %dla lookup table and conditional threshold read"
+ },
+ {
+  "name": "disablemru",
+  "hive": "ntuser\\.dat, software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive NTUSER/Software path branching in a single plugin"
+ },
+ {
+  "name": "disableonedrive",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "disableproxy",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "disableremotescm",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "disablesr",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "disabletools",
+  "hive": "ntuser\\.dat, software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive NTUSER/Software path branching in a single plugin"
+ },
+ {
+  "name": "dllsearch",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "dnsclient",
+  "hive": "software",
+  "category": "",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "doctoidmapping",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamically resolves MSOffice version subkey then reads nested DocToIdMapping subkeys/values"
+ },
+ {
+  "name": "driverinstall",
+  "hive": "software",
+  "category": "",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "duo",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "elevatedinstall",
+  "hive": "software,ntuser\\.dat",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive software/ntuser path branching in a single plugin"
+ },
+ {
+  "name": "emdmgmt",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "enablelinkedconn",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "environment",
+  "hive": "system, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive System/NTUSER path branching plus per-value ALERT logic"
+ },
+ {
+  "name": "eventsasp",
+  "hive": "software",
+  "category": "user execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "eventtranscript",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "execpolicy",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "feature_block",
+  "hive": "software",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "featureusage",
+  "hive": "ntuser\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "fileless",
+  "hive": "all",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "hive is \"All\"; recursively traverses hive with data pattern matching"
+ },
+ {
+  "name": "findexes",
+  "hive": "all",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "fsdepends",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "fvestats",
+  "hive": "system",
+  "category": "impact",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "gpohist",
+  "hive": "software, ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive branching, nested subkeys-of-subkeys value reads, and GPOLink decode table"
+ },
+ {
+  "name": "gpohist_tln",
+  "hive": "software, ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "guestauth",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "heap",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "hello",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "hiddentasks",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "identities",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "imagedev",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "imagefile",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "improviders",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "injectdll64",
+  "hive": "ntuser\\.dat, software",
+  "category": "malware",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "inprocserver",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "installedcomp",
+  "hive": "software",
+  "category": "malware",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "installelevated",
+  "hive": "software, ntuser\\.dat",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "installer",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "installerlogging",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "installproperties",
+  "hive": "software",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "ips",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "iso",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "jumplistdata",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "kdc",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "killsuit",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "killsuit_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "knowndev",
+  "hive": "ntuser\\.dat",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "labconfig",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "landesk",
+  "hive": "software",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "landesk_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "lastloggedon",
+  "hive": "software",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "licenses",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "link_click",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "listsoft",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "load",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "localdumps",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "locale",
+  "hive": "system, ntuser\\.dat",
+  "category": "discovery",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "location",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "logonstats",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "lsa",
+  "hive": "system",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "lsass_auditlevel",
+  "hive": "software",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "lxss",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "lxss_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "macaddr",
+  "hive": "system,software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "maint",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "minint",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no values/subkeys/named reads detected"
+ },
+ {
+  "name": "mixer",
+  "hive": "ntuser\\.dat",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "mixer_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "mmc",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "mmc_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "mmo",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "mndmru",
+  "hive": "ntuser\\.dat",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "mndmru_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "mountdev",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "mountdev2",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "mp2",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "mp2_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "mpmru",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "mpnotify",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "msis",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "msoffice",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "msoffice_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "muicache",
+  "hive": "ntuser\\.dat,usrclass\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "nation",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "netlogon",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "netsh",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "networkcards",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "networklist",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "networklist_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "networkprotection",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "networkproviders",
+  "hive": "system",
+  "category": "credential access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "reads ProviderOrder value, splits on comma, then dynamically builds per-provider service subkey paths and reads nested values"
+ },
+ {
+  "name": "networkproviderservices",
+  "hive": "system",
+  "category": "credential access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "enumerates all services subkeys, checks each for a NetworkProvider subkey and reads nested values"
+ },
+ {
+  "name": "networksetup2",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "nic2",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "enumerates interface subkeys and nested SSID subkeys, with binary time and DhcpNetworkHint nibble-reversal decoding"
+ },
+ {
+  "name": "notif",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "ntds",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "null",
+  "hive": "all",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "office_test",
+  "hive": "software,ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive path branching (software vs ntuser)"
+ },
+ {
+  "name": "oisc",
+  "hive": "ntuser\\.dat",
+  "category": "initial access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "onedrive",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "onedrive_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "onenote",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamically determines installed Office version by enumerating subkeys, then nested policy subkey reads"
+ },
+ {
+  "name": "osversion",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "osversion_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "outlook_attach",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamically determines installed Office version to build path"
+ },
+ {
+  "name": "outlookhomepage",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic Office version plus iteration over WebView folder subkeys"
+ },
+ {
+  "name": "outlookmacro",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamically determines installed Office version to build paths"
+ },
+ {
+  "name": "pagefile",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "pending",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "pendinggpos",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "perf",
+  "hive": "system",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "persistconn",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "photos",
+  "hive": "usrclass\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "pointandprint",
+  "hive": "software",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "portdev",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "splits subkey name on '#' with SWD/USB branching to derive device and serial number fields"
+ },
+ {
+  "name": "portdev_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "portproxy",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "ports",
+  "hive": "software",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "powershellcore",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "prefetch",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "printdemon",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "reads Ports key values and separately enumerates Print\\Printers subkeys with named per-printer values (mixed modes)"
+ },
+ {
+  "name": "printer_settings",
+  "hive": "system, software",
+  "category": "collection",
+  "output": "report",
+  "status": "deferred",
+  "reason": "Attributes bitmask (& 0x100) conditional plus dual-hive (system + software) with different paths"
+ },
+ {
+  "name": "printmon",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "printmon_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "printnightmare",
+  "hive": "system",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "deferred",
+  "reason": "recursive multi-level subkey traversal (Environments->Drivers->versions->printers)"
+ },
+ {
+  "name": "printprocessors",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey traversal (Environments subkeys -> Print Processors subkey -> subkeys -> Driver value)"
+ },
+ {
+  "name": "processor_architecture",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "productpolicy",
+  "hive": "system",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "profilelist",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "profiler",
+  "hive": "ntuser\\.dat, system",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dual-hive (ntuser Environment + system ControlSet Environment) with conditional profiler-name alert logic"
+ },
+ {
+  "name": "protectedview",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamically determines installed Office version to build paths"
+ },
+ {
+  "name": "pslogging",
+  "hive": "ntuser\\.dat, software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey value reads (ModuleLogging/ScriptBlockLogging/Transcription subkeys)"
+ },
+ {
+  "name": "psscript",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dual-hive path branching plus ExecTime convertSystemTime decode"
+ },
+ {
+  "name": "putty",
+  "hive": "ntuser\\.dat",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "radar",
+  "hive": "software",
+  "category": "program execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "railrunonce",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "rdplockout",
+  "hive": "system",
+  "category": "initial access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "rdpport",
+  "hive": "system",
+  "category": "initial access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "recentapps",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "recentapps_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "recentdocs",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "recentdocs_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "recyclepersist",
+  "hive": "software, usrclass\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "guessHive path branching (software vs usrclass)"
+ },
+ {
+  "name": "regback",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "registerspooler",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "remoteaccess",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "named value reads combined with locked-out-account subkey enumeration and conditional (deny==0) alert logic"
+ },
+ {
+  "name": "remoteuac",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "resiliency",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "restartmanager",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "rlo",
+  "hive": "all",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "routes",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "splits each value name on comma into address/netmask/gateway/metric fields"
+ },
+ {
+  "name": "run",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "run_json",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "json",
+  "status": "deferred",
+  "reason": "guessHive path branching (software vs ntuser) with JSON output formatting"
+ },
+ {
+  "name": "run_yara",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "yara",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "rundisabled",
+  "hive": "software, ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "runmru",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "runmru_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "runonceex",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "runvirtual",
+  "hive": "ntuser\\.dat, software",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "runvirtual_tln",
+  "hive": "ntuser\\.dat, software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "ryuk_gpo",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "samparse",
+  "hive": "sam",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "samparse_tln",
+  "hive": "sam",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "sandbox",
+  "hive": "software",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "schedagent",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "screensaver",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "screenshotindex",
+  "hive": "ntuser\\.dat",
+  "category": "collection",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "scriptleturl",
+  "hive": "software, usrclass\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "scsi",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "scsi_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "searchscopes",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "secctr",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "secpol",
+  "hive": "security",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "secrets",
+  "hive": "security",
+  "category": "credential access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no values/subkeys/named reads detected"
+ },
+ {
+  "name": "secrets_tln",
+  "hive": "security",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "securityproviders",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "services",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "sevenzip",
+  "hive": "ntuser\\.dat",
+  "category": "file access",
+  "output": "report",
+  "status": "deferred",
+  "reason": "data decode/transform"
+ },
+ {
+  "name": "shadow",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "shares",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "shc",
+  "hive": "ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "shellbags",
+  "hive": "usrclass\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "shellbags_tln",
+  "hive": "usrclass\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "shellfolders",
+  "hive": "ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "shelloverlay",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "shimcache",
+  "hive": "system",
+  "category": "file existence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "shimcache_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "shutdown",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "silentprocessexit",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "silentprocessexit_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "sizes",
+  "hive": "all",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "slack",
+  "hive": "all",
+  "category": "slack",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "slack_tln",
+  "hive": "all",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "smartscreen",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "smb",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "source_os",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "sourcelist",
+  "hive": "ntuser\\.dat",
+  "category": "execution",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "sourcerouting",
+  "hive": "system",
+  "category": "execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "speech",
+  "hive": "ntuser\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "speech_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "spooler",
+  "hive": "system",
+  "category": "privilege escalation",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "spp_clients",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "srum",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "ssid",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "staginginfo",
+  "hive": "ntuser\\.dat",
+  "category": "collection",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "storagesense",
+  "hive": "software, ntuser\\.dat",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "susclient",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "symlink",
+  "hive": "software,system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no values/subkeys/named reads detected"
+ },
+ {
+  "name": "syscache",
+  "hive": "syscache",
+  "category": "syscache",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "syscache_csv",
+  "hive": "syscache",
+  "category": "syscache",
+  "output": "csv",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "syscache_tln",
+  "hive": "syscache",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "sysinternals",
+  "hive": "ntuser\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "sysinternals_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "systemindex",
+  "hive": "software",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "tasks",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "tasks_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "teamviewer",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "telemetrycontroller",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "termcert",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "termserv",
+  "hive": "system, software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "test",
+  "hive": "all",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "hive all/unknown"
+ },
+ {
+  "name": "tgt",
+  "hive": "system",
+  "category": "credential access",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "thispcpolicy",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "thostperms",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "thumbnail_cleanup",
+  "hive": "software",
+  "category": "collection",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "timeproviders",
+  "hive": "system",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "timezone",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "tls",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "tracing",
+  "hive": "software",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "tracing_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "trailersupport",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "triggerinfo",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "nested subkey descent"
+ },
+ {
+  "name": "tsclient",
+  "hive": "ntuser\\.dat",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "tsclient_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "tsutilities",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "typedpaths",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "typedpaths_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "typedurls",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "typedurls_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "typedurlstime",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "typedurlstime_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "ua_wiper",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "uac",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "uacbypass",
+  "hive": "usrclass\\.dat, software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "uninstall",
+  "hive": "software, ntuser\\.dat",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "uninstall_tln",
+  "hive": "software, ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "update_test",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "updates",
+  "hive": "software",
+  "category": "",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "usb",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "usbdevices",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "usbdevices_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "usbstor",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "usbstor_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "usbstor2",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "userassist",
+  "hive": "ntuser\\.dat",
+  "category": "program execution",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "userassist_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "userextendedproperties",
+  "hive": "ntuser\\.dat",
+  "category": "identity",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "usn",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "utilities",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "volinfocache",
+  "hive": "software",
+  "category": "devices",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "volsnap",
+  "hive": "system",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "volsnap_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "volumecaches",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "vss",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no values/subkeys/named reads detected"
+ },
+ {
+  "name": "wab",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no values/subkeys/named reads detected"
+ },
+ {
+  "name": "wab_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "watp",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "wbem",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "wc_shares",
+  "hive": "ntuser\\.dat",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "wdfilter",
+  "hive": "system",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "win11_edge",
+  "hive": "software, ntuser\\.dat",
+  "category": "",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "windowsupdate",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "winevt",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "subkeys"
+ },
+ {
+  "name": "winevtchannels",
+  "hive": "software",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "winlogon_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "winrar",
+  "hive": "ntuser\\.dat",
+  "category": "data staged",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "winrar_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "winscp",
+  "hive": "ntuser\\.dat",
+  "category": "lateral movement",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "winver",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-bespoke"
+ },
+ {
+  "name": "winzip",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "wordstartup",
+  "hive": "ntuser\\.dat",
+  "category": "defense evasion",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "wordwheelquery",
+  "hive": "ntuser\\.dat",
+  "category": "user activity",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "wordwheelquery_tln",
+  "hive": "ntuser\\.dat",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "wow64",
+  "hive": "software",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "values"
+ },
+ {
+  "name": "wpbt",
+  "hive": "system",
+  "category": "persistence",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "wpdbusenum",
+  "hive": "system",
+  "category": "devices",
+  "output": "report",
+  "status": "deferred",
+  "reason": "binary decoder (uses unpack)"
+ },
+ {
+  "name": "wpdbusenum_tln",
+  "hive": "system",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "wrdata",
+  "hive": "software",
+  "category": "antivirus",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ },
+ {
+  "name": "wrdata_tln",
+  "hive": "software",
+  "status": "excluded",
+  "note": "_tln output-format duplicate"
+ },
+ {
+  "name": "wsh_settings",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "no path detected"
+ },
+ {
+  "name": "wtg",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "xbox",
+  "hive": "software",
+  "category": "config",
+  "output": "report",
+  "status": "done-descriptor",
+  "mode": "named"
+ },
+ {
+  "name": "zerologon",
+  "hive": "system",
+  "category": "config",
+  "output": "report",
+  "status": "deferred",
+  "reason": "dynamic path assembly"
+ }
+]

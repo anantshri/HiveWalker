@@ -18,9 +18,11 @@
   function showPanes() {
     for (const id of ['tree-pane', 'values-pane', 'statusbar']) $(id).hidden = false;
     $('meta-btn').hidden = false;
+    $('tabbar').hidden = false;
     $('search-input').disabled = false;
     $('welcome').hidden = true;
     $('error-card').hidden = true;
+    RV.ui.reports.render(); // populate the Reports tab workspace for this hive
   }
 
   function showError(message) {
@@ -32,6 +34,28 @@
   /** App state machine: 'empty' (welcome) | 'loaded' | 'error'. */
   function currentState() {
     return document.getElementById('app').dataset.state;
+  }
+
+  /** Active workspace tab: 'viewer' | 'reports'. */
+  function currentTab() {
+    const t = document.getElementById('app').dataset.tab;
+    return t === 'reports' ? 'reports' : 'viewer';
+  }
+
+  /**
+   * Switch the main workspace tab. Both tabs stay in the DOM (hidden via CSS)
+   * so viewer state — expansion, selection, scroll — persists across switches.
+   */
+  function setTab(name) {
+    const tab = name === 'reports' ? 'reports' : 'viewer';
+    document.getElementById('app').dataset.tab = tab;
+    const active = document.getElementById('tab-' + tab);
+    if (active) active.setAttribute('aria-selected', 'true');
+    const other = document.getElementById(tab === 'viewer' ? 'tab-reports' : 'tab-viewer');
+    if (other) other.setAttribute('aria-selected', 'false');
+    // Topbar search is viewer-scoped; the Reports rail has its own filter.
+    document.getElementById('search-input').disabled = currentState() !== 'loaded' || tab === 'reports';
+    if (tab === 'reports') RV.ui.reports.render();
   }
 
   /** Load a File (browser) or Uint8Array (tests). */
@@ -75,6 +99,8 @@
     navigateTo,
     setState,
     currentState,
+    currentTab,
+    setTab,
     showError,
   };
 })(window.RV);

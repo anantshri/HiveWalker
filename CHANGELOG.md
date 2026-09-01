@@ -12,6 +12,41 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Added
 
+- **Viewer / Reports tabs:** the main area is now two workspaces — the
+  regedit-style **Viewer** and a full-width **Reports** tab (previously a
+  640px slide-over). The Reports workspace has a filterable plugin rail
+  (search 150 plugins by name/description/category/MITRE), a toolbar, and
+  much more room for report output. Tab state is kept per-view: switching
+  back to the Viewer preserves tree expansion and selection
+  (`Ctrl+1`/`Ctrl+2` switch, `Esc` returns from Reports).
+- **PDF export:** "Export PDF" downloads the displayed report(s) as a real
+  PDF — A4, paginated, monospace tables, running footer with page numbers.
+  Implemented by a hand-rolled ~200-line PDF writer (Base-14 fonts, no font
+  embedding) so the app stays **zero-dependency**; generation and download
+  are entirely local. Non-Latin-1 characters are substituted and noted in
+  the footer; copy-to-text export remains fully lossless.
+
+- **Reports (RegRipper-style plugins):** a new top-bar **Reports** panel that
+  lists forensic plugins applicable to the loaded hive, runs one (or all
+  applicable) and shows decoded, labelled output as sections/tables with a
+  one-click copy to RegRipper-style plain text. First batch of 17 plugins —
+  System: `compname`, `timezone`, `shutdown`, `services`, `usbstor`, `ips`,
+  `mountdev`; Software: `winver`, `uninstall`, `run`, `profilelist`,
+  `networkcards`; NTUSER: `userassist` (ROT13-decoded), `recentdocs`,
+  `typedpaths`, `runmru`; SAM: `samparse` (reduced). All parsing stays local —
+  no new dependencies, no network. New extension point at `src/plugins/`.
+- **Bulk plugin import (133 more):** a descriptor-driven engine
+  (`src/plugins/32-simple.js`) plus 133 auto-imported RegRipper 4.0 plugins
+  that follow regular key/value/subkey read patterns, bringing the Reports
+  panel to **150 plugins**. The ~114 remaining report-type plugins need bespoke
+  decoders (nested-subkey traversal, binary structures, runtime-built paths,
+  conditional logic) and are a documented follow-up — none were skipped for
+  needing user intervention.
+- **RegRipper porting guide & tooling:** `docs/regripper-plugins.md` (corpus
+  breakdown, architecture, descriptor schema, per-plugin status) with
+  `docs/regripper-plugin-status.json` (all 386 plugins tracked), plus a
+  reproducible pipeline in `scripts/regripper/` (`analyze` → `extract` →
+  `assemble` → `status`) so the import exercise is never re-derived by hand.
 - GitHub links in the app: top-bar link, welcome-card link, and a page
   footer with copyright, GPLv3 license link, GitHub link, and the
   local-parsing note. Repository metadata (`repository`, `homepage`,

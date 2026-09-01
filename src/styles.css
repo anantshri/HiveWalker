@@ -196,9 +196,14 @@ html, body {
 
 /* Panes ------------------------------------------------------------------ */
 
+/* Three explicit tracks matching the three loaded-state children in DOM
+   order — tree-pane (1), pane-resizer (2), values-pane (3). With only two
+   tracks the values pane auto-placed to a second row (values *below* the
+   tree) on fresh sessions; the 3-track layout previously only appeared once
+   the resizer wrote its inline style from a saved width. */
 #panes {
   display: grid;
-  grid-template-columns: minmax(200px, 30%) 1fr;
+  grid-template-columns: minmax(200px, 30%) 6px minmax(0, 1fr);
   min-height: 0;
   overflow: hidden;
 }
@@ -211,6 +216,9 @@ html, body {
 }
 #pane-resizer { display: none; }
 #app[data-state="loaded"] #pane-resizer { display: block; }
+/* Pin each loaded-state pane to its track so insertions can't reshuffle. */
+#app[data-state="loaded"] #tree-pane { grid-column: 1; }
+#app[data-state="loaded"] #values-pane { grid-column: 3; }
 
 /* Pane resizer ------------------------------------------------------------- */
 

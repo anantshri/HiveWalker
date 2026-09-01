@@ -9,6 +9,53 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — Values pane below tree on fresh sessions (two-track panes grid)
+
+**Symptom:** Operator reported the viewer showing values *below* the tree
+instead of in the right panel.
+
+**Diagnosis:** `#panes` declared a two-track grid
+(`minmax(200px,30%) 1fr`), but the loaded-state DOM has three children in
+order — `#tree-pane`, `#pane-resizer` (pinned `grid-column: 2`), and
+`#values-pane`. Auto-placement put the tree in track 1, the resizer in track
+2, and the values pane wrapped to a *new row* — below the tree. The bug was
+latent from the original release: sessions with a saved resizer width got a
+three-track inline style from `28-resizer.js apply()`
+(`gridTemplateColumns = "<w>px 6px 1fr"`), which masked it; fresh sessions
+(new browser profile, or a different origin such as file:// vs the deployed
+site → different localStorage) hit the two-track CSS and broke.
+
+**Fix (`src/styles.css`):**
+- `#panes` now declares three tracks: `minmax(200px, 30%) 6px minmax(0, 1fr)`
+  — same shape the resizer writes at runtime.
+- Each loaded-state child is pinned to its column: `#tree-pane` → 1,
+  `#pane-resizer` → 2 (unchanged), `#values-pane` → 3, so future insertions
+  can't reshuffle the layout.
+- `minmax(0, 1fr)` on the values track so it shrinks instead of overflowing.
+
+**Test changes:**
+- `tests/layout-css.test.js`: new guard — the `#panes` template must have
+  exactly 3 tracks (counted after collapsing `minmax(a, b)` args, whose
+  internal space breaks naive splitting), each pane pinned to its column, and
+  the resizer's inline style must stay the same 3-track shape.
+- `tests/helpers/dom-stub.js`: the seeded skeleton now mirrors index.html
+  faithfully (welcome/error/tree/values inside `#panes`, statusbar in
+  `#viewer-tab`, app dataset state/tab) — this surfaced that seeding the
+  lazily-created `#meta-pane` shadowed the real one `26-hivemeta.js`
+  creates; overlays are no longer seeded.
+
+**How / commands run:**
+```
+node --test                                  # 233 pass (was 232)
+node tests/e2e-ui-sim.js                      # all green (the fixed stub also
+                                             #   restored the meta-close step)
+aidc-scan                                     # clean
+```
+
+**Notes:** the e2e sim had silently depended on the unseeded-meta behavior;
+with the faithful skeleton both the layout guard and the sim pass. Worth
+hard-checking in a browser: fresh profile → load hive → values render to the
+right of the tree, resizer draggable between them.
 ## 2026-09-01 — Proper RegRipper acknowledgment (NOTICE.md, README, docs)
 
 **Summary:** Added a proper acknowledgment of RegRipper (H. Carvey /

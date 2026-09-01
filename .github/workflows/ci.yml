@@ -33,16 +33,20 @@ jobs:
       - name: Smoke-test the CLI against a synthetic hive
         shell: bash
         run: |
+          SMOKE="$(node -e "const os=require('os'),p=require('path');console.log(p.join(os.tmpdir(),'hivewalker-smoke.reg'))")"
+          echo "smoke hive: $SMOKE"
           node -e "
             const{HiveBuilder}=require('./tests/helpers/hive-builder');
-            require('fs').writeFileSync('/tmp/smoke.reg',
+            const path = require('path');
+            require('fs').writeFileSync(process.argv[1],
               Buffer.from(new HiveBuilder().build(r=>{
                 r.key('Software').key('Microsoft').value('Ver',1,'1.0');
               }).toBuffer()));
             console.log('synthetic hive written');
-          "
-          node bin/dump-hive.mjs /tmp/smoke.reg --json > /dev/null
-          node bin/dump-hive.mjs /tmp/smoke.reg > /dev/null
+          " "$SMOKE"
+          node bin/dump-hive.mjs "$SMOKE" --json > /dev/null
+          node bin/dump-hive.mjs "$SMOKE" > /dev/null
+          rm -f "$SMOKE"
           echo "CLI smoke ok (text + json)"
 
   release-ready:

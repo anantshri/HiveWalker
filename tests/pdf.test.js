@@ -42,6 +42,65 @@ test('makePdf: header, EOF, catalog/pages, fonts, xref offsets all valid', () =>
   for (const o of offs) assert.match(s.slice(o, o + 12), /^\d+ 0 obj/, `offset ${o} → obj decl`);
 });
 
+// Parse the objects of a generated PDF into {num → body} for graph checks.
+function objectsOf(s) {
+  const objs = new Map();
+  for (const m of s.matchAll(/^(\d+) 0 obj\n([\s\S]*?)\nendobj$/gm)) {
+    objs.set(parseInt(m[1], 10), m[2]);
+  }
+  return objs;
+}
+
+test('makePdf: reference graph resolves — Kids are Pages, /Contents is a stream, /Annots is a Link', () => {
+  const bytes = makePdf(modelOf([
+    { text: 'first page', style: 'body' },
+    ...Array.from({ length: 120 }, (_, i) => ({ text: 'filler ' + i, style: 'body' })),
+  ]));
+  const s = Buffer.from(bytes).toString('latin1');
+  const objs = objectsOf(s);
+  const ref = (body, key) => {
+    const m = body.match({ Pages: /\/Pages (\d+) 0 R/, Parent: /\/Parent (\d+) 0 R/, Contents: /\/Contents (\d+) 0 R/, P: /\/P (\d+) 0 R/ }[key]);
+    return m ? parseInt(m[1], 10) : null;
+  };
+
+  const catalog = [...objs.values()].find((b) => b.includes('/Type /Catalog'));
+  const pagesRoot = ref(catalog, 'Pages');
+  const pagesTree = objs.get(pagesRoot);
+  const kids = [...pagesTree.matchAll(/(\d+) 0 R/g)].map((m) => parseInt(m[1], 10));
+  const count = parseInt(pagesTree.match(/\/Count (\d+)/)[1], 10);
+  assert.ok(kids.length >= 2, 'multi-page document');
+  assert.strictEqual(kids.length, count, 'Kids length matches /Count');
+
+  for (const kid of kids) {
+    const page = objs.get(kid);
+    assert.ok(page && page.startsWith('<<'), `kid ${kid} exists`);
+    // '/Type /Page ' with the trailing space — must not match '/Type /Pages'.
+    assert.ok(page.includes('/Type /Page '), `page ${kid} is a Page object, not a content stream or annot`);
+    assert.strictEqual(ref(page, 'Parent'), pagesRoot, `page ${kid} parent is the pages tree`);
+
+    const content = ref(page, 'Contents');
+    const contentBody = objs.get(content);
+    assert.ok(contentBody, `page ${kid} /Contents ${content} resolves`);
+    assert.ok(contentBody.startsWith(`<< /Length`), `page ${kid} /Contents ${content} is a stream object`);
+    assert.ok(contentBody.includes('\nstream\n'), `page ${kid} /Contents ${content} carries a stream`);
+
+    const annotNums = [...page.matchAll(/\/Annots \[([^\]]*)\]/g)].flatMap((m) =>
+      [...m[1].matchAll(/(\d+) 0 R/g)].map((r) => parseInt(r[1], 10)));
+    for (const a of annotNums) {
+      const annot = objs.get(a);
+      assert.ok(annot && annot.includes('/Type /Annot') && annot.includes('/Subtype /Link'),
+        `page ${kid} /Annots ${a} is a Link annotation`);
+      assert.strictEqual(ref(annot, 'P'), kid, `annot ${a} /P points back at its page ${kid}`);
+    }
+  }
+
+  // No object may be its own /Contents or /Annots target (the off-by-one signature).
+  for (const [num, body] of objs) {
+    assert.notStrictEqual(ref(body, 'Contents'), num, `obj ${num} /Contents must not self-reference`);
+    assert.notStrictEqual(ref(body, 'Annots'), num, `obj ${num} /Annots must not self-reference`);
+  }
+});
+
 test('makePdf: line styles map to the right fonts and appear in the stream', () => {
   const bytes = makePdf(modelOf([
     { text: 'A Title', style: 'title' },

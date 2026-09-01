@@ -173,16 +173,20 @@
       '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>',
     ];
     const firstPageObj = 3 + FONT_objs.length;
+    // Emission order per page: content stream, link annotation, page object.
+    const pageNumAt = (i) => firstPageObj + i * 3 + 2;
+    const contentNumAt = (i) => firstPageObj + i * 3;
+    const linkNumAt = (i) => firstPageObj + i * 3 + 1;
     const pageObjNums = [];
-    for (let i = 0; i < nPages; i++) pageObjNums.push(firstPageObj + i * 3);
+    for (let i = 0; i < nPages; i++) pageObjNums.push(pageNumAt(i));
 
     objects.push(`<< /Type /Catalog /Pages 2 0 R >>`);
     objects.push(`<< /Type /Pages /Kids [${pageObjNums.map((n) => `${n} 0 R`).join(' ')}] /Count ${nPages} >>`);
     objects.push(...FONT_objs);
     pages.forEach((_, i) => {
-      const contentNum = firstPageObj + i * 3 + 1;
-      const linkNum = firstPageObj + i * 3 + 2;
-      const pageNum = firstPageObj + i * 3;
+      const contentNum = contentNumAt(i);
+      const linkNum = linkNumAt(i);
+      const pageNum = pageNumAt(i);
       objects.push(`<< /Length ${contents[i].length} >>\nstream\n${contents[i]}\nendstream`);
       // Clickable link annotation over the footer URL.
       objects.push(`<< /Type /Annot /Subtype /Link /Rect [${MARGIN} ${FOOTER_Y - 12} ` +

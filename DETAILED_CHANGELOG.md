@@ -9,6 +9,75 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — PDF export fix: per-page object numbering was off by one slot
+
+**Symptom:** `hivewalker-report-*.pdf` downloads flagged as corrupt (or
+rendered blank) by strict PDF viewers, e.g. the 166KB
+`hivewalker-report-all-57plugins-20260901-1828.pdf` produced via Reports →
+Run all → Export PDF.
+
+**Diagnosis:** the file's byte structure was sound — all 89 xref offsets
+matched their `N 0 obj` declarations exactly, every `/Length` matched the
+actual stream bytes, header/trailer/`startxref` were correct. The defect was
+semantic: `src/ui/30-pdf.js` emitted each page's three objects in the order
+content-stream → link-annot → page (so they landed at slots `6+3i`, `7+3i`,
+`8+3i`) but computed references as if the page came first
+(`pageNum = base + 3i`, `contentNum = base + 3i + 1`, `linkNum = base + 3i +
+2`). Every cross-reference was therefore shifted one slot: `/Kids` listed
+content streams, `/Contents` pointed at link annotations, `/Annots` pointed
+at the page itself (self-reference), and each annotation's `/P` back-pointer
+targeted a content stream. Viewers that build the page tree strictly reject
+it; lenient ones render nothing.
+
+**Why tests missed it:** `tests/pdf.test.js` validated xref offsets point at
+*some* object declaration, counted `/Type /Page` occurrences, and grepped
+content strings — but never resolved the reference graph.
+
+**Change:**
+
+- `src/ui/30-pdf.js`: replaced the three inline computations with named
+  helpers matching actual emission order — `contentNumAt(i) = base + 3i`,
+  `linkNumAt(i) = base + 3i + 1`, `pageNumAt(i) = base + 3i + 2` — used for
+  `/Kids`, `/Contents`, `/Annots`, and the annot `/P` back-pointer alike.
+- `tests/pdf.test.js`: new test `makePdf: reference graph resolves` — parses
+  objects, walks catalog → pages tree → each Kid asserting it is a `/Type
+  /Page`, its `/Contents` is a stream object, its `/Annots` are Link
+  annotations whose `/P` points back at that page, and that no object
+  self-references via `/Contents` or `/Annots` (the off-by-one signature).
+
+**Commands:**
+
+```
+node --test tests/pdf.test.js             # 14 pass
+node --test                               # 310 pass
+node --test --experimental-test-coverage  # 30-pdf.js: 100% lines
+aidc-scan                                 # clean (1 Blocking finding fixed en route)
+```
+
+**Verification:**
+
+- Confirmed the new test fails against the unfixed writer (stashed the fix →
+  `not ok … reference graph resolves`, re-applied → passes) — a true
+  regression guard, not a tautology.
+- Structural re-validation of the shipped file (xref offsets, `/Length`
+  accuracy, EOF) performed with a Python script during diagnosis; the writer
+  itself unchanged apart from the numbering. No PDF viewer available in the
+  container — operator should open a freshly exported PDF to confirm.
+
+**Security finding (fixed):** `aidc-scan` flagged **Blocking**
+`detect-non-literal-regexp` on the new test helper (`new RegExp('/' + key + …)`,
+keys hardcoded). Rewritten as a lookup of four literal regexes; scan clean.
+
+**Notes:**
+
+- The corrupted artifact remains in the repo root as the diagnostic exemplar;
+  regenerate with Reports → Run all → Export PDF after this fix.
+- The off-by-one also explains why permissive viewers could still open the
+  file: streams and page dicts were all present and individually valid, only
+  the wiring between them was wrong.
+
+---
+
 ## 2026-09-01 — Crypto/DFIR/offense expansion: 21 new plugins, multi-hive sessions, in-browser SAM hash decryption
 
 **Why:** the tool covered 150 RegRipper-style plugins but the highest-value

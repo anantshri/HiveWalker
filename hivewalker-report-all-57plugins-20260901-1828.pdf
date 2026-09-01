@@ -1,0 +1,2130 @@
+%PDF-1.4
+%ту╧╙
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 9 0 R 12 0 R 15 0 R 18 0 R 21 0 R 24 0 R 27 0 R 30 0 R 33 0 R 36 0 R 39 0 R 42 0 R 45 0 R 48 0 R 51 0 R 54 0 R 57 0 R 60 0 R 63 0 R 66 0 R 69 0 R 72 0 R 75 0 R 78 0 R 81 0 R 84 0 R 87 0 R] /Count 28 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 1324 >>
+stream
+BT
+/F3 13 Tf 1 0 0 1 213.14 651.89 Tm (HiveWalker Forensic Report) Tj
+/F2 10 Tf 1 0 0 1 215.14 625.89 Tm (Generated 2026-09-01 18:28:37 UTC) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 581.89 Tm (Embedded file name) Tj
+/F1 9 Tf 1 0 0 1 230.00 581.89 Tm (SYSTEM) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 565.89 Tm (Format version) Tj
+/F1 9 Tf 1 0 0 1 230.00 565.89 Tm (1.5) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 549.89 Tm (Sequence numbers) Tj
+/F1 9 Tf 1 0 0 1 230.00 549.89 Tm (205 / 204) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 533.89 Tm (Dirty \(logs not applied\)) Tj
+/F1 9 Tf 1 0 0 1 230.00 533.89 Tm (yes) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 517.89 Tm (Checksum valid) Tj
+/F1 9 Tf 1 0 0 1 230.00 517.89 Tm (no) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 501.89 Tm (Hive bins size) Tj
+/F1 9 Tf 1 0 0 1 230.00 501.89 Tm (7630848 bytes \(1782 bins\)) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 485.89 Tm (Root cell offset) Tj
+/F1 9 Tf 1 0 0 1 230.00 485.89 Tm (0x20) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 469.89 Tm (Last written) Tj
+/F1 9 Tf 1 0 0 1 230.00 469.89 Tm (2013-08-22 14:52:22.108 UTC) Tj
+/F2 9.5 Tf 1 0 0 1 80.00 453.89 Tm (Base-block timestamp) Tj
+/F1 9 Tf 1 0 0 1 230.00 453.89 Tm (130216567421081762) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 1 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+7 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 6 0 R >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R /Annots [8 0 R] >>
+endobj
+9 0 obj
+<< /Length 4978 >>
+stream
+BT
+/F3 13 Tf 1 0 0 1 40.00 801.89 Tm (compname v.20201021) Tj
+/F2 10 Tf 1 0 0 1 40.00 783.89 Tm (\(system\) Gets ComputerName, Hostname, and domain values from System hive) Tj
+/F2 10 Tf 1 0 0 1 40.00 771.89 Tm (MITRE: T1082 \(config\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 759.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 747.89 Tm (ComputerName) Tj
+/F1 9 Tf 1 0 0 1 40.00 732.89 Tm (  ComputerName             SENSEI) Tj
+/F1 9 Tf 1 0 0 1 40.00 720.89 Tm (  Hostname                 sensei) Tj
+/F1 9 Tf 1 0 0 1 40.00 708.89 Tm (  NV Hostname              sensei) Tj
+/F1 9 Tf 1 0 0 1 40.00 696.89 Tm (  ICSDomain                mshome.net) Tj
+/F1 9 Tf 1 0 0 1 40.00 684.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 666.89 Tm (timezone v.20201005) Tj
+/F2 10 Tf 1 0 0 1 40.00 648.89 Tm (\(system\) Get TimeZoneInformation key contents) Tj
+/F1 9 Tf 1 0 0 1 40.00 636.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 624.89 Tm (TimeZoneInformation) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (ControlSet001\\Control\\TimeZoneInformation) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (LastWrite Time: 2015-12-12 02:18:26 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  DaylightName             @tzres.dll,-211) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  StandardName             @tzres.dll,-212) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  Bias                     480 \(8 hours\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  ActiveTimeBias           480 \(8 hours\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  TimeZoneKeyName          Pacific Standard Time) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 507.89 Tm (shutdown v.20201005) Tj
+/F2 10 Tf 1 0 0 1 40.00 489.89 Tm (\(system\) Gets ShutdownTime value from System hive) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 465.89 Tm (ShutdownTime) Tj
+/F1 9 Tf 1 0 0 1 40.00 450.89 Tm (ControlSet001\\Control\\Windows key, ShutdownTime value) Tj
+/F1 9 Tf 1 0 0 1 40.00 438.89 Tm (LastWrite time: 2015-12-12 03:30:15 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 426.89 Tm (  ShutdownTime             2015-12-12 03:30:15 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 414.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 396.89 Tm (services v.20200831) Tj
+/F2 10 Tf 1 0 0 1 40.00 378.89 Tm (\(system\) Lists services/drivers in Services key by LastWrite times) Tj
+/F2 10 Tf 1 0 0 1 40.00 366.89 Tm (MITRE: T1547 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 354.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 342.89 Tm (Services) Tj
+/F1 9 Tf 1 0 0 1 40.00 327.89 Tm (ControlSet001\\Services) Tj
+/F1 9 Tf 1 0 0 1 40.00 315.89 Tm (  LastWrite | Name | DisplayName | ImagePath | Type | Start | ObjectName) Tj
+/F1 9 Tf 1 0 0 1 40.00 303.89 Tm (  2015-12-12 03:28:23 UTC | VBoxSF | VirtualBox Shared Folders | system32\\drivers\\VBoxSF.sys | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 291.89 Tm (File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 279.89 Tm (  2015-12-12 03:28:23 UTC | VBoxService | VirtualBox Guest Additions Service | system32\\VBoxSer) Tj
+/F1 9 Tf 1 0 0 1 40.00 267.89 Tm (vice.exe | Own_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 255.89 Tm (  2015-12-12 03:28:17 UTC | VBoxMouse | VirtualBox Guest Mouse Service | \\SystemRoot\\system32\\D) Tj
+/F1 9 Tf 1 0 0 1 40.00 243.89 Tm (RIVERS\\VBoxMouse.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 231.89 Tm (  2015-12-12 03:28:17 UTC | VBoxVideoW8 |  | \\SystemRoot\\system32\\DRIVERS\\VBoxVideoW8.sys | Ker) Tj
+/F1 9 Tf 1 0 0 1 40.00 219.89 Tm (nel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 207.89 Tm (  2015-12-12 03:28:07 UTC | VBoxGuest | @oem1.inf,%VBoxGuest_svcdesc%;VirtualBox Guest Driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 195.89 Tm ( system32\\DRIVERS\\VBoxGuest.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 183.89 Tm (  2015-12-12 03:26:44 UTC | tunnel | @nettun.inf,%TUNNEL.Service.DisplayName%;Microsoft Tunnel ) Tj
+/F1 9 Tf 1 0 0 1 40.00 171.89 Tm (Miniport Adapter Driver | \\SystemRoot\\system32\\DRIVERS\\tunnel.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 159.89 Tm (  2015-12-12 03:26:37 UTC | BasicDisplay |  | \\SystemRoot\\System32\\drivers\\BasicDisplay.sys | K) Tj
+/F1 9 Tf 1 0 0 1 40.00 147.89 Tm (ernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 135.89 Tm (  2015-12-12 03:26:37 UTC | monitor | @monitor.inf,%Monitor.SVCDESC%;Microsoft Monitor Class Fu) Tj
+/F1 9 Tf 1 0 0 1 40.00 123.89 Tm (nction Driver Service | \\SystemRoot\\System32\\drivers\\monitor.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 111.89 Tm (  2015-12-12 03:26:35 UTC | mouhid | @msmouse.inf,%MOUHID.SvcDesc%;Mouse HID Driver | \\SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 99.89 Tm (ot\\System32\\drivers\\mouhid.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 87.89 Tm (  2015-12-12 03:26:35 UTC | HidUsb | @input.inf,%HID.SvcDesc%;Microsoft HID Class Driver | \\Sys) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 2 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+10 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 9 0 R >>
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R /Annots [11 0 R] >>
+endobj
+12 0 obj
+<< /Length 7373 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (temRoot\\System32\\drivers\\hidusb.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2015-12-12 03:26:34 UTC | usbhub | @usbport.inf,%ROOTHUB.SvcDesc%;Microsoft USB Standard Hub ) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (Driver | \\SystemRoot\\System32\\drivers\\usbhub.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2015-12-12 03:26:34 UTC | mssmbios | @mssmbios.inf,%mssmbios_svcdesc%;Microsoft System Manage) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (ment BIOS Driver | \\SystemRoot\\System32\\drivers\\mssmbios.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2015-12-12 03:26:32 UTC | fvevol | @%SystemRoot%\\system32\\drivers\\fvevol.sys,-100 | System32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (DRIVERS\\fvevol.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2015-12-12 03:26:32 UTC | rdyboost | ReadyBoost | System32\\drivers\\rdyboost.sys | Kernel driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (er | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2015-12-12 03:26:32 UTC | volsnap | @volume.inf,%VolumeClassName%;Storage volumes | System32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (drivers\\volsnap.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2015-12-12 03:26:32 UTC | cdrom | @cdrom.inf,%cdrom_ServiceDesc%;CD-ROM Driver | \\SystemRoot\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (System32\\drivers\\cdrom.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2015-12-12 03:26:32 UTC | disk | @disk.inf,%disk_ServiceDesc%;Disk Driver | System32\\drivers\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (disk.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2015-12-12 03:26:32 UTC | EhStorClass | @%SystemRoot%\\system32\\drivers\\EhStorClass.sys,-100 |) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm ( System32\\drivers\\EhStorClass.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2015-12-12 03:26:32 UTC | partmgr | @%SystemRoot%\\system32\\drivers\\partmgr.sys,-100 | System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (2\\drivers\\partmgr.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2015-12-12 03:26:32 UTC | CmBatt | @cmbatt.inf,%CmBatt.SvcDesc%;Microsoft ACPI Control Method) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm ( Battery Driver | \\SystemRoot\\System32\\drivers\\CmBatt.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2015-12-12 03:26:32 UTC | E1G60 | @nete1g3e.inf,%e1000.Service.DispName%;Intel\(R\) PRO/1000 ND) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (IS 6 Adapter Driver | \\SystemRoot\\system32\\DRIVERS\\E1G6032E.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2015-12-12 03:26:32 UTC | i8042prt | @keyboard.inf,%i8042prt.SvcDesc%;i8042 Keyboard and PS/2) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm ( Mouse Port Driver | \\SystemRoot\\System32\\drivers\\i8042prt.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2015-12-12 03:26:32 UTC | kbdclass | @keyboard.inf,%kbdclass.SvcDesc%;Keyboard Class Driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm ( \\SystemRoot\\System32\\drivers\\kbdclass.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2015-12-12 03:26:32 UTC | mouclass | @msmouse.inf,%mouclass.SvcDesc%;Mouse Class Driver | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (stemRoot\\System32\\drivers\\mouclass.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2015-12-12 03:26:32 UTC | msisadrv |  | System32\\drivers\\msisadrv.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2015-12-12 03:26:32 UTC | storahci | @mshdc.inf,%storahci_ServiceDescription%;Microsoft Stand) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (ard SATA AHCI Driver | System32\\drivers\\storahci.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2015-12-12 03:26:32 UTC | usbehci | @usbport.inf,%EHCIMP.SvcDesc%;Microsoft USB 2.0 Enhanced ) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (Host Controller Miniport Driver | \\SystemRoot\\System32\\drivers\\usbehci.sys | Kernel driver | Ma) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (nual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2015-12-12 03:26:32 UTC | usbohci | @usbport.inf,%OHCIMP.SvcDesc%;Microsoft USB Open Host Con) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (troller Miniport Driver | \\SystemRoot\\System32\\drivers\\usbohci.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2015-12-12 03:26:32 UTC | intelppm | @cpu.inf,%IntelPPM.SvcDesc%;Intel Processor Driver | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (stemRoot\\System32\\drivers\\intelppm.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2015-12-12 03:26:32 UTC | pci | @machine.inf,%pci_svcdesc%;PCI Bus Driver | System32\\drivers\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (pci.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2015-12-12 03:26:32 UTC | ACPI | @acpi.inf,%ACPI.SvcDesc%;Microsoft ACPI Driver | System32\\dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (ivers\\ACPI.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2015-12-12 03:26:32 UTC | Wdf01000 | @%SystemRoot%\\system32\\drivers\\Wdf01000.sys,-1000 | syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (em32\\drivers\\Wdf01000.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2015-12-12 03:26:32 UTC | BasicRender |  | \\SystemRoot\\System32\\drivers\\BasicRender.sys | Ker) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (nel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2015-12-12 03:26:32 UTC | CompositeBus | @CompositeBus.inf,%CompositeBus.SVCDESC%;Composite B) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (us Enumerator Driver | \\SystemRoot\\System32\\drivers\\CompositeBus.sys | Kernel driver | Manual |) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm ( ) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  2015-12-12 03:26:32 UTC | kdnic | @kdnic.inf,%KdNic.Service.DispName%;Microsoft Kernel Debug ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (Network Miniport \(NDIS 6.20\) | \\SystemRoot\\system32\\DRIVERS\\kdnic.sys | Kernel driver | Manual ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (| ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2015-12-12 03:26:32 UTC | NdisVirtualBus | @%SystemRoot%\\System32\\drivers\\NdisVirtualBus.sys,) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (-200 | \\SystemRoot\\System32\\drivers\\NdisVirtualBus.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2015-12-12 03:26:32 UTC | rdpbus | @rdpbus.inf,%rdpbus_svcdesc%;Remote Desktop Device Redirec) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (tor Bus Driver | \\SystemRoot\\System32\\drivers\\rdpbus.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2015-12-12 03:26:32 UTC | spaceport | @spaceport.inf,%Spaceport_ServiceDesc%;Storage Spaces D) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (river | System32\\drivers\\spaceport.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2015-12-12 03:26:32 UTC | swenum | @swenum.inf,%SWENUM.SVCDESC%;Software Bus Driver | \\System) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 3 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+13 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 12 0 R >>
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R /Annots [14 0 R] >>
+endobj
+15 0 obj
+<< /Length 6631 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (Root\\System32\\drivers\\swenum.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2015-12-12 03:26:32 UTC | umbus | @umbus.inf,%umbus.SVCDESC%;UMBus Enumerator Driver | \\Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (mRoot\\System32\\drivers\\umbus.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2015-12-12 03:26:32 UTC | vdrvroot | @vdrvroot.inf,%vdrvroot_svcdesc%;Microsoft Virtual Drive) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm ( Enumerator | System32\\drivers\\vdrvroot.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2015-12-12 03:26:32 UTC | volmgr | @volmgr.inf,%volmgr_svcdesc%;Volume Manager Driver | Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (m32\\drivers\\volmgr.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2015-12-12 03:20:36 UTC | WdNisDrv | @%ProgramFiles%\\Windows Defender\\MpAsDesc.dll,-370 | sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (tem32\\Drivers\\WdNisDrv.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2015-12-12 03:02:43 UTC | wuauserv | @%systemroot%\\system32\\wuaueng.dll,-105 | %systemroot%\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (ystem32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2015-12-12 02:19:07 UTC | {B0E24C4B-50F2-4B60-BCB3-EF2C3FF3394E} |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2015-12-12 02:18:26 UTC | 3ware |  | System32\\drivers\\3ware.sys | Kernel driver | Boot Start ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (| ) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (  2015-12-12 02:18:26 UTC | ADP80XX |  | System32\\drivers\\ADP80XX.SYS | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (  2015-12-12 02:18:26 UTC | agp440 | @machine.inf,%agp440_svcdesc%;Intel AGP Bus Filter | Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (m32\\drivers\\agp440.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  2015-12-12 02:18:26 UTC | amdsata |  | System32\\drivers\\amdsata.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2015-12-12 02:18:26 UTC | amdsbs |  | System32\\drivers\\amdsbs.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2015-12-12 02:18:26 UTC | amdxata |  | System32\\drivers\\amdxata.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2015-12-12 02:18:26 UTC | arcsas | @arcsas.inf,%arcsas_ServiceName%;Adaptec SAS/SATA-II RAID ) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (Storport's Miniport Driver | System32\\drivers\\arcsas.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2015-12-12 02:18:26 UTC | atapi | @mshdc.inf,%idechannel.DeviceDesc%;IDE Channel | System32\\d) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (rivers\\atapi.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2015-12-12 02:18:26 UTC | b06bdrv | @netbvbda.inf,%vbd_srv_desc%;Broadcom NetXtreme II VBD | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (System32\\drivers\\bxvbda.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2015-12-12 02:18:26 UTC | ebdrv | @netevbda.inf,%vbd_srv_desc%;Broadcom NetXtreme II 10 GigE ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (VBD | System32\\drivers\\evbda.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2015-12-12 02:18:26 UTC | EhStorTcgDrv | @ehstortcgdrv.inf,%EhStorTcgDrv.Desc%;Microsoft driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (er for storage devices supporting IEEE 1667 and TCG protocols | System32\\drivers\\EhStorTcgDrv.s) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (ys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2015-12-12 02:18:26 UTC | gagp30kx | @machine.inf,%gagp30kx_svcdesc%;Microsoft Generic AGPv3.) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (0 Filter for K8 Processor Platforms | System32\\drivers\\gagp30kx.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2015-12-12 02:18:26 UTC | HpSAMD |  | System32\\drivers\\HpSAMD.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2015-12-12 02:18:26 UTC | iaStorAV | @iastorav.inf,%iaStorAV.DeviceDesc%;Intel\(R\) SATA RAID C) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (ontroller Windows | System32\\drivers\\iaStorAV.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2015-12-12 02:18:26 UTC | iaStorV | @iastorv.inf,%*PNP0600.DeviceDesc%;Intel RAID Controller ) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (Windows 7 | System32\\drivers\\iaStorV.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2015-12-12 02:18:26 UTC | intelide |  | System32\\drivers\\intelide.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2015-12-12 02:18:26 UTC | isapnp |  | System32\\drivers\\isapnp.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2015-12-12 02:18:26 UTC | LSI_SAS |  | System32\\drivers\\lsi_sas.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2015-12-12 02:18:26 UTC | LSI_SAS2 |  | System32\\drivers\\lsi_sas2.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2015-12-12 02:18:26 UTC | LSI_SAS3 |  | System32\\drivers\\lsi_sas3.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2015-12-12 02:18:26 UTC | LSI_SSS |  | System32\\drivers\\lsi_sss.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2015-12-12 02:18:26 UTC | megasas |  | System32\\drivers\\megasas.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2015-12-12 02:18:26 UTC | megasr |  | System32\\drivers\\megasr.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2015-12-12 02:18:26 UTC | mvumis |  | System32\\drivers\\mvumis.sys | Kernel driver | Boot Star) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 4 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+16 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 15 0 R >>
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R /Annots [17 0 R] >>
+endobj
+18 0 obj
+<< /Length 6933 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2015-12-12 02:18:26 UTC | nv_agp | @machine.inf,%agpnvidia_svcdesc%;NVIDIA nForce AGP Bus Fil) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (ter | System32\\drivers\\nv_agp.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2015-12-12 02:18:26 UTC | nvraid |  | System32\\drivers\\nvraid.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2015-12-12 02:18:26 UTC | nvstor |  | System32\\drivers\\nvstor.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2015-12-12 02:18:26 UTC | pciide |  | System32\\drivers\\pciide.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2015-12-12 02:18:26 UTC | pcmcia |  | System32\\drivers\\pcmcia.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2015-12-12 02:18:26 UTC | sbp2port | @sbp2.inf,%sbp2_ServiceDesc%;SBP-2 Transport/Protocol Bu) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (s Driver | System32\\drivers\\sbp2port.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2015-12-12 02:18:26 UTC | SiSRaid2 |  | System32\\drivers\\SiSRaid2.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2015-12-12 02:18:26 UTC | SiSRaid4 |  | System32\\drivers\\sisraid4.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2015-12-12 02:18:26 UTC | stexstor |  | System32\\drivers\\stexstor.sys | Kernel driver | Boot ) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2015-12-12 02:18:26 UTC | storflt | @%SystemRoot%\\system32\\vmstorfltres.dll,-1000 | system32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (DRIVERS\\vmstorfl.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2015-12-12 02:18:26 UTC | stornvme | @stornvme.inf,%StorNVMe_ServiceDesc%;Microsoft Standard ) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (NVM Express Driver | System32\\drivers\\stornvme.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2015-12-12 02:18:26 UTC | storvsc |  | System32\\drivers\\storvsc.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2015-12-12 02:18:26 UTC | uagp35 | @machine.inf,%uagp35_svcdesc%;Microsoft AGPv3.5 Filter | S) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (ystem32\\drivers\\uagp35.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2015-12-12 02:18:26 UTC | uliagpkx | @machine.inf,%uliagpkx_svcdesc%;Uli AGP Bus Filter | Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (tem32\\drivers\\uliagpkx.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2015-12-12 02:18:26 UTC | viaide |  | System32\\drivers\\viaide.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2015-12-12 02:18:26 UTC | vmbus | @%SystemRoot%\\system32\\vmbusres.dll,-1000 | System32\\driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (s\\vmbus.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2015-12-12 02:18:26 UTC | vsmraid |  | System32\\drivers\\vsmraid.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2015-12-12 02:18:26 UTC | VSTXRAID | @vstxraid.inf,%Driver.DeviceDesc%;VIA StorX Storage RAID) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm ( Controller Windows Driver | System32\\drivers\\vstxraid.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2014-03-18 10:23:01 UTC | usbccgp | @usb.inf,%GenericParent.SvcDesc%;Microsoft USB Generic Pa) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (rent Driver | \\SystemRoot\\System32\\drivers\\usbccgp.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2014-03-18 10:22:59 UTC | USBSTOR | @usbstor.inf,%USBSTOR.SvcDesc%;USB Mass Storage Driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (\\SystemRoot\\System32\\drivers\\USBSTOR.SYS | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2014-03-18 10:22:59 UTC | USBXHCI | @usbxhci.inf,%PCI\\CC_0C0330.DeviceDesc%;USB xHCI Complian) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (t Host Controller | \\SystemRoot\\System32\\drivers\\USBXHCI.SYS | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2014-03-18 10:22:57 UTC | UmPass | @umpass.inf,%UmPass.SVCDESC%;Microsoft UMPass Driver | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (stemRoot\\System32\\drivers\\umpass.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  2014-03-18 10:22:57 UTC | tsusbhub | @tsusbhub.inf,%tsusbhub.SVCDESC%;Remote Desktop USB Hub ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (| \\SystemRoot\\System32\\drivers\\tsusbhub.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (  2014-03-18 10:22:57 UTC | terminpt | @termmou.inf,%TermInpt.SVCDESC%;Microsoft Remote Desktop) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm ( Input Driver | \\SystemRoot\\System32\\drivers\\terminpt.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (  2014-03-18 10:22:56 UTC | sdstor | @sdstor.inf,%sdstor_ServiceDesc%;SD Storage Port Driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (\\SystemRoot\\System32\\drivers\\sdstor.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  2014-03-18 10:22:47 UTC | Serial | @msports.inf,%Serial.SVCDESC%;Serial port driver | \\System) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (Root\\System32\\drivers\\serial.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2014-03-18 10:22:19 UTC | kbdhid | @keyboard.inf,%KBDHID.SvcDesc%;Keyboard HID Driver | \\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (emRoot\\System32\\drivers\\kbdhid.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2014-03-18 10:22:18 UTC | intelpep | @intelpep.inf,%INTELPEP.SVCDESC%;Intel\(R\) Power Engine P) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (lug-in Driver | System32\\drivers\\intelpep.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2014-03-18 10:22:12 UTC | WUDFRd | @hidbthle.inf,%WudfRdDisplayName%;Windows Driver Foundatio) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (n - User-mode Driver Framework Reflector | \\SystemRoot\\System32\\drivers\\WUDFRd.sys | Kernel dri) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (ver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2014-03-18 10:20:52 UTC | WSearch | @%systemroot%\\system32\\SearchIndexer.exe,-103 | %systemro) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 5 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+19 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 18 0 R >>
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 19 0 R /Annots [20 0 R] >>
+endobj
+21 0 obj
+<< /Length 7039 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (ot%\\system32\\SearchIndexer.exe /Embedding | Own_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2014-03-18 10:20:35 UTC | TrustedInstaller | @%SystemRoot%\\servicing\\TrustedInstaller.exe,-10) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (0 | %SystemRoot%\\servicing\\TrustedInstaller.exe | Own_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2014-03-18 10:19:22 UTC | flpydisk | @flpydisk.inf,%floppy_ServiceDesc%;Floppy Disk Driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (\\SystemRoot\\System32\\drivers\\flpydisk.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2014-03-18 10:19:11 UTC | netvsc |  | \\SystemRoot\\system32\\DRIVERS\\netvsc63.sys | Kernel driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (er | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2014-03-18 10:19:11 UTC | hyperkbd |  | \\SystemRoot\\System32\\drivers\\hyperkbd.sys | Kernel dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (iver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2014-03-18 10:19:11 UTC | HyperVideo |  | \\SystemRoot\\system32\\DRIVERS\\HyperVideo.sys | Kerne) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (l driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2014-03-18 10:19:11 UTC | VMBusHID |  | \\SystemRoot\\System32\\drivers\\VMBusHID.sys | Kernel dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (iver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2014-03-18 10:19:11 UTC | fdc | @fdc.inf,%fdc_ServiceDesc%;Floppy Disk Controller Driver | \\S) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (ystemRoot\\System32\\drivers\\fdc.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2014-03-18 10:19:11 UTC | s3cap |  | \\SystemRoot\\System32\\drivers\\vms3cap.sys | Kernel driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm ( | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2014-03-18 10:19:11 UTC | Serenum | @msports.inf,%Serenum.SVCDESC%;Serenum Filter Driver | \\S) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (ystemRoot\\System32\\drivers\\serenum.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2014-03-18 10:19:11 UTC | gencounter | @wgencounter.inf,%GenCounter.SVCDESC%;Microsoft Hyper-) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (V Generation Counter | \\SystemRoot\\System32\\drivers\\vmgencounter.sys | Kernel driver | Manual |) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm ( ) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2014-03-18 10:18:07 UTC | RasMan | @%Systemroot%\\system32\\rasmans.dll,-200 | %SystemRoot%\\Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (tem32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2014-03-18 10:18:07 UTC | sdbus |  | \\SystemRoot\\System32\\drivers\\sdbus.sys | Kernel driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm ( Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2014-03-18 10:18:07 UTC | UCX01000 | USB Controller Extension | \\SystemRoot\\System32\\drivers\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (ucx01000.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2014-03-18 10:18:07 UTC | USBHUB3 | @usbhub3.inf,%UsbHub3.SVCDESC%;SuperSpeed Hub | \\SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (ot\\System32\\drivers\\UsbHub3.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2014-03-18 10:18:07 UTC | vhdmp |  | \\SystemRoot\\System32\\drivers\\vhdmp.sys | Kernel driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm ( Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2014-03-18 10:18:07 UTC | Wof | Windows Overlay File System Filter Driver |  | File system dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (iver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2014-03-18 09:55:00 UTC | PrintNotify | @C:\\Windows\\system32\\spool\\drivers\\x64\\3\\PrintConfig.) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (dll,-1 | %SystemRoot%\\system32\\svchost.exe -k print | 0x120 | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2014-03-18 09:43:20 UTC | AppMgmt | @appmgmts.dll,-3250 | %SystemRoot%\\system32\\svchost.exe -) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2014-03-18 09:43:20 UTC | CSC | @%systemroot%\\system32\\cscsvc.dll,-202 | system32\\drivers\\csc) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2014-03-18 09:43:20 UTC | CscService | @%systemroot%\\system32\\cscsvc.dll,-200 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2014-03-18 09:43:20 UTC | kbldfltr |  | system32\\drivers\\kbldfltr.sys | Kernel driver | Manua) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (l | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2014-03-18 09:43:20 UTC | MsKeyboardFilter | @%SystemRoot%\\system32\\KeyboardFilterSvc.dll,-10) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (1 | %SystemRoot%\\system32\\svchost.exe -k netsvcs | Share_Process | Disabled | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2014-03-18 09:43:20 UTC | PeerDistSvc | @%SystemRoot%\\system32\\peerdistsvc.dll,-9000 | %Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (mRoot%\\System32\\svchost.exe -k PeerDist | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2014-03-18 09:43:20 UTC | RDPDR | @%SystemRoot%\\System32\\DRIVERS\\rdpdr.sys,-100 | System32\\dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (ivers\\rdpdr.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2014-03-18 09:43:20 UTC | RdpVideoMiniport | Remote Desktop Video Miniport Driver | System32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (drivers\\rdpvideominiport.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2014-03-18 09:43:20 UTC | SensrSvc | @%SystemRoot%\\System32\\sensrsvc.dll,-1000 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (\\system32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2014-03-18 09:43:20 UTC | UmRdpService | @%SystemRoot%\\system32\\umrdp.dll,-1000 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (%\\System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2014-03-18 09:43:20 UTC | RDPUDD |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2014-03-18 09:43:20 UTC | RegFilter |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2014-03-18 09:43:02 UTC | Synth3dVsc | @synth3dvsc.inf,%Synth3dVsc.SVCDESC%;Microsoft Virtual) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm ( 3D Video Transport Driver | \\SystemRoot\\System32\\drivers\\Synth3dVsc.sys | Kernel driver | Manu) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 6 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+22 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 21 0 R >>
+endobj
+23 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 22 0 R /Annots [23 0 R] >>
+endobj
+24 0 obj
+<< /Length 7110 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (al | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2014-03-18 09:43:02 UTC | vmbusr | @%SystemRoot%\\system32\\drivers\\vmbusr.sys,-1001 | \\SystemR) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (oot\\System32\\drivers\\vmbusr.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2014-03-18 09:43:02 UTC | vpcivsp | @wvpcivsp.inf,%vpcivsp.SVCDESC%;Microsoft Hyper-V PCI Ser) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (ver | \\SystemRoot\\System32\\drivers\\vpcivsp.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2014-03-18 09:43:02 UTC | Vid |  | \\SystemRoot\\System32\\drivers\\Vid.sys | Kernel driver | Man) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (ual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2014-03-18 09:43:02 UTC | storvsp |  | \\SystemRoot\\System32\\drivers\\storvsp.sys | Kernel driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (er | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2013-08-22 15:39:37 UTC | AudioEndpointBuilder | @%SystemRoot%\\system32\\AudioEndpointBuilder.) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (dll,-204 | %SystemRoot%\\System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:39:37 UTC | Audiosrv | @%SystemRoot%\\system32\\audiosrv.dll,-200 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (System32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT AUTHORI) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (TY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:39:37 UTC | MMCSS | @%systemroot%\\system32\\mmcss.dll,-100 | %SystemRoot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 15:39:37 UTC | SSDPSRV | @%systemroot%\\system32\\ssdpsrv.dll,-100 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (stem32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\Lo) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (calService) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:39:37 UTC | upnphost | @%systemroot%\\system32\\upnphost.dll,-213 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (system32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 15:38:29 UTC | Winsock |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 15:37:10 UTC | AeLookupSvc | @%SystemRoot%\\system32\\aelupsvc.dll,-1 | %systemroot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (\\system32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2013-08-22 15:37:10 UTC | AxInstSV | @%SystemRoot%\\system32\\AxInstSV.dll,-103 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (system32\\svchost.exe -k AxInstSVGroup | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2013-08-22 15:37:10 UTC | BrokerInfrastructure | @%windir%\\system32\\bisrv.dll,-100 | %SystemR) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (oot%\\system32\\svchost.exe -k DcomLaunch | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2013-08-22 15:37:10 UTC | dam | @%SystemRoot%\\system32\\drivers\\dam.sys,-100 | system32\\driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (s\\dam.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2013-08-22 15:37:10 UTC | DeviceAssociationService | @%SystemRoot%\\system32\\das.dll,-100 | %S) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (ystemRoot%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | Loca) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (lSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 15:37:10 UTC | DeviceInstall | @%SystemRoot%\\system32\\umpnpmgr.dll,-100 | %SystemR) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (oot%\\system32\\svchost.exe -k DcomLaunch | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 15:37:10 UTC | DsmSvc | @%SystemRoot%\\system32\\DeviceSetupManager.dll,-1000 | %Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (temRoot%\\system32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 15:37:10 UTC | fhsvc | @%systemroot%\\system32\\fhsvc.dll,-101 | %SystemRoot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 15:37:10 UTC | HomeGroupListener | @%SystemRoot%\\System32\\ListSvc.dll,-100 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (emRoot%\\System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSy) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (stem) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:37:10 UTC | MRxDAV | @%systemroot%\\system32\\webclnt.dll,-104 | \\SystemRoot\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (em32\\drivers\\mrxdav.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 15:37:10 UTC | NcaSvc | @%SystemRoot%\\system32\\ncasvc.dll,-3009 | %SystemRoot%\\Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (tem32\\svchost.exe -k NetSvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:37:10 UTC | Ndu | @%SystemRoot%\\system32\\drivers\\Ndu.sys,-10001 | system32\\driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (ers\\Ndu.sys | Kernel driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:37:10 UTC | NetTcpPortSharing | @%systemroot%\\Microsoft.NET\\Framework64\\v4.0.30) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (319\\ServiceModelInstallRC.dll,-8201 | %systemroot%\\Microsoft.NET\\Framework64\\v4.0.30319\\SMSvcHo) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (st.exe | Share_Process | Disabled | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2013-08-22 15:37:10 UTC | PcaSvc | @%SystemRoot%\\system32\\pcasvc.dll,-1 | %systemroot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 15:37:10 UTC | PNRPAutoReg | @%SystemRoot%\\system32\\pnrpauto.dll,-8002 | %SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (ot%\\System32\\svchost.exe -k LocalServicePeerNet | Share_Process | Manual | NT AUTHORITY\\LocalSe) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (rvice) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 15:37:10 UTC | ReFS |  |  | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:37:10 UTC | SerCx | Serial UART Support Library | system32\\drivers\\SerCx.sys | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (Kernel driver | Manual | ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 7 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+25 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 24 0 R >>
+endobj
+26 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 25 0 R /Annots [26 0 R] >>
+endobj
+27 0 obj
+<< /Length 7385 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:10 UTC | StorSvc | @%SystemRoot%\\System32\\StorSvc.dll,-100 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (stem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 15:37:10 UTC | SystemEventsBroker | @%windir%\\system32\\SystemEventsBrokerServer.dl) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (l,-1001 | %SystemRoot%\\system32\\svchost.exe -k DcomLaunch | Share_Process | Auto Start | LocalS) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (ystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2013-08-22 15:37:10 UTC | TabletInputService | @%SystemRoot%\\system32\\TabSvc.dll,-100 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (emRoot%\\System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSy) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (stem) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (  2013-08-22 15:37:10 UTC | TapiSrv | @%SystemRoot%\\system32\\tapisrv.dll,-10100 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (System32\\svchost.exe -k NetworkService | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 15:37:10 UTC | Themes | @%SystemRoot%\\System32\\themeservice.dll,-8192 | %SystemRoo) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (t%\\System32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:37:10 UTC | vmicguestinterface | @%systemroot%\\system32\\vmicres.dll,-801 | %sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (temroot%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalS) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (ystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:37:10 UTC | vmicheartbeat | @%systemroot%\\system32\\vmicres.dll,-101 | %systemro) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (ot%\\system32\\svchost.exe -k ICService | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 15:37:10 UTC | vmickvpexchange | @%systemroot%\\system32\\vmicres.dll,-201 | %system) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (root%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSyst) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (em) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:37:10 UTC | vmicrdv | @%systemroot%\\system32\\vmicres.dll,-601 | %systemroot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (stem32\\svchost.exe -k ICService | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2013-08-22 15:37:10 UTC | vmicshutdown | @%systemroot%\\system32\\vmicres.dll,-301 | %systemroo) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (t%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 15:37:10 UTC | vmictimesync | @%systemroot%\\system32\\vmicres.dll,-401 | %systemroo) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (t%\\system32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Manual | NT AUTHORIT) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (Y\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:10 UTC | vmicvss | @%systemroot%\\system32\\vmicres.dll,-501 | %systemroot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (stem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 15:37:10 UTC | vwifibus | @%SystemRoot%\\System32\\drivers\\vwifibus.sys,-257 | \\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (emRoot\\System32\\drivers\\vwifibus.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 15:37:10 UTC | wbengine | @%systemroot%\\system32\\wbengine.exe,-104 | "%systemroot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (\\system32\\wbengine.exe" | Own_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 15:37:10 UTC | wcncsvc | @%SystemRoot%\\system32\\wcncsvc.dll,-3 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (em32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\Loca) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (lService) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 15:37:10 UTC | WdFilter | @%ProgramFiles%\\Windows Defender\\MpAsDesc.dll,-330 | sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (tem32\\drivers\\WdFilter.sys | File system driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2013-08-22 15:37:10 UTC | WebClient | @%systemroot%\\system32\\webclnt.dll,-100 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (system32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 15:37:10 UTC | WinDefend | @%ProgramFiles%\\Windows Defender\\MpAsDesc.dll,-310 | "%) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (ProgramFiles%\\Windows Defender\\MsMpEng.exe" | Own_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 15:37:10 UTC | WlanSvc | @%SystemRoot%\\System32\\wlansvc.dll,-257 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (stem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:37:10 UTC | wlidsvc | @%SystemRoot%\\system32\\wlidsvc.dll,-100 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (stem32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 15:37:10 UTC | workfolderssvc | @%systemroot%\\system32\\workfolderssvc.dll,-102 | %) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (SystemRoot%\\System32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalS) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (ervice) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (  2013-08-22 15:37:10 UTC | WPCSvc | @%SystemRoot%\\system32\\wpcsvc.dll,-100 | %SystemRoot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (em32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Manual | NT Authority\\Local) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (Service) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 15:37:10 UTC | WPDBusEnum | @%SystemRoot%\\system32\\wpdbusenum.dll,-100 | %SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (ot%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 15:37:10 UTC | WpdUpFltr | @%systemroot%\\System32\\drivers\\WpdUpFltr.sys,-100 | Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (tem32\\drivers\\WpdUpFltr.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:10 UTC | WwanSvc | @%SystemRoot%\\System32\\wwansvc.dll,-257 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (stem32\\svchost.exe -k LocalServiceNoNetwork | Share_Process | Manual | NT Authority\\LocalServic) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (e) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:37:10 UTC | ahcache | @%systemroot%\\system32\\drivers\\ahcache.sys,-102 | system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (2\\DRIVERS\\ahcache.sys | Kernel driver | System Start | ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 8 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+28 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 27 0 R >>
+endobj
+29 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 28 0 R /Annots [29 0 R] >>
+endobj
+30 0 obj
+<< /Length 7398 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:10 UTC | ALG | @%SystemRoot%\\system32\\Alg.exe,-112 | %SystemRoot%\\System32\\a) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (lg.exe | Own_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 15:37:10 UTC | AppID | @%systemroot%\\system32\\appidsvc.dll,-102 | \\SystemRoot\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (em32\\drivers\\appid.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (  2013-08-22 15:37:10 UTC | AppIDSvc | @%systemroot%\\system32\\appidsvc.dll,-100 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (system32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Manual | NT Authority\\L) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (ocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 15:37:10 UTC | Appinfo | @%systemroot%\\system32\\appinfo.dll,-100 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (stem32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2013-08-22 15:37:10 UTC | AppReadiness | @%SystemRoot%\\System32\\AppReadiness.dll,-1000 | %Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (temRoot%\\System32\\svchost.exe -k AppReadiness | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2013-08-22 15:37:10 UTC | AppXSvc | @%SystemRoot%\\system32\\appxdeploymentserver.dll,-1 | %sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (temroot%\\system32\\svchost.exe -k wsappx | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2013-08-22 15:37:10 UTC | BDESVC | @%SystemRoot%\\system32\\bdesvc.dll,-100 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (em32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:37:10 UTC | Beep | Beep |  | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (  2013-08-22 15:37:10 UTC | BFE | @%SystemRoot%\\system32\\bfe.dll,-1001 | %systemroot%\\system32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (svchost.exe -k LocalServiceNoNetwork | Share_Process | Auto Start | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  2013-08-22 15:37:10 UTC | bowser | @%systemroot%\\system32\\browser.dll,-102 | system32\\DRIVERS) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (\\bowser.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:37:10 UTC | Browser | @%systemroot%\\system32\\browser.dll,-100 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (stem32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2013-08-22 15:37:10 UTC | bthserv | @%SystemRoot%\\System32\\bthserv.dll,-101 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (stem32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 15:37:10 UTC | cdfs | CD/DVD File System Reader | system32\\DRIVERS\\cdfs.sys | File) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm ( system driver | Disabled | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2013-08-22 15:37:10 UTC | CNG |  | System32\\Drivers\\cng.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:10 UTC | COMSysApp | @comres.dll,-947 | %SystemRoot%\\system32\\dllhost.exe /P) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (rocessid:{02D4B3F1-FD88-11D1-960D-00805FC79235} | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 15:37:10 UTC | DcomLaunch | @combase.dll,-5012 | %SystemRoot%\\system32\\svchost.exe) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm ( -k DcomLaunch | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 15:37:10 UTC | defragsvc | @%SystemRoot%\\system32\\defragsvc.dll,-101 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (%\\system32\\svchost.exe -k defragsvc | Own_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 15:37:10 UTC | Dfsc | @%systemroot%\\system32\\wkssvc.dll,-1008 | System32\\Drivers\\d) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (fsc.sys | File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 15:37:10 UTC | Dnscache | @%SystemRoot%\\System32\\dnsapi.dll,-101 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (stem32\\svchost.exe -k NetworkService | Share_Process | Auto Start | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 15:37:10 UTC | dot3svc | @%systemroot%\\system32\\dot3svc.dll,-1102 | %SystemRoot%\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (ystem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 15:37:10 UTC | DXGKrnl | LDDM Graphics Subsystem | \\SystemRoot\\System32\\drivers\\dx) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (gkrnl.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 15:37:10 UTC | Eaphost | @%systemroot%\\system32\\eapsvc.dll,-1 | %SystemRoot%\\Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (m32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2013-08-22 15:37:10 UTC | EFS | @%SystemRoot%\\system32\\efssvc.dll,-100 | %SystemRoot%\\System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (2\\lsass.exe | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  2013-08-22 15:37:10 UTC | EventLog | @%SystemRoot%\\system32\\wevtsvc.dll,-200 | %SystemRoot%\\S) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (ystem32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT AUTHORIT) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (Y\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:37:10 UTC | EventSystem | @comres.dll,-2450 | %SystemRoot%\\system32\\svchost.exe) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm ( -k LocalService | Share_Process | Auto Start | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:37:10 UTC | exfat | exFAT File System Driver |  | File system driver | Manual |) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm ( ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 15:37:10 UTC | fastfat | FAT12/16/32 File System Driver |  | File system driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 15:37:10 UTC | Fax | @%systemroot%\\system32\\fxsresm.dll,-118 | %systemroot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (32\\fxssvc.exe | Own_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:10 UTC | fdPHost | @%systemroot%\\system32\\fdPHost.dll,-100 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (stem32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 15:37:10 UTC | FDResPub | @%systemroot%\\system32\\fdrespub.dll,-100 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (system32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (LocalService) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 9 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+31 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 30 0 R >>
+endobj
+32 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 31 0 R /Annots [32 0 R] >>
+endobj
+33 0 obj
+<< /Length 7391 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:10 UTC | FileInfo | @%SystemRoot%\\system32\\drivers\\fileinfo.sys,-100 | Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (m32\\drivers\\fileinfo.sys | File system driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 15:37:10 UTC | Filetrace | @%SystemRoot%\\system32\\drivers\\filetrace.sys,-10001 | s) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (ystem32\\drivers\\filetrace.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (  2013-08-22 15:37:10 UTC | FontCache | @%systemroot%\\system32\\FntCache.dll,-100 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (\\system32\\svchost.exe -k LocalService | Share_Process | Auto Start | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (  2013-08-22 15:37:10 UTC | FsDepends | @%SystemRoot%\\system32\\drivers\\fsdepends.sys,-10001 | S) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (ystem32\\drivers\\FsDepends.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (  2013-08-22 15:37:10 UTC | GPIOClx0101 | Microsoft GPIO Class Extension Driver | System32\\Driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (ers\\msgpioclx.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 15:37:10 UTC | gpsvc | @gpapi.dll,-112 | %systemroot%\\system32\\svchost.exe -k nets) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (vcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:37:10 UTC | hidserv | @%SystemRoot%\\System32\\hidserv.dll,-101 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (stem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (  2013-08-22 15:37:10 UTC | hkmsvc | @%SystemRoot%\\system32\\kmsvc.dll,-6 | %SystemRoot%\\System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (2\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (  2013-08-22 15:37:10 UTC | HomeGroupProvider | @%SystemRoot%\\System32\\provsvc.dll,-100 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (emRoot%\\System32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Manual | NT AUT) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (HORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2013-08-22 15:37:10 UTC | hwpolicy | @%systemroot%\\system32\\drivers\\hwpolicy.sys,-101 | Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (m32\\drivers\\hwpolicy.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2013-08-22 15:37:10 UTC | IEEtwCollectorService | @%SystemRoot%\\system32\\ieetwcollectorres.dl) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (l,-1000 | %SystemRoot%\\system32\\IEEtwCollector.exe /V | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 15:37:10 UTC | IKEEXT | @%SystemRoot%\\system32\\ikeext.dll,-501 | %systemroot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (em32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2013-08-22 15:37:10 UTC | IpFilterDriver | @%systemroot%\\system32\\rascfg.dll,-32013 | system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (2\\DRIVERS\\ipfltdrv.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:10 UTC | IRENUM | @%SystemRoot%\\system32\\drivers\\irenum.sys,-100 | system32\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (drivers\\irenum.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 15:37:10 UTC | KeyIso | @keyiso.dll,-100 | %SystemRoot%\\system32\\lsass.exe | Share) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 15:37:10 UTC | KSecPkg |  | System32\\Drivers\\ksecpkg.sys | Kernel driver | Boot St) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 15:37:10 UTC | KtmRm | @comres.dll,-2946 | %SystemRoot%\\System32\\svchost.exe -k Ne) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (tworkServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 15:37:10 UTC | lfsvc | @%SystemRoot%\\System32\\GeofenceMonitorService.dll,-1 | %Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (temRoot%\\system32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 15:37:10 UTC | lltdsvc | @%SystemRoot%\\system32\\lltdres.dll,-1 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (em32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 15:37:10 UTC | LSM | @%windir%\\system32\\lsm.dll,-1001 | %SystemRoot%\\system32\\svch) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (ost.exe -k DcomLaunch | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 15:37:10 UTC | luafv | @%systemroot%\\system32\\drivers\\luafv.sys,-100 | \\SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (\\system32\\drivers\\luafv.sys | File system driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2013-08-22 15:37:10 UTC | mpsdrv | @%SystemRoot%\\system32\\FirewallAPI.dll,-23092 | System32\\d) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (rivers\\mpsdrv.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  2013-08-22 15:37:10 UTC | MpsSvc | @%SystemRoot%\\system32\\FirewallAPI.dll,-23090 | %SystemRoo) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (t%\\system32\\svchost.exe -k LocalServiceNoNetwork | Share_Process | Auto Start | NT Authority\\Lo) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (calService) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:37:10 UTC | mrxsmb | @%systemroot%\\system32\\wkssvc.dll,-1002 | system32\\DRIVERS) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (\\mrxsmb.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:37:10 UTC | mrxsmb10 | @%systemroot%\\system32\\wkssvc.dll,-1004 | system32\\DRIVE) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (RS\\mrxsmb10.sys | File system driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 15:37:10 UTC | mrxsmb20 | @%systemroot%\\system32\\wkssvc.dll,-1006 | system32\\DRIVE) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (RS\\mrxsmb20.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 15:37:10 UTC | MSDTC | @comres.dll,-2797 | %SystemRoot%\\System32\\msdtc.exe | Own_P) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (rocess | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:10 UTC | mshidkmdf | @%SystemRoot%\\system32\\drivers\\mshidkmdf.sys,-100 | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (stemRoot\\System32\\drivers\\mshidkmdf.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 15:37:10 UTC | MSiSCSI | @%SystemRoot%\\system32\\iscsidsc.dll,-5000 | %systemroot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (system32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2013-08-22 15:37:10 UTC | msiserver | @%SystemRoot%\\system32\\msimsg.dll,-27 | %systemroot%\\sy) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 10 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+34 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 33 0 R >>
+endobj
+35 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 34 0 R /Annots [35 0 R] >>
+endobj
+36 0 obj
+<< /Length 7604 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (stem32\\msiexec.exe /V | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2013-08-22 15:37:10 UTC | Mup | @%systemroot%\\system32\\drivers\\mup.sys,-101 | System32\\Driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (s\\mup.sys | File system driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2013-08-22 15:37:10 UTC | napagent | @%SystemRoot%\\system32\\qagentrt.dll,-6 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (stem32\\svchost.exe -k NetworkService | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2013-08-22 15:37:10 UTC | NcbService | @%SystemRoot%\\system32\\ncbservice.dll,-500 | %SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (ot%\\System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 15:37:10 UTC | NcdAutoSetup | @%SystemRoot%\\system32\\NcdAutoSetup.dll,-100 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (emRoot%\\System32\\svchost.exe -k LocalServiceNoNetwork | Share_Process | Manual | NT AUTHORITY\\L) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (ocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 15:37:10 UTC | netprofm | @%SystemRoot%\\system32\\netprofmsvc.dll,-202 | %SystemRoo) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (t%\\System32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:37:10 UTC | p2pimsvc | @%SystemRoot%\\system32\\pnrpsvc.dll,-8004 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (System32\\svchost.exe -k LocalServicePeerNet | Share_Process | Manual | NT AUTHORITY\\LocalServic) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (e) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:37:10 UTC | p2psvc | @%SystemRoot%\\system32\\p2psvc.dll,-8006 | %SystemRoot%\\Sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (tem32\\svchost.exe -k LocalServicePeerNet | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 15:37:10 UTC | pdc | @%SystemRoot%\\system32\\drivers\\pdc.sys,-100 | system32\\driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (s\\pdc.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2013-08-22 15:37:10 UTC | PerfHost | @%systemroot%\\sysWow64\\perfhost.exe,-2 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (sWow64\\perfhost.exe | Own_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2013-08-22 15:37:10 UTC | pla | @%systemroot%\\system32\\pla.dll,-500 | %SystemRoot%\\System32\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (vchost.exe -k LocalServiceNoNetwork | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 15:37:10 UTC | PlugPlay | @%SystemRoot%\\system32\\umpnpmgr.dll,-200 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (system32\\svchost.exe -k DcomLaunch | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2013-08-22 15:37:10 UTC | PNRPsvc | @%SystemRoot%\\system32\\pnrpsvc.dll,-8000 | %SystemRoot%\\S) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (ystem32\\svchost.exe -k LocalServicePeerNet | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:10 UTC | PolicyAgent | @%SystemRoot%\\System32\\polstore.dll,-5010 | %SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (ot%\\system32\\svchost.exe -k NetworkServiceNetworkRestricted | Share_Process | Manual | NT Autho) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (rity\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2013-08-22 15:37:10 UTC | Power | @%SystemRoot%\\system32\\umpo.dll,-100 | %SystemRoot%\\system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (2\\svchost.exe -k DcomLaunch | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2013-08-22 15:37:10 UTC | ProfSvc | @%systemroot%\\system32\\profsvc.dll,-300 | %systemroot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (stem32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2013-08-22 15:37:10 UTC | QWAVE | @%SystemRoot%\\system32\\qwave.dll,-1 | %windir%\\system32\\svc) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (host.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 15:37:10 UTC | QWAVEdrv | @%SystemRoot%\\system32\\drivers\\qwavedrv.sys,-1 | \\System) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (Root\\system32\\drivers\\qwavedrv.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2013-08-22 15:37:10 UTC | rdbss | @%systemroot%\\system32\\wkssvc.dll,-1000 | system32\\DRIVERS\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (rdbss.sys | File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 15:37:10 UTC | RemoteAccess | @%Systemroot%\\system32\\mprdim.dll,-200 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (%\\System32\\svchost.exe -k netsvcs | Share_Process | Disabled | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 15:37:10 UTC | RemoteRegistry | @regsvc.dll,-1 | %SystemRoot%\\system32\\svchost.exe) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm ( -k localService | Share_Process | Disabled | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:37:10 UTC | RpcLocator | @%systemroot%\\system32\\Locator.exe,-2 | %SystemRoot%\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (ystem32\\locator.exe | Own_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 15:37:10 UTC | RpcSs | @combase.dll,-5010 | %SystemRoot%\\system32\\svchost.exe -k r) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (pcss | Share_Process | Auto Start | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:37:10 UTC | scfilter | @%SystemRoot%\\System32\\drivers\\scfilter.sys,-11 | System) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (32\\DRIVERS\\scfilter.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:37:10 UTC | Schedule | @%SystemRoot%\\system32\\schedsvc.dll,-100 | %systemroot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (system32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 15:37:10 UTC | SCPolicySvc | @%SystemRoot%\\System32\\certprop.dll,-13 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (%\\system32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 15:37:10 UTC | secdrv | Security Driver |  | Kernel driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 15:37:10 UTC | seclogon | @%SystemRoot%\\system32\\seclogon.dll,-7001 | %windir%\\sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (tem32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2013-08-22 15:37:10 UTC | SerCx2 | Serial UART Support Library | system32\\drivers\\SerCx2.sys ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (| Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:37:10 UTC | SessionEnv | @%SystemRoot%\\System32\\SessEnv.dll,-1026 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (%\\System32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 11 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+37 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 36 0 R >>
+endobj
+38 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 37 0 R /Annots [38 0 R] >>
+endobj
+39 0 obj
+<< /Length 7403 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:10 UTC | smphost | @%SystemRoot%\\System32\\smphost.dll,-102 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (stem32\\svchost.exe -k smphost | Own_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 15:37:10 UTC | SNMPTRAP | @%SystemRoot%\\system32\\snmptrap.exe,-3 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (stem32\\snmptrap.exe | Own_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (  2013-08-22 15:37:10 UTC | SpbCx | Simple Peripheral Bus Support Library | system32\\drivers\\Sp) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (bCx.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (  2013-08-22 15:37:10 UTC | Spooler | @%systemroot%\\system32\\spoolsv.exe,-1 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (em32\\spoolsv.exe | 0x110 | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (  2013-08-22 15:37:10 UTC | sppsvc | @%SystemRoot%\\system32\\sppsvc.exe,-101 | %SystemRoot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (em32\\sppsvc.exe | Own_Process | Auto Start | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 15:37:10 UTC | srv | @%systemroot%\\system32\\srvsvc.dll,-102 | System32\\DRIVERS\\srv) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (.sys | File system driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:37:10 UTC | srv2 | @%systemroot%\\system32\\srvsvc.dll,-104 | System32\\DRIVERS\\sr) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (v2.sys | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (  2013-08-22 15:37:10 UTC | SstpSvc | @%SystemRoot%\\system32\\sstpsvc.dll,-200 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (stem32\\svchost.exe -k LocalService | Share_Process | Manual | NT Authority\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (  2013-08-22 15:37:10 UTC | stisvc | @%SystemRoot%\\system32\\wiaservc.dll,-9 | %SystemRoot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (em32\\svchost.exe -k imgsvc | Own_Process | Manual | NT Authority\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  2013-08-22 15:37:10 UTC | svsvc | @%SystemRoot%\\system32\\svsvc.dll,-101 | %SystemRoot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:37:10 UTC | swprv | @%SystemRoot%\\System32\\swprv.dll,-103 | %SystemRoot%\\System) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (32\\svchost.exe -k swprv | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2013-08-22 15:37:10 UTC | SysMain | @%SystemRoot%\\system32\\sysmain.dll,-1000 | %systemroot%\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (ystem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 15:37:10 UTC | tcpipreg | TCP/IP Registry Compatibility | System32\\drivers\\tcpipre) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (g.sys | Kernel driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2013-08-22 15:37:10 UTC | TermService | @%SystemRoot%\\System32\\termsrv.dll,-268 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (%\\System32\\svchost.exe -k NetworkService | Share_Process | Manual | NT Authority\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2013-08-22 15:37:10 UTC | THREADORDER | @%systemroot%\\system32\\mmcss.dll,-102 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (system32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2013-08-22 15:37:10 UTC | TimeBroker | @%windir%\\system32\\TimeBrokerServer.dll,-1001 | %Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (mRoot%\\system32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Manual | NT AUT) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (HORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 15:37:10 UTC | TrkWks | @%SystemRoot%\\system32\\trkwks.dll,-1 | %SystemRoot%\\System) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 15:37:10 UTC | TsUsbFlt |  | system32\\drivers\\tsusbflt.sys | Kernel driver | Manua) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (l | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 15:37:10 UTC | udfs | udfs | system32\\DRIVERS\\udfs.sys | File system driver | Disa) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (bled | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 15:37:10 UTC | UI0Detect | @%SystemRoot%\\system32\\ui0detect.exe,-101 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (%\\system32\\UI0Detect.exe | 0x110 | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 15:37:10 UTC | VaultSvc | @%SystemRoot%\\system32\\vaultsvc.dll,-1003 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (\\system32\\lsass.exe | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2013-08-22 15:37:10 UTC | vds | @%SystemRoot%\\system32\\vds.exe,-100 | %SystemRoot%\\System32\\v) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (ds.exe | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  2013-08-22 15:37:10 UTC | volmgrx | @%SystemRoot%\\system32\\drivers\\volmgrx.sys,-100 | System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (2\\drivers\\volmgrx.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (  2013-08-22 15:37:10 UTC | VSS | @%systemroot%\\system32\\vssvc.exe,-102 | %systemroot%\\system32) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (\\vssvc.exe | Own_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (  2013-08-22 15:37:10 UTC | W32Time | @%SystemRoot%\\system32\\w32time.dll,-200 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (stem32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  2013-08-22 15:37:10 UTC | WbioSrvc | @%systemroot%\\system32\\wbiosrvc.dll,-100 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (system32\\svchost.exe -k WbioSvcGroup | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2013-08-22 15:37:10 UTC | Wcmsvc | @%SystemRoot%\\System32\\wcmsvc.dll,-4097 | %SystemRoot%\\sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (tem32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT Authority\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:10 UTC | WcsPlugInService | @%SystemRoot%\\system32\\WcsPlugInService.dll,-200) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm ( | %SystemRoot%\\system32\\svchost.exe -k wcssvc | Share_Process | Manual | NT AUTHORITY\\LocalSer) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (vice) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:37:10 UTC | WdNisSvc | @%ProgramFiles%\\Windows Defender\\MpAsDesc.dll,-320 | "%P) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (rogramFiles%\\Windows Defender\\NisSrv.exe" | Own_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 12 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+40 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 39 0 R >>
+endobj
+41 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 40 0 R /Annots [41 0 R] >>
+endobj
+42 0 obj
+<< /Length 7361 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:10 UTC | Wecsvc | @%SystemRoot%\\system32\\wecsvc.dll,-200 | %SystemRoot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (em32\\svchost.exe -k NetworkService | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 15:37:10 UTC | WEPHOSTSVC | @%systemroot%\\system32\\wephostsvc.dll,-100 | %systemro) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (ot%\\system32\\svchost.exe -k WepHostSvcGroup | Share_Process | Manual | NT AUTHORITY\\LocalServic) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (e) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2013-08-22 15:37:10 UTC | wercplsupport | @%SystemRoot%\\System32\\wercplsupport.dll,-101 | %Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (stemRoot%\\System32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 15:37:10 UTC | WerSvc | @%SystemRoot%\\System32\\wersvc.dll,-100 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (em32\\svchost.exe -k WerSvcGroup | Own_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2013-08-22 15:37:10 UTC | WiaRpc | @%SystemRoot%\\system32\\wiarpc.dll,-2 | %SystemRoot%\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2013-08-22 15:37:10 UTC | WIMMount | WIMMount | system32\\drivers\\wimmount.sys | File system d) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (river | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2013-08-22 15:37:10 UTC | WinHttpAutoProxySvc | @%SystemRoot%\\system32\\winhttp.dll,-100 | %Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (stemRoot%\\system32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalSer) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (vice) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (  2013-08-22 15:37:10 UTC | Winmgmt | @%Systemroot%\\system32\\wbem\\wmisvc.dll,-205 | %systemroot) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (%\\system32\\svchost.exe -k netsvcs | Share_Process | Auto Start | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  2013-08-22 15:37:10 UTC | WinRM | @%Systemroot%\\system32\\wsmsvc.dll,-101 | %SystemRoot%\\Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (m32\\svchost.exe -k NetworkService | Share_Process | Manual | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:37:10 UTC | wmiApSrv | @%Systemroot%\\system32\\wbem\\wmiapsrv.exe,-110 | %systemr) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (oot%\\system32\\wbem\\WmiApSrv.exe | Own_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (  2013-08-22 15:37:10 UTC | WMPNetworkSvc | @%PROGRAMFILES%\\Windows Media Player\\wmpnetwk.exe,-) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (101 | "%PROGRAMFILES%\\Windows Media Player\\wmpnetwk.exe" | Own_Process | Manual | NT AUTHORITY\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2013-08-22 15:37:10 UTC | wpcfltr | Family Safety Filter Driver | system32\\DRIVERS\\wpcfltr.sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (s | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:10 UTC | ws2ifsl | @%systemroot%\\System32\\drivers\\ws2ifsl.sys,-1000 | \\Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (mRoot\\system32\\drivers\\ws2ifsl.sys | Kernel driver | Disabled | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 15:37:10 UTC | wscsvc | @%SystemRoot%\\System32\\wscsvc.dll,-200 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (em32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT AUTHORITY\\L) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (ocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2013-08-22 15:37:10 UTC | WSService | @%SystemRoot%\\system32\\WSService.dll,-103 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (%\\System32\\svchost.exe -k wsappx | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2013-08-22 15:37:10 UTC | WudfPf | @%SystemRoot%\\system32\\drivers\\Wudfpf.sys,-1000 | system32) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (\\drivers\\WudfPf.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 15:37:10 UTC | wudfsvc | @%SystemRoot%\\system32\\wudfsvc.dll,-1000 | %SystemRoot%\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (ystem32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2013-08-22 15:37:10 UTC | BITS | @%SystemRoot%\\system32\\qmgr.dll,-1000 | %SystemRoot%\\System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (2\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 15:37:10 UTC | CertPropSvc | @%SystemRoot%\\System32\\certprop.dll,-11 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (%\\system32\\svchost.exe -k netsvcs | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 15:37:10 UTC | CLFS | @%SystemRoot%\\system32\\drivers\\clfs.sys,-100 | System32\\driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (ers\\CLFS.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:37:10 UTC | CryptSvc | @%SystemRoot%\\system32\\cryptsvc.dll,-1001 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (\\system32\\svchost.exe -k NetworkService | Share_Process | Auto Start | NT Authority\\NetworkServ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (ice) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (  2013-08-22 15:37:10 UTC | DPS | @%systemroot%\\system32\\dps.dll,-500 | %SystemRoot%\\System32\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (vchost.exe -k LocalServiceNoNetwork | Share_Process | Auto Start | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (  2013-08-22 15:37:10 UTC | HTTP | @%SystemRoot%\\system32\\drivers\\http.sys,-1 | system32\\driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (s\\HTTP.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  2013-08-22 15:37:10 UTC | IPNAT | IP Network Address Translator | System32\\drivers\\ipnat.sys ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (| Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2013-08-22 15:37:10 UTC | ksthunk | Kernel Streaming Thunks | \\SystemRoot\\system32\\drivers\\ks) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (thunk.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 15:37:10 UTC | Modem |  | system32\\drivers\\modem.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:10 UTC | Netlogon | @%SystemRoot%\\System32\\netlogon.dll,-102 | %systemroot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (system32\\lsass.exe | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 15:37:10 UTC | Netman | @%SystemRoot%\\system32\\netman.dll,-109 | %SystemRoot%\\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (em32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2013-08-22 15:37:10 UTC | NlaSvc | @%SystemRoot%\\System32\\nlasvc.dll,-1 | %SystemRoot%\\System) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 13 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+43 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 42 0 R >>
+endobj
+44 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 43 0 R /Annots [44 0 R] >>
+endobj
+45 0 obj
+<< /Length 6635 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (32\\svchost.exe -k NetworkService | Share_Process | Auto Start | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2013-08-22 15:37:10 UTC | pcw | Performance Counters for Windows Driver | System32\\drivers\\pc) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (w.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2013-08-22 15:37:10 UTC | RasAuto | @%Systemroot%\\system32\\rasauto.dll,-200 | %SystemRoot%\\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (stem32\\svchost.exe -k netsvcs | Share_Process | Manual | localSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2013-08-22 15:37:10 UTC | SamSs | @%SystemRoot%\\system32\\samsrv.dll,-1 | %SystemRoot%\\system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (2\\lsass.exe | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 15:37:10 UTC | SCardSvr | @%SystemRoot%\\System32\\SCardSvr.dll,-1 | %SystemRoot%\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (stem32\\svchost.exe -k LocalServiceAndNoImpersonation | Share_Process | Disabled | NT AUTHORITY\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 15:37:10 UTC | ScDeviceEnum | @%SystemRoot%\\System32\\ScDeviceEnum.dll,-100 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (emRoot%\\system32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSy) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (stem) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2013-08-22 15:37:10 UTC | SENS | @%SystemRoot%\\system32\\Sens.dll,-200 | %SystemRoot%\\system32) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:37:10 UTC | SharedAccess | @%SystemRoot%\\system32\\ipnathlp.dll,-106 | %SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (ot%\\System32\\svchost.exe -k netsvcs | Share_Process | Disabled | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 15:37:10 UTC | ShellHWDetection | @%SystemRoot%\\System32\\shsvcs.dll,-12288 | %Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (emRoot%\\System32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2013-08-22 15:37:10 UTC | WdiServiceHost | @%systemroot%\\system32\\wdi.dll,-502 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (\\System32\\svchost.exe -k LocalService | Share_Process | Manual | NT AUTHORITY\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2013-08-22 15:37:10 UTC | WdiSystemHost | @%systemroot%\\system32\\wdi.dll,-500 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (System32\\svchost.exe -k LocalSystemNetworkRestricted | Share_Process | Manual | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 15:37:09 UTC | BattC |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 15:37:09 UTC | clr_optimization_v4.0.30319_64 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2013-08-22 15:37:09 UTC | RasAcd | Remote Access Auto Connection Driver | System32\\DRIVERS\\ra) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (sacd.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 15:37:09 UTC | .NET CLR Networking 4.0.0.0 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2013-08-22 15:37:09 UTC | .NET Data Provider for Oracle |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 15:37:09 UTC | .NET Memory Cache 4.0 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2013-08-22 15:37:09 UTC | .NETFramework |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 15:37:09 UTC | adsi |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2013-08-22 15:37:09 UTC | clr_optimization_v4.0.30319_32 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 15:37:09 UTC | inetaccs |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2013-08-22 15:37:09 UTC | ldap |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 15:37:09 UTC | NDProxy | NDIS Proxy |  | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 15:37:09 UTC | PerfProc |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 15:37:09 UTC | TSDDD |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2013-08-22 15:37:09 UTC | UGatherer |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 15:37:09 UTC | Windows Workflow Foundation 4.0.0.0 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 15:37:09 UTC | WSearchIdxPi |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 15:37:09 UTC | .NET CLR Data |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 15:37:09 UTC | .NET CLR Networking |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2013-08-22 15:37:09 UTC | .NET Data Provider for SqlServer |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:37:09 UTC | ESENT |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  2013-08-22 15:37:09 UTC | Lsa |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 15:37:09 UTC | MSDTC Bridge 4.0.0.0 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (  2013-08-22 15:37:09 UTC | MSSCNTRS |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:37:09 UTC | SMSvcHost 4.0.0.0 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (  2013-08-22 15:37:09 UTC | UGTHRSVC |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:37:09 UTC | xmlprov |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  2013-08-22 15:37:09 UTC | DCLocator |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 15:37:09 UTC | PerfOS |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2013-08-22 15:37:09 UTC | WmiApRpl |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 15:37:09 UTC | PerfDisk |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 15:37:09 UTC | RDPNP | @%systemroot%\\system32\\drprov.dll,-100 |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 15:37:09 UTC | WinSock2 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2013-08-22 15:37:09 UTC | BTHPORT |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 15:37:09 UTC | NTDS |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:37:09 UTC | PerfNet |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2013-08-22 15:37:09 UTC | workerdd |  |  |  |  | ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 14 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+46 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 45 0 R >>
+endobj
+47 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 46 0 R /Annots [47 0 R] >>
+endobj
+48 0 obj
+<< /Length 7306 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:37:09 UTC | PortProxy |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2013-08-22 15:33:37 UTC | msgpiowin32 | @msgpiowin32.inf,%GPIO.SvcDesc%;Common Driver for But) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (tons, DockMode and Laptop/Slate Indicator | \\SystemRoot\\System32\\drivers\\msgpiowin32.sys | Kern) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (el driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (  2013-08-22 15:33:37 UTC | TsUsbGD | @tsgenericusbdriver.inf,%TsUsbGD.DeviceDesc.Generic%;Remo) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (te Desktop Generic USB Device | \\SystemRoot\\System32\\drivers\\TsUsbGD.sys | Kernel driver | Manu) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (al | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 15:33:35 UTC | usbprint | @usbprint.inf,%USBPRINT.SvcDesc%;Microsoft USB PRINTER C) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (lass | \\SystemRoot\\System32\\drivers\\usbprint.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2013-08-22 15:33:35 UTC | iaLPSSi_GPIO | @ialpssi_gpio.inf,%iaLPSSi_GPIO.SVCDESC%;Intel\(R\) Se) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (rial IO GPIO Controller Driver | \\SystemRoot\\System32\\drivers\\iaLPSSi_GPIO.sys | Kernel driver ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (| Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (  2013-08-22 15:33:35 UTC | iaLPSSi_I2C | @ialpssi_i2c.inf,%iaLPSSi_I2C.SVCDESC%;Intel\(R\) Seria) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (l IO I2C Controller Driver | \\SystemRoot\\System32\\drivers\\iaLPSSi_I2C.sys | Kernel driver | Man) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (ual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 15:33:35 UTC | hidi2c | @hidi2c.inf,%hidi2c.SVCDESC%;Microsoft I2C HID Miniport Dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (iver | \\SystemRoot\\System32\\drivers\\hidi2c.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 15:33:35 UTC | BthAvrcpTg | @bthaudhid.inf,%BthAvrcpTg_SvcDesc%;Bluetooth Audio/Vi) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (deo Remote Control HID | \\SystemRoot\\System32\\drivers\\BthAvrcpTg.sys | Kernel driver | Manual |) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm ( ) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (  2013-08-22 15:33:35 UTC | BthHFEnum | @bthhfenum.inf,%BthHFEnum.SVCDESC%;Bluetooth Hands-Free) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm ( Audio and Call Control HID Enumerator | \\SystemRoot\\System32\\drivers\\bthhfenum.sys | Kernel dr) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (iver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 15:33:35 UTC | HDAudBus | @hdaudbus.inf,%HDAudBus.SVCDESC%;Microsoft UAA Bus Drive) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (r for High Definition Audio | \\SystemRoot\\System32\\drivers\\HDAudBus.sys | Kernel driver | Manua) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (l | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2013-08-22 15:33:33 UTC | HidBth | @hidbth.inf,%HIDBTH.SvcDesc%;Microsoft Bluetooth HID Minip) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (ort | \\SystemRoot\\System32\\drivers\\hidbth.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (  2013-08-22 15:33:33 UTC | HidIr | @hidir.inf,%HIDIR.SvcDesc%;Microsoft Infrared HID Driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (\\SystemRoot\\System32\\drivers\\hidir.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  2013-08-22 15:33:33 UTC | circlass | @circlass.inf,%circlass.SVCDESC%;Consumer IR Devices | \\) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (SystemRoot\\System32\\drivers\\circlass.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  2013-08-22 15:33:33 UTC | usbcir | @usbcir.inf,%usbcir.SVCDESC%;eHome Infrared Receiver \(USBC) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (IR\) | \\SystemRoot\\System32\\drivers\\usbcir.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2013-08-22 15:33:28 UTC | ErrDev | @errdev.inf,%ERRDEV.SvcDesc%;Microsoft Hardware Error Devi) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (ce Driver | \\SystemRoot\\System32\\drivers\\errdev.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 15:33:28 UTC | WmiAcpi | @wmiacpi.inf,%WMIMAP.SvcDesc%;Microsoft Windows Managemen) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (t Interface for ACPI | \\SystemRoot\\System32\\drivers\\wmiacpi.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  2013-08-22 15:33:28 UTC | acpitime | @acpitime.inf,%AcpiTime.SvcDesc%;ACPI Wake Alarm Driver ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (| \\SystemRoot\\System32\\drivers\\acpitime.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 15:33:25 UTC | sermouse | @msmouse.inf,%sermouse.SvcDesc%;Serial Mouse Driver | \\S) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (ystemRoot\\System32\\drivers\\sermouse.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 15:33:25 UTC | bcmfn2 | @bcmfn2.inf,%bcmfn2.SVCDESC%;bcmfn2 Service | \\SystemRoot\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (System32\\drivers\\bcmfn2.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 15:33:24 UTC | MTConfig | @mtconfig.inf,%MTConfig.SVCDESC%;Microsoft Input Configu) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (ration Driver | \\SystemRoot\\System32\\drivers\\MTConfig.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 15:33:24 UTC | Parport | @msports.inf,%Parport.SVCDESC%;Parallel port driver | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (stemRoot\\System32\\drivers\\parport.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 15:33:23 UTC | WacomPen | @hiddigi.inf,%WacomPen.SVCDESC%;Wacom Serial Pen HID Dri) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (ver | \\SystemRoot\\System32\\drivers\\wacompen.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 15:33:22 UTC | usbuhci | @usbport.inf,%UHCIMP.SvcDesc%;Microsoft USB Universal Hos) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (t Controller Miniport Driver | \\SystemRoot\\System32\\drivers\\usbuhci.sys | Kernel driver | Manua) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (l | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  2013-08-22 15:33:18 UTC | AmdPPM | @cpu.inf,%AmdPPM.SvcDesc%;AMD Processor Driver | \\SystemRo) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (ot\\System32\\drivers\\amdppm.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 15:33:18 UTC | AmdK8 | @cpu.inf,%AmdK8.SvcDesc%;AMD K8 Processor Driver | \\SystemR) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (oot\\System32\\drivers\\amdk8.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2013-08-22 15:33:18 UTC | FxPPM | @cpu.inf,%FxPPM.SvcDesc%;Power Framework Processor Driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm ( \\SystemRoot\\System32\\drivers\\fxppm.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 15:33:18 UTC | Processor | @cpu.inf,%Processor.SvcDesc%;Processor Driver | \\System) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (Root\\System32\\drivers\\processr.sys | Kernel driver | Manual | ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 15 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+49 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 48 0 R >>
+endobj
+50 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 49 0 R /Annots [50 0 R] >>
+endobj
+51 0 obj
+<< /Length 7388 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 15:33:18 UTC | vpci | @wvpci.inf,%vpci.SVCDESC%;Microsoft Hyper-V Virtual PCI Bus ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (| \\SystemRoot\\System32\\drivers\\vpci.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  2013-08-22 14:48:56 UTC | TPM | @tpm.inf,%TPM%;TPM | \\SystemRoot\\system32\\drivers\\tpm.sys | K) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (ernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (  2013-08-22 14:48:52 UTC | dmvsc |  | \\SystemRoot\\System32\\drivers\\dmvsc.sys | Kernel driver |) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm ( Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (  2013-08-22 14:48:47 UTC | UEFI | @uefi.inf,%UEFI.SvcDesc%;Microsoft UEFI Driver | \\SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (\\System32\\drivers\\UEFI.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (  2013-08-22 14:48:47 UTC | UASPStor | @uaspstor.inf,%UASPortName%;USB Attached SCSI \(UAS\) Driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (er | \\SystemRoot\\System32\\drivers\\uaspstor.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (  2013-08-22 14:48:39 UTC | npsvctrig | @npsvctrig.inf,%NPSVCTRIG.SvcDisplayName%;Named pipe se) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (rvice trigger provider | \\SystemRoot\\System32\\drivers\\npsvctrig.sys | Kernel driver | System St) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (art | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2013-08-22 14:48:07 UTC | iScsiPrt | @iscsi.inf,%iScsiPortName%;iScsiPort Driver | \\SystemRoo) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (t\\System32\\drivers\\msiscsi.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 14:48:07 UTC | IPMIDRV |  | \\SystemRoot\\System32\\drivers\\IPMIDrv.sys | Kernel driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (er | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 14:48:03 UTC | mshidumdf | @%SystemRoot%\\system32\\drivers\\mshidumdf.sys,-100 | \\Sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (stemRoot\\System32\\drivers\\mshidumdf.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2013-08-22 14:48:03 UTC | HidBatt | @hidbatt.inf,%HidBatt.SvcDesc%;HID UPS Battery Driver | \\) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (SystemRoot\\System32\\drivers\\HidBatt.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2013-08-22 14:48:03 UTC | sfloppy | @flpydisk.inf,%sfloppy_devdesc%;High-Capacity Floppy Disk) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm ( Drive | \\SystemRoot\\System32\\drivers\\sfloppy.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (  2013-08-22 14:48:01 UTC | BTHMODEM | @bthspp.inf,%BthSerial.DisplayName%;Bluetooth Serial Com) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (munications Driver | \\SystemRoot\\System32\\drivers\\bthmodem.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (  2013-08-22 14:48:00 UTC | bthhfhid | @bthaudhid.inf,%BthAudioHFHid.SVCDESC%;Bluetooth Hands-F) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (ree Call Control HID | \\SystemRoot\\System32\\drivers\\BthHFHid.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (  2013-08-22 14:47:56 UTC | AcpiPmi | @acpipmi.inf,%AcpiPmi.SvcDesc%;ACPI Power Meter Driver | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (\\SystemRoot\\System32\\drivers\\acpipmi.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 14:47:56 UTC | acpipagr | @acpipagr.inf,%SvcDesc%;ACPI Processor Aggregator Driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm ( | \\SystemRoot\\System32\\drivers\\acpipagr.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 14:47:55 UTC | 1394ohci | @1394.inf,%PCI\\CC_0C0010.DeviceDesc%;1394 OHCI Compliant) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm ( Host Controller | \\SystemRoot\\System32\\drivers\\1394ohci.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 14:47:12 UTC | WdBoot | @%ProgramFiles%\\Windows Defender\\MpAsDesc.dll,-390 | syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (m32\\drivers\\WdBoot.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 14:46:26 UTC | CngHwAssist |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (  2013-08-22 14:46:19 UTC | {8718928D-CBEB-45EA-A621-800A9249001D} |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 14:45:59 UTC | LanmanWorkstation | @%systemroot%\\system32\\wkssvc.dll,-100 | %Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (mRoot%\\System32\\svchost.exe -k NetworkService | Share_Process | Auto Start | NT AUTHORITY\\Netwo) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (rkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  2013-08-22 14:45:59 UTC | Ndisuio | @ndisuio.inf,%NDISUIO_Desc%;NDIS Usermode I/O Protocol | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (\\SystemRoot\\system32\\DRIVERS\\ndisuio.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (  2013-08-22 14:45:59 UTC | NdisCap | @%SystemRoot%\\System32\\drivers\\ndiscap.sys,-5000 | \\Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (mRoot\\system32\\DRIVERS\\ndiscap.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 14:45:58 UTC | WFPLWFS | @%SystemRoot%\\System32\\drivers\\wfplwfs.sys,-6000 | system) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (32\\DRIVERS\\wfplwfs.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 14:45:57 UTC | LanmanServer | @%systemroot%\\system32\\srvsvc.dll,-100 | %SystemRoot) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (%\\system32\\svchost.exe -k netsvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 14:45:57 UTC | srvnet |  | System32\\DRIVERS\\srvnet.sys | File system driver | Manu) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (al | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 14:45:57 UTC | iphlpsvc | @%SystemRoot%\\system32\\iphlpsvc.dll,-500 | %SystemRoot%\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (System32\\svchost.exe -k NetSvcs | Share_Process | Auto Start | LocalSystem) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 14:45:57 UTC | NativeWifiP | @%SystemRoot%\\System32\\drivers\\nwifi.sys,-101 | \\Syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (emRoot\\system32\\DRIVERS\\nwifi.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 14:45:57 UTC | NdisImPlatform | @%SystemRoot%\\System32\\drivers\\ndisimplatform.sys,) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (-501 | \\SystemRoot\\system32\\DRIVERS\\NdisImPlatform.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  2013-08-22 14:45:57 UTC | NdisWanLegacy | @%systemroot%\\system32\\rascfg.dll,-32014 | \\SystemR) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (oot\\system32\\DRIVERS\\ndiswan.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 14:45:57 UTC | RasPppoe | @%systemroot%\\system32\\rascfg.dll,-32007 | \\SystemRoot\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (ystem32\\DRIVERS\\raspppoe.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2013-08-22 14:45:56 UTC | MsLldp | @C:\\Windows\\system32\\DRIVERS\\mslldp.sys,-200 | \\SystemRoot) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 16 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+52 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 51 0 R >>
+endobj
+53 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 52 0 R /Annots [53 0 R] >>
+endobj
+54 0 obj
+<< /Length 7005 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (\\system32\\DRIVERS\\mslldp.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (  2013-08-22 14:45:55 UTC | PEAUTH | PEAUTH | system32\\drivers\\peauth.sys | Kernel driver | Aut) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (o Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 765.89 Tm (  2013-08-22 14:45:54 UTC | MsBridge | @%SystemRoot%\\system32\\bridgeres.dll,-1 | \\SystemRoot\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm (stem32\\DRIVERS\\bridge.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm (  2013-08-22 14:45:54 UTC | Psched | @%SystemRoot%\\System32\\drivers\\pacer.sys,-101 | \\SystemRoo) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm (t\\system32\\DRIVERS\\pacer.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 717.89 Tm (  2013-08-22 14:45:53 UTC | NdisTapi | @%systemroot%\\system32\\rascfg.dll,-32001 | \\SystemRoot\\s) Tj
+/F1 9 Tf 1 0 0 1 40.00 705.89 Tm (ystem32\\DRIVERS\\ndistapi.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 693.89 Tm (  2013-08-22 14:45:53 UTC | rspndr | @%SystemRoot%\\system32\\lltdres.dll,-5 | \\SystemRoot\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 681.89 Tm (32\\DRIVERS\\rspndr.sys | Kernel driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 669.89 Tm (  2013-08-22 14:45:53 UTC | lltdio | @%SystemRoot%\\system32\\lltdres.dll,-6 | \\SystemRoot\\system) Tj
+/F1 9 Tf 1 0 0 1 40.00 657.89 Tm (32\\DRIVERS\\lltdio.sys | Kernel driver | Auto Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 645.89 Tm (  2013-08-22 14:45:53 UTC | NdisWan | @%systemroot%\\system32\\rascfg.dll,-32002 | \\SystemRoot\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 633.89 Tm (stem32\\DRIVERS\\ndiswan.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 621.89 Tm (  2013-08-22 14:45:51 UTC | NetBIOS | @netnb.inf,%NetBIOS_Desc%;NetBIOS Interface | system32\\DR) Tj
+/F1 9 Tf 1 0 0 1 40.00 609.89 Tm (IVERS\\netbios.sys | File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (  2013-08-22 14:45:31 UTC | crypt32 |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (  2013-08-22 14:45:30 UTC | RDMANDK |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (  2013-08-22 14:45:30 UTC | TCPIP6 | @netip6.inf,%MS_TCPIP6.TCPIP6.ServiceDescription%;Microsof) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm (t IPv6 Protocol Driver | \\SystemRoot\\system32\\DRIVERS\\tcpip.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 549.89 Tm (  2013-08-22 14:45:30 UTC | lmhosts | @%SystemRoot%\\system32\\lmhsvc.dll,-101 | %SystemRoot%\\sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 537.89 Tm (tem32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT AUTHORITY\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm (LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 513.89 Tm (  2013-08-22 14:45:30 UTC | NetBT | @%SystemRoot%\\system32\\drivers\\netbt.sys,-2 | System32\\DRIV) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm (ERS\\netbt.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 489.89 Tm (  2013-08-22 14:45:29 UTC | Dhcp | @%SystemRoot%\\system32\\dhcpcore.dll,-100 | %SystemRoot%\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 477.89 Tm (em32\\svchost.exe -k LocalServiceNetworkRestricted | Share_Process | Auto Start | NT Authority\\L) Tj
+/F1 9 Tf 1 0 0 1 40.00 465.89 Tm (ocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  2013-08-22 14:45:29 UTC | tdx | @%SystemRoot%\\system32\\tcpipcfg.dll,-50004 | \\SystemRoot\\syst) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (em32\\DRIVERS\\tdx.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  2013-08-22 14:45:29 UTC | Tcpip | @%SystemRoot%\\system32\\tcpipcfg.dll,-50003 | System32\\drive) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (rs\\tcpip.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (  2013-08-22 14:44:34 UTC | TCPIP6TUNNEL |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  2013-08-22 14:44:34 UTC | TCPIPTUNNEL |  |  |  |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  2013-08-22 14:44:30 UTC | acpiex | Microsoft ACPIEx Driver | System32\\Drivers\\acpiex.sys | Ke) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (rnel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  2013-08-22 13:25:43 UTC | AFD | @%systemroot%\\system32\\drivers\\afd.sys,-1000 | \\SystemRoot\\sy) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (stem32\\drivers\\afd.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  2013-08-22 13:25:43 UTC | condrv | Console Driver | System32\\drivers\\condrv.sys | Kernel driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (er | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (  2013-08-22 13:25:43 UTC | FltMgr | @%SystemRoot%\\system32\\drivers\\fltmgr.sys,-10001 | system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (2\\drivers\\fltmgr.sys | File system driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  2013-08-22 13:25:43 UTC | Fs_Rec |  |  | 0x8 | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (  2013-08-22 13:25:43 UTC | KSecDD |  | System32\\Drivers\\ksecdd.sys | Kernel driver | Boot Star) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (t | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (  2013-08-22 13:25:43 UTC | mountmgr | @%SystemRoot%\\system32\\drivers\\mountmgr.sys,-100 | Syste) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (m32\\drivers\\mountmgr.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  2013-08-22 13:25:43 UTC | NDIS | @%SystemRoot%\\system32\\drivers\\ndis.sys,-200 | system32\\driv) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (ers\\ndis.sys | Kernel driver | Boot Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (  2013-08-22 13:25:43 UTC | nsi | @%SystemRoot%\\system32\\nsisvc.dll,-200 | %systemroot%\\system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (2\\svchost.exe -k LocalService | Share_Process | Auto Start | NT Authority\\LocalService) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (  2013-08-22 13:25:43 UTC | nsiproxy | @%SystemRoot%\\system32\\drivers\\nsiproxy.sys,-2 | system3) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (2\\drivers\\nsiproxy.sys | Kernel driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (  2013-08-22 13:25:43 UTC | Ntfs |  |  | File system driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  2013-08-22 13:25:43 UTC | RpcEptMapper | @%windir%\\system32\\RpcEpMap.dll,-1001 | %SystemRoot%) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (\\system32\\svchost.exe -k RPCSS | Share_Process | Auto Start | NT AUTHORITY\\NetworkService) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  2013-08-22 13:25:43 UTC | Msfs |  |  | File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  2013-08-22 13:25:43 UTC | MsRPC |  |  | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  2013-08-22 13:25:43 UTC | Npfs |  |  | File system driver | System Start | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  2013-08-22 13:25:43 UTC | Null |  |  | Kernel driver | System Start | ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 17 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+55 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 54 0 R >>
+endobj
+56 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 55 0 R /Annots [56 0 R] >>
+endobj
+57 0 obj
+<< /Length 4119 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  2013-08-22 13:25:43 UTC | VerifierExt | @%SystemRoot%\\system32\\drivers\\VerifierExt.sys,-1000 ) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (| system32\\drivers\\VerifierExt.sys | Kernel driver | Manual | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 759.89 Tm (usbstor v.20220524) Tj
+/F2 10 Tf 1 0 0 1 40.00 741.89 Tm (\(system\) Parses Enum\\USBStor key) Tj
+/F1 9 Tf 1 0 0 1 40.00 729.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 717.89 Tm (USBStor) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm (ControlSet001\\Enum\\USBStor not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 690.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 672.89 Tm (ips v.20200911) Tj
+/F2 10 Tf 1 0 0 1 40.00 654.89 Tm (\(system\) Get IP Addresses and domains \(DHCP, static\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 642.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 630.89 Tm (Network Interfaces) Tj
+/F1 9 Tf 1 0 0 1 40.00 615.89 Tm (  Interface | DhcpIPAddress | IPAddress | Domain) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm (  {B0E24C4B-50F2-4B60-BCB3-EF2C3FF3394E} | 192.168.56.103 |  | ) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 573.89 Tm (mountdev v.20221129) Tj
+/F2 10 Tf 1 0 0 1 40.00 555.89 Tm (\(system\) Return contents of HKLM\\System\\MountedDevices key) Tj
+/F1 9 Tf 1 0 0 1 40.00 543.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 531.89 Tm (Drives) Tj
+/F1 9 Tf 1 0 0 1 40.00 516.89 Tm (  Value | Signature) Tj
+/F1 9 Tf 1 0 0 1 40.00 504.89 Tm (  \\??\\Volume{a08efec2-a076-11e5-824f-806e6f6e6963} | Drive Signature: 27 3e 4c fe) Tj
+/F1 9 Tf 1 0 0 1 40.00 492.89 Tm (  \\??\\Volume{a08efec3-a076-11e5-824f-806e6f6e6963} | Drive Signature: 27 3e 4c fe) Tj
+/F1 9 Tf 1 0 0 1 40.00 480.89 Tm (  \\DosDevices\\C: | Drive Signature: 27 3e 4c fe) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 468.89 Tm (Devices) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  Value | Device) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  \\??\\Volume{a08efec7-a076-11e5-824f-806e6f6e6963} | \\??\\SCSI#CdRom&Ven_VBOX&Prod_CD-ROM#4&8f5d) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (389&0&010000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  \\DosDevices\\D: | \\??\\SCSI#CdRom&Ven_VBOX&Prod_CD-ROM#4&8f5d389&0&010000#{53f5630d-b6bf-11d0-9) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (4f2-00a0c91efb8b}) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 393.89 Tm (Volumes) Tj
+/F1 9 Tf 1 0 0 1 40.00 378.89 Tm (\(none\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 366.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 348.89 Tm (bootkey v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 330.89 Tm (\(system\) Derive the SysKey bootkey from Lsa class names \(needed to decrypt SAM/SECURITY\)) Tj
+/F2 10 Tf 1 0 0 1 40.00 318.89 Tm (MITRE: T1003.002 \(credential access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 306.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 294.89 Tm (SysKey Bootkey) Tj
+/F1 9 Tf 1 0 0 1 40.00 279.89 Tm (  JD                       4af282a2) Tj
+/F1 9 Tf 1 0 0 1 40.00 267.89 Tm (  Skew1                    0d756314) Tj
+/F1 9 Tf 1 0 0 1 40.00 255.89 Tm (  GBG                      94b622a1) Tj
+/F1 9 Tf 1 0 0 1 40.00 243.89 Tm (  Data                     f2a83d40) Tj
+/F1 9 Tf 1 0 0 1 40.00 231.89 Tm (  Bootkey \(hex\)            94750d82a1b6a8a24a63f2f23d224014) Tj
+/F1 9 Tf 1 0 0 1 40.00 219.89 Tm (Attach the SAM or SECURITY hive \(+ Add hive&\) and re-run its hash/secrets plugin to decrypt.) Tj
+/F1 9 Tf 1 0 0 1 40.00 207.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 189.89 Tm (shimcache v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 171.89 Tm (\(system\) Parse AppCompatCache \(ShimCache\) file-execution traces) Tj
+/F1 9 Tf 1 0 0 1 40.00 159.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 147.89 Tm (AppCompatCache) Tj
+/F1 9 Tf 1 0 0 1 40.00 132.89 Tm (Unrecognised cache format \(first 8 bytes: 64620200080c6f00\).) Tj
+/F1 9 Tf 1 0 0 1 40.00 120.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 102.89 Tm (bam v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 84.89 Tm (\(system\) Background Activity Moderator per-SID program execution times \(Win10+\)) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 18 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+58 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 57 0 R >>
+endobj
+59 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 58 0 R /Annots [59 0 R] >>
+endobj
+60 0 obj
+<< /Length 5456 >>
+stream
+BT
+/F2 10 Tf 1 0 0 1 40.00 801.89 Tm (MITRE: T1059 \(program execution\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 777.89 Tm (BAM / DAM) Tj
+/F1 9 Tf 1 0 0 1 40.00 762.89 Tm (Services\\bam\\State\\UserSettings / dam equivalent not found \(pre-Win10 or key absent\).) Tj
+/F1 9 Tf 1 0 0 1 40.00 750.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 732.89 Tm (wpdbusenum v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 714.89 Tm (\(system\) MTP/PTP portable devices \(phones, tablets\) from WPDBUSENUM enumeration) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 690.89 Tm (WPDBUSENUM \(portable devices\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 675.89 Tm (ControlSet001\\Enum\\SWD\\WPDBUSENUM not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 663.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 645.89 Tm (svcacls v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 627.89 Tm (\(system\) Audit service-key DACLs for non-admin write access \(offline accesschk\)) Tj
+/F2 10 Tf 1 0 0 1 40.00 615.89 Tm (MITRE: T1574.011 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 591.89 Tm (Service registry-key ACLs) Tj
+/F1 9 Tf 1 0 0 1 40.00 576.89 Tm (Checked 469 service keys with descriptors \(0 expose no sk descriptor  common in truncated hive) Tj
+/F1 9 Tf 1 0 0 1 40.00 564.89 Tm (s\).) Tj
+/F1 9 Tf 1 0 0 1 40.00 552.89 Tm (No service key grants write access to non-admin trustees.) Tj
+/F1 9 Tf 1 0 0 1 40.00 540.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 522.89 Tm (autostarts v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 504.89 Tm (\(software, ntuser, system\) Consolidated autostart sweep across Run keys, Winlogon, LSA, IFEO, Active Setup and more) Tj
+/F2 10 Tf 1 0 0 1 40.00 492.89 Tm (MITRE: T1547 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 480.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 468.89 Tm (Autostart Extensibility Points) Tj
+/F1 9 Tf 1 0 0 1 40.00 453.89 Tm (  Source | Key | Name | Data | MITRE | StartupApproved) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (  LSA: Security Packages | ControlSet001\\Control\\Lsa | Security Packages | "" | T1101 | not tra) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (cked) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  LSA: Notification Packages | ControlSet001\\Control\\Lsa | Notification Packages | scecli | T15) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (56 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  Time Providers  NtpClient | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}\\Contro) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (lSet001\\Services\\W32Time\\TimeProviders\\NtpClient | DllName | %systemroot%\\system32\\w32time.dll ) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (| T1547.003 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  Time Providers  NtpServer | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}\\Contro) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (lSet001\\Services\\W32Time\\TimeProviders\\NtpServer | DllName | %systemroot%\\system32\\w32time.dll ) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (| T1547.003 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  Time Providers  VMICTimeProvider | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm (\\ControlSet001\\Services\\W32Time\\TimeProviders\\VMICTimeProvider | DllName | %SystemRoot%\\System3) Tj
+/F1 9 Tf 1 0 0 1 40.00 297.89 Tm (2\\vmictimeprovider.dll | T1547.003 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm (  Print Monitors  Local Port | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}\\Contr) Tj
+/F1 9 Tf 1 0 0 1 40.00 273.89 Tm (olSet001\\Control\\Print\\Monitors\\Local Port | Driver | localspl.dll | T1547.002 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 261.89 Tm (  Print Monitors  Microsoft Shared Fax Monitor | CsiTool-CreateHive-{00000000-0000-0000-0000-0) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm (00000000000}\\ControlSet001\\Control\\Print\\Monitors\\Microsoft Shared Fax Monitor | Driver | FXSMO) Tj
+/F1 9 Tf 1 0 0 1 40.00 237.89 Tm (N.DLL | T1547.002 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 225.89 Tm (  Print Monitors  Standard TCP/IP Port | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000) Tj
+/F1 9 Tf 1 0 0 1 40.00 213.89 Tm (000}\\ControlSet001\\Control\\Print\\Monitors\\Standard TCP/IP Port | Driver | tcpmon.dll | T1547.00) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (2 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (  Print Monitors  USB Monitor | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}\\Cont) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm (rolSet001\\Control\\Print\\Monitors\\USB Monitor | Driver | usbmon.dll | T1547.002 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 165.89 Tm (  Print Monitors  WSD Port | CsiTool-CreateHive-{00000000-0000-0000-0000-000000000000}\\Control) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (Set001\\Control\\Print\\Monitors\\WSD Port | Driver | WSDMon.dll | T1547.002 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  BootExecute | ControlSet001\\Control\\Session Manager | BootExecute | autocheck autochk * | T15) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (47.002 | not tracked) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 99.89 Tm (defposture v.20260901) Tj
+/F2 10 Tf 1 0 0 1 40.00 81.89 Tm (\(software, system\) Defense posture audit: Defender/UAC/WDigest/PowerShell/SmartScreen settings with verdicts) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 19 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+61 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 60 0 R >>
+endobj
+62 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 61 0 R /Annots [62 0 R] >>
+endobj
+63 0 obj
+<< /Length 4044 >>
+stream
+BT
+/F2 10 Tf 1 0 0 1 40.00 801.89 Tm (MITRE: T1562.001 \(defense evasion \(audit\)\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 777.89 Tm (Defense Posture) Tj
+/F1 9 Tf 1 0 0 1 40.00 762.89 Tm (  Area | Setting | Value | Verdict) Tj
+/F1 9 Tf 1 0 0 1 40.00 750.89 Tm (  RDP | fDenyTSConnections | 1 | OK \(RDP off\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 738.89 Tm (  CrashControl | CrashDumpEnabled | 7 | OK) Tj
+/F1 9 Tf 1 0 0 1 40.00 726.89 Tm (Verdict totals: 0 hardened, 2 OK, 0 AT-RISK.) Tj
+/F1 9 Tf 1 0 0 1 40.00 714.89 Tm (Run with both SOFTWARE and SYSTEM attached for full coverage \(WDigest/RDP/CrashControl live in ) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm (SYSTEM\).) Tj
+/F1 9 Tf 1 0 0 1 40.00 690.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 672.89 Tm (allow_upgrade v.2023075) Tj
+/F2 10 Tf 1 0 0 1 40.00 654.89 Tm (\(system\) Check for AllowUpgradesWithUnsupportedTPMOrCPU value) Tj
+/F2 10 Tf 1 0 0 1 40.00 642.89 Tm (MITRE: T1601 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 630.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 618.89 Tm (allow_upgrade) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm (Setup\\MoSetup not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 573.89 Tm (appcertdlls v.20200813) Tj
+/F2 10 Tf 1 0 0 1 40.00 555.89 Tm (\(system\) Get entries from AppCertDlls key) Tj
+/F2 10 Tf 1 0 0 1 40.00 543.89 Tm (MITRE: T1546.009 \(privilege escalation\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 531.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 519.89 Tm (appcertdlls) Tj
+/F1 9 Tf 1 0 0 1 40.00 504.89 Tm (ControlSet001\\Control\\Session Manager\\AppCertDlls not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 492.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 474.89 Tm (autodialdll v.20221026) Tj
+/F2 10 Tf 1 0 0 1 40.00 456.89 Tm (\(system\) Get AutodialDLL DLL) Tj
+/F2 10 Tf 1 0 0 1 40.00 444.89 Tm (MITRE: T1546 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 432.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 420.89 Tm (ControlSet001\\Services\\WinSock2\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm (LastWrite: 2013-08-22 15:43:53 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 393.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 381.89 Tm (  AutodialDLL | C:\\Windows\\System32\\rasadhlp.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 351.89 Tm (automount v.20221010) Tj
+/F2 10 Tf 1 0 0 1 40.00 333.89 Tm (\(system\) Get automount Settings) Tj
+/F2 10 Tf 1 0 0 1 40.00 321.89 Tm (MITRE: T1091 \(initial access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 297.89 Tm (ControlSet001\\Services\\mountmgr) Tj
+/F1 9 Tf 1 0 0 1 40.00 282.89 Tm (LastWrite: 2013-08-22 13:25:43 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 270.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 258.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 240.89 Tm (backuprestore v.20201012) Tj
+/F2 10 Tf 1 0 0 1 40.00 222.89 Tm (\(system\) Gets the contents of the FilesNotToSnapshot, KeysNotToRestore, and FilesNotToBackup keys) Tj
+/F2 10 Tf 1 0 0 1 40.00 210.89 Tm (MITRE: T1562.001 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 198.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 186.89 Tm (ControlSet001\\Control\\BackupRestore\\FilesNotToSnapshot) Tj
+/F1 9 Tf 1 0 0 1 40.00 171.89 Tm (LastWrite: 2014-03-18 10:18:07 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 159.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 147.89 Tm (  FVE | $AllVolumes$\\System Volume Information\\FVE.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed08}) Tj
+/F1 9 Tf 1 0 0 1 40.00 135.89 Tm (  FVE2_Wipe | $AllVolumes$\\System Volume Information\\FVE2.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed08) Tj
+/F1 9 Tf 1 0 0 1 40.00 123.89 Tm (}) Tj
+/F1 9 Tf 1 0 0 1 40.00 111.89 Tm (  FVE2_WipeX | $AllVolumes$\\System Volume Information\\FVE2.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed0) Tj
+/F1 9 Tf 1 0 0 1 40.00 99.89 Tm (8}.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 87.89 Tm (  OutlookOST | $UserProfile$\\AppData\\Local\\Microsoft\\Outlook\\*.ost) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 20 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+64 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 63 0 R >>
+endobj
+65 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 64 0 R /Annots [65 0 R] >>
+endobj
+66 0 obj
+<< /Length 5646 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm (  RAC | %ProgramData%\\Microsoft\\RAC\\* ж %ProgramData%\\Microsoft\\RAC\\StateData\\* ж %ProgramData%) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm (\\Microsoft\\RAC\\Outbound\\* ж %ProgramData%\\Microsoft\\RAC\\Temp\\*) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm (  WUA | %windir%\\softwaredistribution\\*.* /s) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 765.89 Tm (ControlSet001\\Control\\BackupRestore\\FilesNotToBackup) Tj
+/F1 9 Tf 1 0 0 1 40.00 750.89 Tm (LastWrite: 2014-03-18 10:18:07 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 738.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 726.89 Tm (  BITS_BAK | C:\\Windows\\System32\\Bits.bak) Tj
+/F1 9 Tf 1 0 0 1 40.00 714.89 Tm (  BITS_LOG | C:\\Windows\\System32\\Bits.log) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm (  BITS_metadata | C:\\ProgramData\\Microsoft\\Network\\Downloader\\*) Tj
+/F1 9 Tf 1 0 0 1 40.00 690.89 Tm (  ETW | %SystemRoot%\\system32\\LogFiles\\WMI\\RtBackup\\*.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 678.89 Tm (  FVE_Control | \\System Volume Information\\FVE.{e40ad34d-dae9-4bc7-95bd-b16218c10f72}.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 666.89 Tm (  FVE_Log | \\System Volume Information\\FVE.{c9ca54a3-6983-46b7-8684-a7e5e23499e3}) Tj
+/F1 9 Tf 1 0 0 1 40.00 654.89 Tm (  FVE_Wipe | \\System Volume Information\\FVE.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed08}) Tj
+/F1 9 Tf 1 0 0 1 40.00 642.89 Tm (  FVE2_Control | \\System Volume Information\\FVE2.{e40ad34d-dae9-4bc7-95bd-b16218c10f72}.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 630.89 Tm (  FVE2_Log | \\System Volume Information\\FVE2.{c9ca54a3-6983-46b7-8684-a7e5e23499e3}) Tj
+/F1 9 Tf 1 0 0 1 40.00 618.89 Tm (  FVE2_VBB | \\System Volume Information\\FVE2.{24e6f0ae-6a00-4f73-984b-75ce9942852d}) Tj
+/F1 9 Tf 1 0 0 1 40.00 606.89 Tm (  FVE2_Wipe | \\System Volume Information\\FVE2.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed08}) Tj
+/F1 9 Tf 1 0 0 1 40.00 594.89 Tm (  FVE2_WipeInfo | \\System Volume Information\\FVE2.{aff97bac-a69b-45da-aba1-2cfbce434750}.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 582.89 Tm (  FVE2_WipeX | \\System Volume Information\\FVE2.{9ef82dfa-1239-4a30-83e6-3b3e9b8fed08}.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 570.89 Tm (  Internet Explorer | %UserProfile%\\index.dat /s) Tj
+/F1 9 Tf 1 0 0 1 40.00 558.89 Tm (  Kernel Dumps | %systemroot%\\Minidump\\* /s ж %systemroot%\\memory.dmp) Tj
+/F1 9 Tf 1 0 0 1 40.00 546.89 Tm (  Memory Page File | \\Pagefile.sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 534.89 Tm (  Mount Manager | \\System Volume Information\\MountPointManagerRemoteDatabase) Tj
+/F1 9 Tf 1 0 0 1 40.00 522.89 Tm (  MS Distributed Transaction Coordinator | C:\\Windows\\system32\\MSDtc\\MSDTC.LOG ж C:\\Windows\\sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 510.89 Tm (tem32\\MSDtc\\trace\\dtctrace.log) Tj
+/F1 9 Tf 1 0 0 1 40.00 498.89 Tm (  Netlogon | %SystemRoot%\\netlogon.chg) Tj
+/F1 9 Tf 1 0 0 1 40.00 486.89 Tm (  Power Management | \\hiberfil.sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 474.89 Tm (  RAC | %ProgramData%\\Microsoft\\RAC\\* ж %ProgramData%\\Microsoft\\RAC\\StateData\\* ж %ProgramData%) Tj
+/F1 9 Tf 1 0 0 1 40.00 462.89 Tm (\\Microsoft\\RAC\\Outbound\\* ж %ProgramData%\\Microsoft\\RAC\\Temp\\*) Tj
+/F1 9 Tf 1 0 0 1 40.00 450.89 Tm (  Temporary Files | %TEMP%\\* /s) Tj
+/F1 9 Tf 1 0 0 1 40.00 438.89 Tm (  VSS Default Provider | \\System Volume Information\\*{3808876B-C176-4e48-B7AE-04046E6CC752} /s) Tj
+/F1 9 Tf 1 0 0 1 40.00 426.89 Tm (  VSS Service Alternate DB | \\System Volume Information\\*.{7cc467ef-6865-4831-853f-2a4817fd1bca) Tj
+/F1 9 Tf 1 0 0 1 40.00 414.89 Tm (}ALT) Tj
+/F1 9 Tf 1 0 0 1 40.00 402.89 Tm (  VSS Service DB | \\System Volume Information\\*.{7cc467ef-6865-4831-853f-2a4817fd1bca}DB) Tj
+/F1 9 Tf 1 0 0 1 40.00 390.89 Tm (  WER | %ProgramData%\\Microsoft\\Windows\\WER\\* /s) Tj
+/F1 9 Tf 1 0 0 1 40.00 378.89 Tm (  WorkFolders | %UserProfile%\\AppData\\Local\\Microsoft\\Windows\\WorkFolders\\Metadata\\*.*) Tj
+/F1 9 Tf 1 0 0 1 40.00 366.89 Tm (  WUA | %windir%\\softwaredistribution\\*.* /s) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 354.89 Tm (ControlSet001\\Control\\BackupRestore\\KeysNotToRestore) Tj
+/F1 9 Tf 1 0 0 1 40.00 339.89 Tm (LastWrite: 2013-08-22 15:37:10 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 327.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 315.89 Tm (  Mount Manager | MountedDevices\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 303.89 Tm (  MS Distributed Transaction Coordinator | CurrentControlSet\\Control\\MSDTC\\ASR\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 291.89 Tm (  Pending Rename Operations | CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperat) Tj
+/F1 9 Tf 1 0 0 1 40.00 279.89 Tm (ions) Tj
+/F1 9 Tf 1 0 0 1 40.00 267.89 Tm (  Pending Rename Operations2 | CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOpera) Tj
+/F1 9 Tf 1 0 0 1 40.00 255.89 Tm (tions2) Tj
+/F1 9 Tf 1 0 0 1 40.00 243.89 Tm (  Session Manager | CurrentControlSet\\Control\\Session Manager\\AllowProtectedRenames) Tj
+/F1 9 Tf 1 0 0 1 40.00 231.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 213.89 Tm (codepage v.20200904) Tj
+/F2 10 Tf 1 0 0 1 40.00 195.89 Tm (\(system\) Checks codepage value) Tj
+/F1 9 Tf 1 0 0 1 40.00 183.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 171.89 Tm (ControlSet001\\Control\\Nls\\CodePage) Tj
+/F1 9 Tf 1 0 0 1 40.00 156.89 Tm (LastWrite: 2013-08-22 15:43:48 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 144.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 132.89 Tm (  ACP | 1252) Tj
+/F1 9 Tf 1 0 0 1 40.00 120.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 102.89 Tm (cred v.20200730) Tj
+/F2 10 Tf 1 0 0 1 40.00 84.89 Tm (\(system\) Checks for UseLogonCredential value) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 21 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+67 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 66 0 R >>
+endobj
+68 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 67 0 R /Annots [68 0 R] >>
+endobj
+69 0 obj
+<< /Length 3652 >>
+stream
+BT
+/F2 10 Tf 1 0 0 1 40.00 801.89 Tm (MITRE: T1112 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 789.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 777.89 Tm (ControlSet001\\Control\\SecurityProviders\\WDigest) Tj
+/F1 9 Tf 1 0 0 1 40.00 762.89 Tm (LastWrite: 2013-08-22 14:45:10 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 750.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 738.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 720.89 Tm (dafupnp v.20200904) Tj
+/F2 10 Tf 1 0 0 1 40.00 702.89 Tm (\(system\) Parses data from networked media streaming devices) Tj
+/F1 9 Tf 1 0 0 1 40.00 690.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 678.89 Tm (dafupnp) Tj
+/F1 9 Tf 1 0 0 1 40.00 663.89 Tm (ControlSet001\\Enum\\SWD\\DAFUPnPProvider not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 651.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 633.89 Tm (databasepath v.20201021) Tj
+/F2 10 Tf 1 0 0 1 40.00 615.89 Tm (\(system\) Get DataBasePath value from System hive) Tj
+/F2 10 Tf 1 0 0 1 40.00 603.89 Tm (MITRE: T1564 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 579.89 Tm (ControlSet001\\Services\\Tcpip\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 564.89 Tm (LastWrite: 2015-12-12 03:28:24 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 552.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 540.89 Tm (  DataBasePath | %SystemRoot%\\System32\\drivers\\etc) Tj
+/F1 9 Tf 1 0 0 1 40.00 528.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 510.89 Tm (defrag v.20201130) Tj
+/F2 10 Tf 1 0 0 1 40.00 492.89 Tm (\(system\) Get Defrag LastRun value) Tj
+/F2 10 Tf 1 0 0 1 40.00 480.89 Tm (MITRE: T1027 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 468.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 456.89 Tm (ControlSet001\\Control\\Session Manager\\Configuration Manager\\Defrag) Tj
+/F1 9 Tf 1 0 0 1 40.00 441.89 Tm (LastWrite: 2015-12-12 02:19:01 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 429.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 417.89 Tm (  LastRun | 12:11:2015) Tj
+/F1 9 Tf 1 0 0 1 40.00 405.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 387.89 Tm (disable445 v.20220921) Tj
+/F2 10 Tf 1 0 0 1 40.00 369.89 Tm (\(system\) Determine if SMB over NetBIOS is disabled) Tj
+/F2 10 Tf 1 0 0 1 40.00 357.89 Tm (MITRE: T1562.001 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 333.89 Tm (ControlSet001\\Services\\NetBT\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 318.89 Tm (LastWrite: 2013-08-22 14:45:30 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 306.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 294.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 276.89 Tm (disableremotescm v.20200831) Tj
+/F2 10 Tf 1 0 0 1 40.00 258.89 Tm (\(system\) Gets DisableRemoteScmEndpoints value from System hive) Tj
+/F1 9 Tf 1 0 0 1 40.00 246.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 234.89 Tm (ControlSet001\\Control) Tj
+/F1 9 Tf 1 0 0 1 40.00 219.89 Tm (LastWrite: 2015-12-12 03:26:37 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 207.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 195.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 177.89 Tm (dllsearch v.20210705) Tj
+/F2 10 Tf 1 0 0 1 40.00 159.89 Tm (\(system\) Check values that impact DLL Search Order loading) Tj
+/F2 10 Tf 1 0 0 1 40.00 147.89 Tm (MITRE: T1574.001 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 135.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 123.89 Tm (ControlSet001\\Control\\Session Manager) Tj
+/F1 9 Tf 1 0 0 1 40.00 108.89 Tm (LastWrite: 2015-12-12 03:30:12 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 96.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 84.89 Tm ( ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 22 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+70 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 69 0 R >>
+endobj
+71 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 70 0 R /Annots [71 0 R] >>
+endobj
+72 0 obj
+<< /Length 3574 >>
+stream
+BT
+/F3 13 Tf 1 0 0 1 40.00 801.89 Tm (fsdepends v.20220809) Tj
+/F2 10 Tf 1 0 0 1 40.00 783.89 Tm (\(system\) Get VHD[X] Settings) Tj
+/F2 10 Tf 1 0 0 1 40.00 771.89 Tm (MITRE: T1553.005 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 759.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 747.89 Tm (ControlSet001\\Services\\FsDepends\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 732.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 720.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 708.89 Tm (  VirtualDiskExpandOnMount | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 696.89 Tm (  VirtualDiskMaxTreeDepth | 2) Tj
+/F1 9 Tf 1 0 0 1 40.00 684.89 Tm (  VirtualDiskNoLocalMount | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 672.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 654.89 Tm (guestauth v.20201105) Tj
+/F2 10 Tf 1 0 0 1 40.00 636.89 Tm (\(system\) Gets AllowInsecureGuestAuth value) Tj
+/F2 10 Tf 1 0 0 1 40.00 624.89 Tm (MITRE: T1112 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 612.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 600.89 Tm (ControlSet001\\Services\\LanmanWorkstation\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm (LastWrite: 2013-08-22 14:45:59 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 573.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 561.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 543.89 Tm (kdc v.20210312) Tj
+/F2 10 Tf 1 0 0 1 40.00 525.89 Tm (\(system\) Get values related to ) Tj
+/F2 10 Tf 1 0 0 1 40.00 513.89 Tm (MITRE: T1562 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 501.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 489.89 Tm (kdc) Tj
+/F1 9 Tf 1 0 0 1 40.00 474.89 Tm (ControlSet001\\Services\\Kdc not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 462.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 444.89 Tm (lsa v.20220302) Tj
+/F2 10 Tf 1 0 0 1 40.00 426.89 Tm (\(system\) Lists specific contents of LSA key) Tj
+/F2 10 Tf 1 0 0 1 40.00 414.89 Tm (MITRE: T1003.001 \(credential access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 402.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 390.89 Tm (ControlSet001\\Control\\LSA) Tj
+/F1 9 Tf 1 0 0 1 40.00 375.89 Tm (LastWrite: 2015-12-12 03:20:19 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 363.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 351.89 Tm (  LimitBlankPasswordUse | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 339.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 321.89 Tm (ntds v.20200921) Tj
+/F2 10 Tf 1 0 0 1 40.00 303.89 Tm (\(system\) Parse Services NTDS key for specific persistence values) Tj
+/F2 10 Tf 1 0 0 1 40.00 291.89 Tm (MITRE: T1547.008 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 279.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 267.89 Tm (ControlSet001\\Services\\NTDS) Tj
+/F1 9 Tf 1 0 0 1 40.00 252.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 240.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 228.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 210.89 Tm (pagefile v.20200921) Tj
+/F2 10 Tf 1 0 0 1 40.00 192.89 Tm (\(system\) Get info on pagefile\(s\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 180.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 168.89 Tm (ControlSet001\\Control\\Session Manager\\Memory Management) Tj
+/F1 9 Tf 1 0 0 1 40.00 153.89 Tm (LastWrite: 2015-12-12 03:26:35 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 141.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (  PagingFiles | ?:\\pagefile.sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  ExistingPageFiles | \\??\\C:\\pagefile.sys) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  ClearPageFileAtShutdown | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm ( ) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 23 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+73 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 72 0 R >>
+endobj
+74 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 73 0 R /Annots [74 0 R] >>
+endobj
+75 0 obj
+<< /Length 4022 >>
+stream
+BT
+/F3 13 Tf 1 0 0 1 40.00 801.89 Tm (pending v.20230510) Tj
+/F2 10 Tf 1 0 0 1 40.00 783.89 Tm (\(system\) Gets contents of PendingFileRenameOperations value) Tj
+/F2 10 Tf 1 0 0 1 40.00 771.89 Tm (MITRE: T1547 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 759.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 747.89 Tm (ControlSet001\\Control\\Session Manager) Tj
+/F1 9 Tf 1 0 0 1 40.00 732.89 Tm (LastWrite: 2015-12-12 03:30:12 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 720.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 708.89 Tm (  PendingFileRenameOperations | \\??\\C:\\Users\\master\\AppData\\Local\\Temp\\nsp9C0.tmp\\nsProcess.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 696.89 Tm ( ж  ж \\??\\C:\\Users\\master\\AppData\\Local\\Temp\\nsp9C0.tmp\\) Tj
+/F1 9 Tf 1 0 0 1 40.00 684.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 666.89 Tm (perf v.20201130) Tj
+/F2 10 Tf 1 0 0 1 40.00 648.89 Tm (\(system\) Get EnablePeriodicBackup value) Tj
+/F2 10 Tf 1 0 0 1 40.00 636.89 Tm (MITRE: T1543.003 \(privilege escalation\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 624.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 612.89 Tm (perf) Tj
+/F1 9 Tf 1 0 0 1 40.00 597.89 Tm (None of the target paths were found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 585.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 567.89 Tm (portproxy v.20200929) Tj
+/F2 10 Tf 1 0 0 1 40.00 549.89 Tm (\(system\) Check port proxy settings, set via netsh) Tj
+/F2 10 Tf 1 0 0 1 40.00 537.89 Tm (MITRE: T1572 \(config\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 525.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 513.89 Tm (portproxy) Tj
+/F1 9 Tf 1 0 0 1 40.00 498.89 Tm (ControlSet001\\services\\PortProxy\\v4tov4\\tcp not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 486.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 468.89 Tm (prefetch v.20200922) Tj
+/F2 10 Tf 1 0 0 1 40.00 450.89 Tm (\(system\) Gets the the Prefetch Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 438.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 426.89 Tm (ControlSet001\\Control\\Session Manager\\Memory Management\\PrefetchParameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 411.89 Tm (LastWrite: 2015-12-12 03:26:32 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 399.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 387.89 Tm (  EnablePrefetcher | 3) Tj
+/F1 9 Tf 1 0 0 1 40.00 375.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 357.89 Tm (printmon v.20200922) Tj
+/F2 10 Tf 1 0 0 1 40.00 339.89 Tm (\(system\) Lists installed Print Monitors) Tj
+/F2 10 Tf 1 0 0 1 40.00 327.89 Tm (MITRE: T1546 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 315.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 303.89 Tm (ControlSet001\\Control\\Print\\Monitors) Tj
+/F1 9 Tf 1 0 0 1 40.00 288.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 276.89 Tm (  Subkey | LastWrite | Driver) Tj
+/F1 9 Tf 1 0 0 1 40.00 264.89 Tm (  Local Port | 2013-08-22 15:37:09 UTC | localspl.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 252.89 Tm (  Microsoft Shared Fax Monitor | 2013-08-22 15:37:09 UTC | FXSMON.DLL) Tj
+/F1 9 Tf 1 0 0 1 40.00 240.89 Tm (  Standard TCP/IP Port | 2013-08-22 15:37:09 UTC | tcpmon.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 228.89 Tm (  USB Monitor | 2013-08-22 15:37:09 UTC | usbmon.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 216.89 Tm (  WSD Port | 2013-08-22 14:49:03 UTC | WSDMon.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 204.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 186.89 Tm (processor_architecture v.20200922) Tj
+/F2 10 Tf 1 0 0 1 40.00 168.89 Tm (\(system\) Get from the processor architecture System hive) Tj
+/F1 9 Tf 1 0 0 1 40.00 156.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 144.89 Tm (ControlSet001\\Control\\Session Manager\\Environment) Tj
+/F1 9 Tf 1 0 0 1 40.00 129.89 Tm (LastWrite: 2015-12-12 02:18:32 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 105.89 Tm (  PROCESSOR_ARCHITECTURE | AMD64) Tj
+/F1 9 Tf 1 0 0 1 40.00 93.89 Tm (  PROCESSOR_IDENTIFIER | Intel64 Family 6 Model 60 Stepping 3, GenuineIntel) Tj
+/F1 9 Tf 1 0 0 1 40.00 81.89 Tm (  PROCESSOR_REVISION | 3c03) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 24 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+76 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 75 0 R >>
+endobj
+77 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 76 0 R /Annots [77 0 R] >>
+endobj
+78 0 obj
+<< /Length 3573 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 783.89 Tm (railrunonce v.20201020) Tj
+/F2 10 Tf 1 0 0 1 40.00 765.89 Tm (\(system\) Checks RemoteApp shell persistence) Tj
+/F2 10 Tf 1 0 0 1 40.00 753.89 Tm (MITRE: T1547.001 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 741.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 729.89 Tm (railrunonce) Tj
+/F1 9 Tf 1 0 0 1 40.00 714.89 Tm (ControlSet001\\Control\\Terminal Server\\RailRunonce not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 684.89 Tm (rdplockout v.20220809) Tj
+/F2 10 Tf 1 0 0 1 40.00 666.89 Tm (\(system\) Queries System hive for RDP Lockout Settings) Tj
+/F2 10 Tf 1 0 0 1 40.00 654.89 Tm (MITRE: T1133 \(initial access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 642.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 630.89 Tm (ControlSet001\\Services\\RemoteAccess\\Parameters\\AccountLockout) Tj
+/F1 9 Tf 1 0 0 1 40.00 615.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm (  MaxDenials | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 579.89 Tm (  ResetTime \(mins\) | 2880) Tj
+/F1 9 Tf 1 0 0 1 40.00 567.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 549.89 Tm (rdpport v.20220809) Tj
+/F2 10 Tf 1 0 0 1 40.00 531.89 Tm (\(system\) Queries System hive for RDP Port) Tj
+/F2 10 Tf 1 0 0 1 40.00 519.89 Tm (MITRE: T1133 \(initial access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 507.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 495.89 Tm (ControlSet001\\Control\\Terminal Server\\WinStations\\RDP-Tcp) Tj
+/F1 9 Tf 1 0 0 1 40.00 480.89 Tm (LastWrite: 2013-08-22 15:37:10 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 468.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 456.89 Tm (  PortNumber | 3389) Tj
+/F1 9 Tf 1 0 0 1 40.00 444.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 426.89 Tm (regback v.20201130) Tj
+/F2 10 Tf 1 0 0 1 40.00 408.89 Tm (\(system\) Get EnablePeriodicBackup value) Tj
+/F1 9 Tf 1 0 0 1 40.00 396.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 384.89 Tm (ControlSet001\\Control\\Session Manager\\Configuration Manager) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (LastWrite: 2015-12-12 02:19:01 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 327.89 Tm (securityproviders v.20201005) Tj
+/F2 10 Tf 1 0 0 1 40.00 309.89 Tm (\(system\) Gets SecurityProvider value from System hive) Tj
+/F2 10 Tf 1 0 0 1 40.00 297.89 Tm (MITRE: T1547.005 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 285.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 273.89 Tm (ControlSet001\\Control\\SecurityProviders) Tj
+/F1 9 Tf 1 0 0 1 40.00 258.89 Tm (LastWrite: 2013-08-22 15:37:10 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 246.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 234.89 Tm (  SecurityProviders | credssp.dll) Tj
+/F1 9 Tf 1 0 0 1 40.00 222.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 204.89 Tm (smb v.20220101) Tj
+/F2 10 Tf 1 0 0 1 40.00 186.89 Tm (\(system\) Get SMB server settings \(v1, v2, v3\)) Tj
+/F2 10 Tf 1 0 0 1 40.00 174.89 Tm (MITRE: T1562 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 162.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 150.89 Tm (ControlSet001\\Services\\LanmanServer\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 135.89 Tm (LastWrite: 2015-12-12 03:26:44 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 123.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 111.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 93.89 Tm (sourcerouting v.20210212) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 25 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+79 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 78 0 R >>
+endobj
+80 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 79 0 R /Annots [80 0 R] >>
+endobj
+81 0 obj
+<< /Length 3981 >>
+stream
+BT
+/F2 10 Tf 1 0 0 1 40.00 801.89 Tm (\(system\) Get Source Routing setting) Tj
+/F2 10 Tf 1 0 0 1 40.00 789.89 Tm (MITRE: T1203 \(execution\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 777.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 765.89 Tm (ControlSet001\\Services\\Tcpip\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 750.89 Tm (LastWrite: 2015-12-12 03:28:24 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 738.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 726.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 708.89 Tm (spooler v.20230715) Tj
+/F2 10 Tf 1 0 0 1 40.00 690.89 Tm (\(system\) Check Spooler service RequiredPrivileges value) Tj
+/F2 10 Tf 1 0 0 1 40.00 678.89 Tm (MITRE: T1547.012 \(privilege escalation\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 666.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 654.89 Tm (ControlSet001\\Services\\Spooler) Tj
+/F1 9 Tf 1 0 0 1 40.00 639.89 Tm (LastWrite: 2013-08-22 15:37:10 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 627.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 615.89 Tm (  RequiredPrivileges | SeTcbPrivilege ж SeImpersonatePrivilege ж SeAuditPrivilege ж SeChangeNot) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm (ifyPrivilege ж SeAssignPrimaryTokenPrivilege ж SeLoadDriverPrivilege) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 573.89 Tm (termserv v.20220908) Tj
+/F2 10 Tf 1 0 0 1 40.00 555.89 Tm (\(system, software\) Gets Terminal Server settings from System and Software hives) Tj
+/F2 10 Tf 1 0 0 1 40.00 543.89 Tm (MITRE: T1133 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 531.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 519.89 Tm (ControlSet001\\Control\\Terminal Server) Tj
+/F1 9 Tf 1 0 0 1 40.00 504.89 Tm (LastWrite: 2015-12-12 03:26:39 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 492.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 480.89 Tm (  AllowRemoteRPC | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 468.89 Tm (  DelayConMgrTimeout | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 456.89 Tm (  DeleteTempDirsOnExit | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 444.89 Tm (  fDenyTSConnections | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 432.89 Tm (  fSingleSessionPerUser | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 420.89 Tm (  GlassSessionId | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 408.89 Tm (  InstanceID | b5663427-0542-4470-9f85-3a82e4f) Tj
+/F1 9 Tf 1 0 0 1 40.00 396.89 Tm (  NotificationTimeOut | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 384.89 Tm (  PerSessionTempDir | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 372.89 Tm (  ProductVersion | 5.1) Tj
+/F1 9 Tf 1 0 0 1 40.00 360.89 Tm (  RailShowallNotifyIcons | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 348.89 Tm (  RCDependentServices | CertPropSvc ж SessionEnv) Tj
+/F1 9 Tf 1 0 0 1 40.00 336.89 Tm (  RDPVGCInstalled | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 324.89 Tm (  SnapshotMonitors | 1) Tj
+/F1 9 Tf 1 0 0 1 40.00 312.89 Tm (  StartRCM | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 300.89 Tm (  TSUserEnabled | 0) Tj
+/F1 9 Tf 1 0 0 1 40.00 288.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 270.89 Tm (tgt v.20201116) Tj
+/F2 10 Tf 1 0 0 1 40.00 252.89 Tm (\(system\) Lists allowtgtsessionkey value data) Tj
+/F2 10 Tf 1 0 0 1 40.00 240.89 Tm (MITRE: T1558.003 \(credential access\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 228.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 216.89 Tm (ControlSet001\\Control\\LSA\\Kerberos\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 201.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 189.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 177.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 159.89 Tm (timeproviders v.20200813) Tj
+/F2 10 Tf 1 0 0 1 40.00 141.89 Tm (\(system\) Check time providers for hijacking) Tj
+/F2 10 Tf 1 0 0 1 40.00 129.89 Tm (MITRE: T1547.003 \(program execution\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 117.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 105.89 Tm (ControlSet001\\Services\\W32Time\\TimeProviders) Tj
+/F1 9 Tf 1 0 0 1 40.00 90.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 78.89 Tm (\(no matching values\)) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 26 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+82 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 81 0 R >>
+endobj
+83 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 82 0 R /Annots [83 0 R] >>
+endobj
+84 0 obj
+<< /Length 3663 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 783.89 Tm (trailersupport v.20220111) Tj
+/F2 10 Tf 1 0 0 1 40.00 765.89 Tm (\(system\) Check EnableTrailerSupport value \(CVE-2022-21907\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 741.89 Tm (ControlSet001\\Services\\HTTP\\Parameters) Tj
+/F1 9 Tf 1 0 0 1 40.00 726.89 Tm (LastWrite: 2013-08-22 14:45:19 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 714.89 Tm (\(no matching values\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 702.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 684.89 Tm (tsutilities v.20200806) Tj
+/F2 10 Tf 1 0 0 1 40.00 666.89 Tm (\(system\) Checks TermServ Utilities) Tj
+/F2 10 Tf 1 0 0 1 40.00 654.89 Tm (MITRE: T1547 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 642.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 630.89 Tm (ControlSet001\\Control\\Terminal Server\\Utilities) Tj
+/F1 9 Tf 1 0 0 1 40.00 615.89 Tm (LastWrite: 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 603.89 Tm (  Subkey | LastWrite) Tj
+/F1 9 Tf 1 0 0 1 40.00 591.89 Tm (  change | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 579.89 Tm (  query | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 567.89 Tm (  reset | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 555.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 537.89 Tm (usn v.20220101) Tj
+/F2 10 Tf 1 0 0 1 40.00 519.89 Tm (\(system\) Get USN change journal settings on Windows Server) Tj
+/F2 10 Tf 1 0 0 1 40.00 507.89 Tm (MITRE: T1562 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 495.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 483.89 Tm (usn) Tj
+/F1 9 Tf 1 0 0 1 40.00 468.89 Tm (ControlSet001\\Services\\SrmSvc\\Settings not found.) Tj
+/F1 9 Tf 1 0 0 1 40.00 456.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 438.89 Tm (utilities v.20221231) Tj
+/F2 10 Tf 1 0 0 1 40.00 420.89 Tm (\(system\) Get TS Utilities subkey values) Tj
+/F2 10 Tf 1 0 0 1 40.00 408.89 Tm (MITRE: T1546 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 396.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 384.89 Tm (ControlSet001\\Control\\Terminal Server\\Utilities) Tj
+/F1 9 Tf 1 0 0 1 40.00 369.89 Tm (LastWrite: 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 357.89 Tm (  Subkey | LastWrite) Tj
+/F1 9 Tf 1 0 0 1 40.00 345.89 Tm (  change | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 333.89 Tm (  query | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 321.89 Tm (  reset | 2014-03-18 09:43:20 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 309.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 291.89 Tm (wdfilter v.20201229) Tj
+/F2 10 Tf 1 0 0 1 40.00 273.89 Tm (\(system\) Get WDFilter Altitude value) Tj
+/F2 10 Tf 1 0 0 1 40.00 261.89 Tm (MITRE: T1562.001 \(defense evasion\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 249.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 237.89 Tm (ControlSet001\\Services\\WdFilter\\Instances\\WdFilter Instance) Tj
+/F1 9 Tf 1 0 0 1 40.00 222.89 Tm (LastWrite: 2013-08-22 15:37:09 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 210.89 Tm (  Name | Data) Tj
+/F1 9 Tf 1 0 0 1 40.00 198.89 Tm (  Altitude | 328010) Tj
+/F1 9 Tf 1 0 0 1 40.00 186.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 168.89 Tm (wpbt v.20220718) Tj
+/F2 10 Tf 1 0 0 1 40.00 150.89 Tm (\(system\) Get Windows Platform Binary Table Settings) Tj
+/F2 10 Tf 1 0 0 1 40.00 138.89 Tm (MITRE: T1542.001 \(persistence\)) Tj
+/F1 9 Tf 1 0 0 1 40.00 126.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 114.89 Tm (ControlSet001\\Control\\Session Manager) Tj
+/F1 9 Tf 1 0 0 1 40.00 99.89 Tm (LastWrite: 2015-12-12 03:30:12 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 87.89 Tm (\(no matching values\)) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 27 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+85 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 84 0 R >>
+endobj
+86 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 85 0 R /Annots [86 0 R] >>
+endobj
+87 0 obj
+<< /Length 620 >>
+stream
+BT
+/F1 9 Tf 1 0 0 1 40.00 801.89 Tm ( ) Tj
+/F3 13 Tf 1 0 0 1 40.00 783.89 Tm (wtg v.20200909) Tj
+/F2 10 Tf 1 0 0 1 40.00 765.89 Tm (\(system\) Check for Windows To Go setting) Tj
+/F1 9 Tf 1 0 0 1 40.00 753.89 Tm ( ) Tj
+/F2 10.5 Tf 1 0 0 1 40.00 741.89 Tm (ControlSet001\\Control) Tj
+/F1 9 Tf 1 0 0 1 40.00 726.89 Tm (LastWrite: 2015-12-12 03:26:37 UTC) Tj
+/F1 9 Tf 1 0 0 1 40.00 714.89 Tm (\(no matching values\)) Tj
+/F2 7.5 Tf 1 0 0 1 40 24 Tm (HiveWalker - SYSTEM - page 28 of 28) Tj
+0 0 0 rg /F2 7.5 Tf 1 0 0 1 40 15 Tm (https://anantshri.github.io/HiveWalker/) Tj
+ET
+0.13 0.39 0.72 RG 0.5 w
+40 13.5 m 186.25 13.5 l S
+endstream
+endobj
+88 0 obj
+<< /Type /Annot /Subtype /Link /Rect [40 12 186.25 17] /Border [0 0 0] /A << /S /URI /URI (https://anantshri.github.io/HiveWalker/) >> /P 87 0 R >>
+endobj
+89 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 88 0 R /Annots [89 0 R] >>
+endobj
+xref
+0 90
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000310 00000 n 
+0000000405 00000 n 
+0000000502 00000 n 
+0000000604 00000 n 
+0000001980 00000 n 
+0000002142 00000 n 
+0000002310 00000 n 
+0000007340 00000 n 
+0000007503 00000 n 
+0000007674 00000 n 
+0000015100 00000 n 
+0000015264 00000 n 
+0000015435 00000 n 
+0000022119 00000 n 
+0000022283 00000 n 
+0000022454 00000 n 
+0000029440 00000 n 
+0000029604 00000 n 
+0000029775 00000 n 
+0000036867 00000 n 
+0000037031 00000 n 
+0000037202 00000 n 
+0000044365 00000 n 
+0000044529 00000 n 
+0000044700 00000 n 
+0000052138 00000 n 
+0000052302 00000 n 
+0000052473 00000 n 
+0000059924 00000 n 
+0000060088 00000 n 
+0000060259 00000 n 
+0000067703 00000 n 
+0000067867 00000 n 
+0000068038 00000 n 
+0000075695 00000 n 
+0000075859 00000 n 
+0000076030 00000 n 
+0000083486 00000 n 
+0000083650 00000 n 
+0000083821 00000 n 
+0000091235 00000 n 
+0000091399 00000 n 
+0000091570 00000 n 
+0000098258 00000 n 
+0000098422 00000 n 
+0000098593 00000 n 
+0000105952 00000 n 
+0000106116 00000 n 
+0000106287 00000 n 
+0000113728 00000 n 
+0000113892 00000 n 
+0000114063 00000 n 
+0000121121 00000 n 
+0000121285 00000 n 
+0000121456 00000 n 
+0000125628 00000 n 
+0000125792 00000 n 
+0000125963 00000 n 
+0000131472 00000 n 
+0000131636 00000 n 
+0000131807 00000 n 
+0000135904 00000 n 
+0000136068 00000 n 
+0000136239 00000 n 
+0000141938 00000 n 
+0000142102 00000 n 
+0000142273 00000 n 
+0000145978 00000 n 
+0000146142 00000 n 
+0000146313 00000 n 
+0000149940 00000 n 
+0000150104 00000 n 
+0000150275 00000 n 
+0000154350 00000 n 
+0000154514 00000 n 
+0000154685 00000 n 
+0000158311 00000 n 
+0000158475 00000 n 
+0000158646 00000 n 
+0000162680 00000 n 
+0000162844 00000 n 
+0000163015 00000 n 
+0000166731 00000 n 
+0000166895 00000 n 
+0000167066 00000 n 
+0000167738 00000 n 
+0000167902 00000 n 
+trailer
+<< /Size 90 /Root 1 0 R >>
+startxref
+168073
+%%EOF

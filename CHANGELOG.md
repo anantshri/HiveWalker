@@ -60,6 +60,12 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Fixed
 
+- Exported PDFs no longer open as corrupt/blank in strict viewers. The
+  writer's per-page object numbering was off by one slot: `/Kids` pointed at
+  content streams instead of `/Type /Page` objects, each page's `/Contents`
+  referenced its link annotation, and `/Annots` referenced the page itself.
+  The reference graph now resolves correctly; a regression test walks it
+  (Kids → Page → stream `/Contents`, Link `/Annots` with `/P` back-pointer).
 - Values pane renders beside the tree again on fresh sessions. The panes grid
   had only two tracks while the loaded DOM has three children (tree, resizer
   handle, values) — the values pane auto-placed to a second row whenever the

@@ -60,3 +60,24 @@ test('viewer tab: shrinkable panes row keeps statusbar visible', () => {
   assert.match(v[1], /grid-template-rows:\s*minmax\(0,\s*1fr\)\s*auto/, 'panes shrink, statusbar fixed');
   assert.match(v[1], /min-height:\s*0/, 'viewer tab can shrink inside the shell row');
 });
+
+test('panes: three tracks for tree | resizer | values — values beside the tree, never below', () => {
+  // Regression: with a 2-track template the values pane auto-placed to a
+  // second row on fresh sessions (no saved width), stacking values under the
+  // tree. The template must carry a track for the resizer.
+  const cols = CSS.match(/#panes\s*\{[^}]*grid-template-columns:\s*([^;]+);/s);
+  assert.ok(cols, '#panes rule exists');
+  // Track count = whitespace-separated tokens after collapsing minmax(a, b)
+  // (whose argument contains a space) into a single token.
+  const stripped = cols[1].replace(/\([^()]*\)/g, 'X');
+  const trackCount = stripped.trim().split(/\s+/).length;
+  assert.strictEqual(trackCount, 3, `3 tracks (tree|resizer|values), got: ${cols[1].trim()}`);
+  // And the three loaded-state children are pinned to their tracks.
+  assert.match(CSS, /#app\[data-state="loaded"\]\s*#tree-pane\s*\{[^}]*grid-column:\s*1/s);
+  assert.match(CSS, /#app\[data-state="loaded"\]\s*#values-pane\s*\{[^}]*grid-column:\s*3/s);
+  assert.match(CSS, /#pane-resizer\s*\{[^}]*grid-column:\s*2/s);
+  // The resizer's runtime style writes the same 3-track shape.
+  // (asserted here so a future change to either side stays in sync)
+  const resizerSrc = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'ui', '28-resizer.js'), 'utf8');
+  assert.match(resizerSrc, /gridTemplateColumns = `\$\{Math\.round\(width\)\}px 6px 1fr`/, 'resizer writes a 3-track inline style');
+});

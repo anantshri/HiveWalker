@@ -81,12 +81,23 @@ function makeDom() {
   const seed = (parent, id, tag) => { const e = new El(tag || 'div'); e.id = id; parent.appendChild(e); return e; };
   const body = new El('body');
   const appEl = seed(body, 'app');
+  appEl.dataset.state = 'empty';
+  appEl.dataset.tab = 'viewer';
   seed(appEl, 'topbar', 'header');
   seed(appEl, 'tabbar', 'nav');
   const viewerTab = seed(appEl, 'viewer-tab', 'main');
-  seed(viewerTab, 'panes');
+  const panes = seed(viewerTab, 'panes');
+  seed(panes, 'welcome', 'div');
+  seed(panes, 'error-card', 'div');
+  seed(panes, 'tree-pane', 'nav');
+  seed(panes, 'values-pane', 'section');
+  seed(viewerTab, 'statusbar', 'footer');
+  seed(appEl, 'search-results', 'div');
   seed(appEl, 'reports-tab', 'section');
   seed(appEl, 'page-footer', 'footer');
+  // NOTE: #meta-pane / #hex-pane are intentionally NOT seeded — the real DOM
+  // creates them lazily (26-hivemeta ensurePane / 24-hexview); seeding would
+  // shadow the dynamically created instances.
   globalThis.document = {
     El,
     createElement: (t) => new El(t),

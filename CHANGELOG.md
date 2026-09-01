@@ -30,6 +30,11 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Fixed
 
+- Values pane renders beside the tree again on fresh sessions. The panes grid
+  had only two tracks while the loaded DOM has three children (tree, resizer
+  handle, values) — the values pane auto-placed to a second row whenever the
+  resizer hadn't yet written its saved-width inline style. The grid now has
+  three tracks and each pane is pinned to its column.
 - Footer no longer occupies ~half the window before a hive is loaded (grid
   rows shifted while the tab bar was hidden).
 - Reports tab now lays out as intended — filterable plugin rail on the left,

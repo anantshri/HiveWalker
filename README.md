@@ -121,11 +121,31 @@ against genuine Windows hives during development, which caught two layout
 bugs the synthetic round-trips could not (a shared-assumption blind spot).
 Test hives are deliberately not shipped with the repository.
 
-## References
+## Acknowledgments
 
-- `supporting/RegRipper4.0` — behavioural reference (its plugin API shaped
-  the parser facade; `rr_helper.pl`/`time.pl` decode helpers were ported).
-  Not executed, not linked against.
+The **Reports** feature — 150 RegRipper-style forensic plugins — is a
+JavaScript reimplementation of the plugin layer of **RegRipper**, the
+Windows registry analysis tool by **H. Carvey (keydet89)**:
+
+- [RegRipper 4.0](https://github.com/keydet89/RegRipper4.0) — the plugin
+  corpus the ports follow (386 plugins; see
+  [`docs/regripper-plugins.md`](docs/regripper-plugins.md))
+- [RegRipper 3.0](https://github.com/keydet89/RegRipper3.0) — the earlier,
+  MIT-licensed release
+- [regripper.wordpress.com](https://regripper.wordpress.com/) — RegRipper
+  home page
+
+The plugin architecture (`src/plugins/30-runtime.js`, `32-simple.js`),
+shared helpers (`src/plugins/31-helpers.js`, ported from
+`rr_helper.pl`/`time.pl`), and all 17 bespoke + 133 descriptor-driven plugin
+reports are ports of RegRipper plugins. The Perl reference corpus
+(`supporting/RegRipper4.0`) is deliberately **not** shipped with this
+repository (see `.gitignore`); it is never executed or linked against.
+
+**License note:** RegRipper 3.0 is MIT-licensed; RegRipper 4.0 is free for
+personal and academic use **only** and may not be included in any
+distribution. HiveWalker's ports are offered for the same personal/academic
+DFIR use. Full details in [`NOTICE.md`](NOTICE.md).
 
 ## Known limitations
 

@@ -9,6 +9,62 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — Layout fixes (footer stretch, Reports scroll) + PDF cover page & site link
+
+**Summary:** Fixed two tab-shell CSS bugs reported by the operator (footer
+eating half the screen on open; Reports tab not scrolling, plugin list filling
+everything), and extended the PDF export with a hive-info cover page and a
+clickable link back to the project site.
+
+**Symptoms → diagnosis:**
+1. *Footer ~50% on open.* `#app` used `grid-template-rows: auto auto 1fr auto`
+   with auto-placement; before a hive loads `#tabbar` is `display:none`, so it
+   occupies no grid slot — auto-placement shifted `#page-footer` into the `1fr`
+   row where it stretched. Fix: explicit `grid-row` placement for every shell
+   element (1 topbar / 2 tabbar / 3 main / 4 footer) + `minmax(0,1fr)` for the
+   main row, making rows immune to hidden middle elements.
+2. *Reports tab non-scrollable, plugin list fills the space.*
+   `#app[data-tab="reports"] #reports-tab { display:block }` (visibility rule)
+   outranked the workspace rule `#reports-tab { display:grid;
+   grid-template-columns: … }`, so the two-column workspace never applied —
+   the rail's `flex:1` scroll area was meaningless inside a block and 150
+   plugins stacked full-height under `overflow:hidden`. Fix: visibility rules
+   only toggle `display` (active reports = `display:grid`), and the workspace
+   columns/overflow live in one canonical `#reports-tab` block declared once
+   with the shell; `minmax(0,1fr)` + `min-width:0` on the main column so it
+   can actually shrink and scroll.
+   No headless browser exists in this container, so these are pinned by
+   `tests/layout-css.test.js` — static CSS-invariant regression guards
+   (grid-row placement present, active reports rule is display:grid and never
+   block, workspace columns + scroll rules exist).
+
+**PDF additions:**
+- Cover page (page 1): centred "HiveWalker Forensic Report" title, generated
+  timestamp, and the loaded hive's info rows (reusing `viewModel.hiveMeta`).
+  Report content starts on page 2. Cover rows truncate (never paginate) so the
+  cover is always one page.
+- Site link: every page's footer draws the URL
+  `https://anantshri.github.io/HiveWalker/` in accent blue with an underline,
+  wrapped in a `/Subtype /Link` `/URI` annotation over exactly that text —
+  clickable in any PDF viewer.
+- Object numbering changed to per-page (content, link-annot, page) triples so
+  each page object can reference its annotation; xref offsets recompute
+  accordingly (still asserted).
+
+**How / commands run:**
+```
+node --test                                  # 232 pass (was 225)
+node --test --experimental-test-coverage     # 30-pdf.js 100% lines
+node tests/e2e-ui-sim.js                      # all green incl. PDF export
+aidc-scan                                     # clean
+```
+
+**Verification:** new tests — link annotation per page with correct `/URI` and
+`/Rect` over the footer line; cover on page 1 (title + generated + hive rows,
+no report body) and report from page 2; 80-row cover still one page; plus the
+four CSS layout guards. Manual browser eyeball still recommended (no PDF tools
+in the container).
+
 ## 2026-09-01 — Viewer/Reports tabs + PDF report export
 
 **Summary:** The Reports feature moved from a 640px slide-over panel to a

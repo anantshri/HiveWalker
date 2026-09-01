@@ -20,11 +20,21 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
   back to the Viewer preserves tree expansion and selection
   (`Ctrl+1`/`Ctrl+2` switch, `Esc` returns from Reports).
 - **PDF export:** "Export PDF" downloads the displayed report(s) as a real
-  PDF — A4, paginated, monospace tables, running footer with page numbers.
+  PDF — cover page with the loaded hive's info, report content from page 2,
+  A4, paginated, monospace tables, and a running footer with page numbers
+  plus a **clickable link back to https://anantshri.github.io/HiveWalker/**.
   Implemented by a hand-rolled ~200-line PDF writer (Base-14 fonts, no font
   embedding) so the app stays **zero-dependency**; generation and download
   are entirely local. Non-Latin-1 characters are substituted and noted in
   the footer; copy-to-text export remains fully lossless.
+
+### Fixed
+
+- Footer no longer occupies ~half the window before a hive is loaded (grid
+  rows shifted while the tab bar was hidden).
+- Reports tab now lays out as intended — filterable plugin rail on the left,
+  scrollable results on the right (the workspace grid was being overridden
+  by the tab-visibility rule).
 
 - **Reports (RegRipper-style plugins):** a new top-bar **Reports** panel that
   lists forensic plugins applicable to the loaded hive, runs one (or all

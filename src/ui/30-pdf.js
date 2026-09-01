@@ -19,6 +19,7 @@
   const TOP_LINE = 18;
   const FOOTER_SIZE = 7.5;
   const FOOTER_Y = 24;
+  const SITE_URL = 'https://anantshri.github.io/HiveWalker/';
 
   // Base-14: monospace body (keeps table columns aligned), sans for headers.
   const FONTS = {
@@ -81,11 +82,16 @@
   /**
    * Build the PDF byte string for a styled-line model
    * ({lines:[{text, style}], ...} — see viewModel.reportPdfModel).
+   * A cover page (title + hive info) is rendered first when `opts.coverRows`
+   * is provided ([[label, value], …] — from viewModel.hiveMeta).
+   * Every page's footer links back to the HiveWalker site.
    * @returns {Uint8Array}
    */
   function makePdf(model, opts) {
     const o = opts || {};
     const footerBase = o.footerBase || 'HiveWalker report';
+    const coverRows = Array.isArray(o.coverRows) && o.coverRows.length > 0 ? o.coverRows : null;
+    const coverTitle = o.coverTitle || 'HiveWalker Forensic Report';
     const lines = (model && model.lines) || [];
 
     // --- lay out pages -------------------------------------------------------
@@ -106,6 +112,28 @@
       }
     };
 
+    // Cover page: centred title + generation stamp, then the hive-info table,
+    // all on one page (report content starts on the next page).
+    if (coverRows) {
+      const centre = (text, style, atY) => {
+        const f = FONTS[style] || FONTS.body;
+        const w = text.length * (f.ref === 'F1' ? charW(f.size) : f.size * 0.5);
+        const x = Math.max(MARGIN, (PAGE_W - w) / 2);
+        page.push({ text, font: f.ref, size: f.size, y: atY, x });
+      };
+      centre(coverTitle, 'title', usableTop - 150);
+      centre(`Generated ${o.generatedText || ''}`.trim(), 'meta', usableTop - 176);
+      // Hive info rows as a label/value block below the title.
+      let cy = usableTop - 220;
+      for (const [k, v] of coverRows) {
+        if (cy < MARGIN + 60) break; // keep the cover to one page
+        page.push({ text: String(k), font: 'F2', size: 9.5, y: cy, x: MARGIN + 40 });
+        page.push({ text: String(v), font: 'F1', size: 9, y: cy, x: MARGIN + 190 });
+        cy -= 16;
+      }
+      newPage();
+    }
+
     for (const l of lines) {
       if (l.style === 'title' && page.length > 0) y -= 6; // extra gap before a new result title
       place(l.text, l.style);
@@ -113,23 +141,31 @@
     if (page.length > 0 || pages.length === 0) pages.push(page);
 
     // --- content streams -----------------------------------------------------
+    // Footer on every page: running text + a highlighted, clickable link back
+    // to the HiveWalker site (link annotation rect covers just the URL part).
     const total = pages.length;
+    let linkObjNums = [];
     const contents = pages.map((plines, i) => {
-      const footer = `${footerBase} - page ${i + 1} of ${total}` +
+      const running = `${footerBase} - page ${i + 1} of ${total}` +
         (replacedTotal > 0 ? ` - ${replacedTotal} unprintable character(s) shown as ?` : '');
       let s = 'BT\n';
       for (const L of plines) {
-        s += `/${L.font} ${L.size} Tf 1 0 0 1 ${MARGIN} ${L.y.toFixed(2)} Tm (${escapePdf(L.text)}) Tj\n`;
+        const x = L.x == null ? MARGIN : L.x;
+        s += `/${L.font} ${L.size} Tf 1 0 0 1 ${x.toFixed(2)} ${L.y.toFixed(2)} Tm (${escapePdf(L.text)}) Tj\n`;
       }
-      s += `/F2 ${FOOTER_SIZE} Tf 1 0 0 1 ${MARGIN} ${FOOTER_Y} Tm (${escapePdf(footer)}) Tj\n`;
-      s += 'ET';
+      s += `/F2 ${FOOTER_SIZE} Tf 1 0 0 1 ${MARGIN} ${FOOTER_Y} Tm (${escapePdf(running)}) Tj\n`;
+      s += `0 0 0 rg /F2 ${FOOTER_SIZE} Tf 1 0 0 1 ${MARGIN} ${FOOTER_Y - 9} Tm ` +
+        `(${escapePdf(SITE_URL)}) Tj\n`;
+      s += 'ET\n0.13 0.39 0.72 RG 0.5 w\n' + // accent-blue, thin
+        `${MARGIN} ${FOOTER_Y - 10.5} m ${MARGIN + SITE_URL.length * FOOTER_SIZE * 0.5} ${FOOTER_Y - 10.5} l S`;
       return s;
     });
 
     // --- assemble objects ----------------------------------------------------
-    // Object numbering: 1 catalog, 2 pages, 3.. fonts, then page + content pairs.
+    // Numbering: 1 catalog, 2 pages, 3-5 fonts, then per page: content, page.
+    // (Page objects reference their content + link annotation, so content and
+    // annotation objects must be numbered before the page that cites them.)
     const objects = [];
-    const pageObjNums = [];
     const nPages = pages.length;
     const FONT_objs = [
       '<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>',
@@ -137,17 +173,26 @@
       '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>',
     ];
     const firstPageObj = 3 + FONT_objs.length;
-    for (let i = 0; i < nPages; i++) pageObjNums.push(firstPageObj + i * 2);
+    const pageObjNums = [];
+    for (let i = 0; i < nPages; i++) pageObjNums.push(firstPageObj + i * 3);
 
     objects.push(`<< /Type /Catalog /Pages 2 0 R >>`);
     objects.push(`<< /Type /Pages /Kids [${pageObjNums.map((n) => `${n} 0 R`).join(' ')}] /Count ${nPages} >>`);
     objects.push(...FONT_objs);
     pages.forEach((_, i) => {
-      const contentNum = firstPageObj + i * 2 + 1;
-      objects.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] ` +
-        `/Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents ${contentNum} 0 R >>`);
+      const contentNum = firstPageObj + i * 3 + 1;
+      const linkNum = firstPageObj + i * 3 + 2;
+      const pageNum = firstPageObj + i * 3;
       objects.push(`<< /Length ${contents[i].length} >>\nstream\n${contents[i]}\nendstream`);
+      // Clickable link annotation over the footer URL.
+      objects.push(`<< /Type /Annot /Subtype /Link /Rect [${MARGIN} ${FOOTER_Y - 12} ` +
+        `${MARGIN + SITE_URL.length * FOOTER_SIZE * 0.5} ${FOOTER_Y - 7}] /Border [0 0 0] ` +
+        `/A << /S /URI /URI (${SITE_URL}) >> /P ${pageNum} 0 R >>`);
+      objects.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] ` +
+        `/Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> ` +
+        `/Contents ${contentNum} 0 R /Annots [${linkNum} 0 R] >>`);
     });
+    linkObjNums = pageObjNums; // (kept for potential future use/debugging)
 
     // --- serialise with xref -------------------------------------------------
     let pdf = '%PDF-1.4\n%\xE2\xE3\xCF\xD3\n';
@@ -179,13 +224,22 @@
 
   /**
    * Render the displayed result(s) to a PDF and trigger a download.
-   * Pure local: Blob + object URL, revoked immediately after the click.
+   * Page 1 is a cover (hive info from viewModel.hiveMeta); report content
+   * starts on page 2. Every page footer links back to the HiveWalker site.
+   * Pure local: Blob + object URL, revoked after the click.
    */
   function downloadReportPdf(results, slug) {
     const hive = RV.ui.app.state.hive;
-    const footerBase = `HiveWalker - ${hive && hive.meta && hive.meta.fileName ? hive.meta.fileName : 'registry hive'} - generated ${RV.plugins.helpers.formatDate(new Date())}`;
+    const meta = hive ? RV.ui.viewModel.hiveMeta(hive) : null;
+    const generatedText = RV.plugins.helpers.formatDate(new Date());
+    const footerBase = `HiveWalker - ${meta && meta.title ? meta.title : 'registry hive'}`;
     const model = RV.ui.viewModel.reportPdfModel(results);
-    const bytes = makePdf(model, { footerBase });
+    const bytes = makePdf(model, {
+      footerBase,
+      coverRows: meta ? meta.rows : null,
+      coverTitle: 'HiveWalker Forensic Report',
+      generatedText,
+    });
     const blob = new Blob([bytes], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

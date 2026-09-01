@@ -123,3 +123,46 @@ test('fileNameFor: slug-safe, timestamped', () => {
   const name = fileNameFor('All 5 Plugins!!', new Date(Date.UTC(2026, 8, 1, 10, 5)));
   assert.strictEqual(name, 'hivewalker-report-all-5-plugins-20260901-1005.pdf');
 });
+
+test('makePdf: every page footer carries a clickable link back to the site', () => {
+  const bytes = makePdf(modelOf([{ text: 'line', style: 'body' }]));
+  const s = Buffer.from(bytes).toString('latin1');
+  const pages = (s.match(/\/Type \/Page[^s]/g) || []).length;
+  const links = (s.match(/\/Subtype \/Link/g) || []).length;
+  assert.strictEqual(links, pages, 'one link annotation per page');
+  assert.ok(s.includes('/URI (https://anantshri.github.io/HiveWalker/)'));
+  // Each link's /Rect sits over the footer URL line (y between FOOTER_Y-12 and FOOTER_Y-7).
+  assert.match(s, /\/Subtype \/Link \/Rect \[40 12 [\d.]+ 17\]/);
+  // The visible URL text is drawn in the footer of every page.
+  assert.strictEqual((s.match(/https:\/\/anantshri\.github\.io\/HiveWalker\//g) || []).length, pages * 2);
+});
+
+test('makePdf: cover page shows hive info; report starts on page 2', () => {
+  const coverRows = [['Embedded file name', 'SYSTEM'], ['Format version', '1.5'], ['Checksum valid', 'yes']];
+  const bytes = makePdf(
+    modelOf([{ text: 'REPORT BODY LINE', style: 'body' }]),
+    { coverRows, coverTitle: 'HiveWalker Forensic Report', generatedText: '2026-09-01 10:00:00 UTC' },
+  );
+  const s = Buffer.from(bytes).toString('latin1');
+  const pages = (s.match(/\/Type \/Page[^s]/g) || []).length;
+  assert.strictEqual(pages, 2, 'cover + one content page');
+  // First content stream is the cover: title + generated + info rows, no body.
+  const first = s.slice(s.indexOf('stream') + 7, s.indexOf('endstream'));
+  assert.ok(first.includes('HiveWalker Forensic Report'));
+  assert.ok(first.includes('2026-09-01 10:00:00 UTC'));
+  assert.ok(first.includes('Embedded file name') && first.includes('SYSTEM'));
+  assert.ok(first.includes('Checksum valid'));
+  assert.ok(!first.includes('REPORT BODY LINE'), 'report body not on the cover');
+  // Second content stream has the report body.
+  const second = s.slice(s.indexOf('stream', s.indexOf('endstream')) + 7);
+  assert.ok(second.includes('REPORT BODY LINE'));
+});
+
+test('makePdf: cover overflow keeps the cover to a single page', () => {
+  const manyRows = Array.from({ length: 80 }, (_, i) => ['Row ' + i, 'value ' + i]);
+  const bytes = makePdf(modelOf([{ text: 'body', style: 'body' }]), { coverRows: manyRows });
+  const s = Buffer.from(bytes).toString('latin1');
+  const pages = (s.match(/\/Type \/Page[^s]/g) || []).length;
+  assert.strictEqual(pages, 2, 'long cover rows are truncated, not paginated');
+  assert.ok(s.includes('body'), 'report body still present');
+});

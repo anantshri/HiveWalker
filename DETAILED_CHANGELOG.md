@@ -9,6 +9,54 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — Proper RegRipper acknowledgment (NOTICE.md, README, docs)
+
+**Summary:** Added a proper acknowledgment of RegRipper (H. Carvey /
+keydet89) across the shipped docs, per issue
+[anantshri/HiveWalker#1](https://github.com/anantshri/HiveWalker/issues/1).
+
+**Why:** The Reports feature ships 150 plugin reports ported from
+RegRipper's plugin layer (17 bespoke in `src/plugins/40-43`, 133
+descriptor-driven in `src/plugins/50-descriptors.js`, plus
+`rr_helper.pl`/`time.pl` decode-helper ports in `src/reg/03-utf16.js` and
+`src/plugins/31-helpers.js`), yet no shipped file credited the tool, its
+author, or its license terms. RegRipper 3.0 is MIT-licensed, but RegRipper
+4.0 (the corpus the ports follow) is free for personal/academic use only
+and may not be included in any distribution — facts worth recording next
+to the ports themselves.
+
+**What changed:**
+- `NOTICE.md` (new) — third-party notice naming RegRipper, its author
+  (H. Carvey / keydet89), the RegRipper 3.0/4.0 repos and home page, the
+  exact derived material (files above), the statement that the Perl corpus
+  is not shipped, and both license texts (RR3.0 MIT / RR4.0
+  personal-academic-only) with a redistribution caveat.
+- `README.md` — "References" section replaced by an "Acknowledgments"
+  section (links, derived-material list, license note pointing at NOTICE).
+- `docs/regripper-plugins.md` — credit blockquote under the title.
+- `scripts/regripper/assemble.js` + `src/plugins/50-descriptors.js` —
+  header template/generated header now carry the author + license line so
+  regenerated descriptors keep the attribution (mirrored by hand; the
+  `supporting/` corpus is not present locally to rerun the generator).
+- `CHANGELOG.md` — bullet under [Unreleased] → Added.
+
+**How / commands run:**
+```
+node --test                                   # 212 pass (docs-only change)
+node scripts/regripper/assemble.js            # not run: needs supporting/ corpus (gitignored)
+grep -rn "keydet89\|H. Carvey" --include="*.md" --include="*.js" . | wc -l   # ack present in README/NOTICE/docs/descriptors
+```
+
+**Verification:** All 212 tests pass; only comments/markdown changed — no
+logic paths touched. `src/plugins/50-descriptors.js` still loads (tests
+`plugins-descriptors.test.js` exercises all 133 descriptors).
+
+**Notes / follow-ups:** If the project ever needs broader distribution,
+port the remaining plugins from MIT-licensed RegRipper 3.0 (or another
+permissive corpus) instead of 4.0, or seek the author's permission.
+
+---
+
 ## 2026-09-01 — Layout fixes (footer stretch, Reports scroll) + PDF cover page & site link
 
 **Summary:** Fixed two tab-shell CSS bugs reported by the operator (footer

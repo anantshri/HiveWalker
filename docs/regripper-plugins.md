@@ -1,5 +1,12 @@
 # RegRipper plugin porting — guide & status
 
+> **Credit:** RegRipper is by **H. Carvey (keydet89)** —
+> [RegRipper 4.0](https://github.com/keydet89/RegRipper4.0) ·
+> [RegRipper 3.0](https://github.com/keydet89/RegRipper3.0) ·
+> [regripper.wordpress.com](https://regripper.wordpress.com/). RR 3.0 is
+> MIT-licensed; RR 4.0 is free for personal/academic use **only** and may
+> not be included in any distribution — see [`NOTICE.md`](../NOTICE.md).
+
 This document is the durable record of the effort to bring RegRipper's plugin
 layer into HiveWalker. **Read this before re-analysing the RegRipper corpus or
 porting more plugins** — the corpus breakdown, the porting architecture, and a

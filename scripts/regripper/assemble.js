@@ -70,6 +70,8 @@ const header = `// rv.plugins — auto-imported RegRipper "simple" plugin descri
 // read patterns (no bespoke binary decoding, no user intervention). Each entry
 // is data consumed by RV.plugins.simple (see 32-simple.js). Bespoke plugins
 // live in 40-43; binary-decoder plugins are a separate follow-up.
+// RegRipper is by H. Carvey (keydet89) — https://github.com/keydet89/RegRipper4.0
+// (RR 3.0: MIT; RR 4.0: personal/academic use only — see NOTICE.md)
 (function (RV) {
   'use strict';
   RV.plugins.simple.registerAll(`;

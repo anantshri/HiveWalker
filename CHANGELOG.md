@@ -12,6 +12,13 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Added
 
+- **RegRipper acknowledgment:** the Reports plugin layer is now properly
+  credited to its source, **RegRipper by H. Carvey (keydet89)** — new
+  [`NOTICE.md`](NOTICE.md), an Acknowledgments section in the README, and
+  attribution in the generated plugin descriptors. License facts recorded:
+  RegRipper 3.0 is MIT; RegRipper 4.0 is personal/academic-use only (no
+  distribution), which is why the Perl corpus stays unshipped.
+
 - **Viewer / Reports tabs:** the main area is now two workspaces — the
   regedit-style **Viewer** and a full-width **Reports** tab (previously a
   640px slide-over). The Reports workspace has a filterable plugin rail

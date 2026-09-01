@@ -144,4 +144,239 @@
       }
     },
   });
+
+  // ---------------------------------------------------------------------------
+  // New bespoke plugins (not from the RR corpus — see docs/regripper-plugins.md):
+  // taskcache, networklist, emdmgmt, portabledevices.
+
+  R.register({
+    name: 'taskcache',
+    hives: ['software'],
+    category: 'persistence',
+    mitre: 'T1053.005',
+    version: '20260901',
+    shortDescr: 'Scheduled tasks from TaskCache: actions, authors, run times; flags hidden (SD-less) tasks',
+    run(hive, ctx) {
+      ctx.section('Scheduled Tasks (TaskCache)');
+      const base = 'Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache';
+      const root = H.subkey(hive, base);
+      if (!root) { ctx.rptMsg(base + ' not found.'); return; }
+      const tree = root.getSubkey('Tree');
+      const tasks = root.getSubkey('Tasks');
+      const byId = new Map();
+      if (tasks) {
+        for (const t of tasks.getSubkeys()) byId.set(t.name.toLowerCase(), t);
+      }
+
+      const collect = (key, prefix) => {
+        const out = [];
+        for (const k of key.getSubkeys()) {
+          const path = prefix ? prefix + '\\' + k.name : k.name;
+          const hasValues = k.getValues().length > 0 || k.getValue('Id');
+          if (hasValues) out.push([path, k]);
+          out.push(...collect(k, path));
+        }
+        return out;
+      };
+
+      const rows = tree ? collect(tree, '') : [];
+      if (rows.length === 0) { ctx.rptMsg('TaskCache\\Tree has no task entries.'); }
+
+      const hidden = [];
+      const orphans = [];
+      const t = ctx.table(['Task', 'Id', 'Author', 'Action', 'Last Run (UTC)', 'Flags']);
+      for (const [path, k] of rows.slice(0, H.MAX_PLUGIN_ROWS)) {
+        const id = H.getValueString(k, 'Id', '');
+        const author = H.getValueString(k, 'Author', '');
+        const actionXml = H.getValueString(k, 'Action', '');
+        let action = actionXml ? actionXml.split('\n')[0].slice(0, 120) : '';
+        let lastRun = '-';
+        let flags = [];
+        // Correlate with Tasks\<guid> for DynamicInfo + Actions.
+        const def = id ? byId.get(id.toLowerCase()) : null;
+        if (def) {
+          const dynRaw = H.getValueData(def, 'DynamicInfo');
+          if (dynRaw && (dynRaw.length === 0x1c || dynRaw.length === 0x24)) {
+            const d = H.filetimeFromBinary(dynRaw, 4);
+            if (d) lastRun = H.formatDate(d);
+          }
+          const actRaw = H.getValueData(def, 'Actions');
+          if (actRaw && actRaw.length > 6) {
+            try {
+              // u16 magic 0x03, u32 len + UTF-16 user, tag 0x6666/0x7777 follows.
+              let p = 2;
+              const userLen = actRaw[p] | (actRaw[p + 1] << 8); p += 2;
+              let user = '';
+              for (let i = 0; i < userLen; i += 2) user += String.fromCharCode(actRaw[p + i] | (actRaw[p + i + 1] << 8));
+              p += userLen;
+              if (p + 2 <= actRaw.length) {
+                const tag = actRaw[p] | (actRaw[p + 1] << 8);
+                if (tag === 0x6666 && p + 6 <= actRaw.length) {
+                  const plen = actRaw[p + 2] | (actRaw[p + 3] << 8);
+                  let prog = '';
+                  for (let i = 0; i < plen; i += 2) prog += String.fromCharCode(actRaw[p + 4 + i] | (actRaw[p + 4 + i + 1] << 8));
+                  if (prog) action = `${prog}${user ? ' (as ' + user + ')' : ''}`;
+                } else if (tag === 0x7777) {
+                  action = action || 'COM handler (see Actions blob)';
+                }
+              }
+            } catch { /* malformed Actions */ }
+          }
+        } else if (id) {
+          orphans.push(path);
+        }
+        if (!k.getValue('SD')) hidden.push(path);
+        t.row([path, id || '-', author || '-', action || '-', lastRun, flags.join(', ') || '-']);
+      }
+      if (hidden.length) {
+        ctx.section('Hidden tasks (no SD value — Tarrask-style)');
+        const ht = ctx.table(['Task']);
+        hidden.forEach((h) => ht.row([h]));
+        ctx.note('TaskCache\\Tree entries without an SD security value are hidden from `schtasks /query` — classic Tarrask-style defence evasion.');
+      }
+      if (orphans.length) {
+        ctx.section('Orphan Tree entries');
+        const ot = ctx.table(['Task']);
+        orphans.forEach((o) => ot.row([o]));
+      }
+    },
+  });
+
+  R.register({
+    name: 'networklist',
+    hives: ['software'],
+    category: 'config',
+    mitre: 'T1016',
+    version: '20260901',
+    shortDescr: 'Network profiles: names, category, first/last connection times, gateway MACs',
+    run(hive, ctx) {
+      ctx.section('Network Profiles');
+      const base = 'Microsoft\\Windows NT\\CurrentVersion\\NetworkList';
+      const root = H.subkey(hive, base);
+      if (!root) { ctx.rptMsg(base + ' not found.'); return; }
+
+      const CATEGORIES = { 0: 'Public', 1: 'Private', 2: 'Domain' };
+      const NAMETYPES = { 0x06: 'Wired', 0x17: 'Broadband', 0x47: 'Wireless' };
+
+      const sigs = new Map(); // profile guid -> {gwMac, dnsSuffix, source}
+      for (const src of ['Managed', 'Unmanaged']) {
+        const sk = root.getSubkey('Signatures') && root.getSubkey('Signatures').getSubkey(src);
+        if (!sk) continue;
+        for (const s of sk.getSubkeys()) {
+          const guid = H.getValueString(s, 'ProfileGuid', '') || s.name;
+          const mac = H.getValueData(s, 'DefaultGateWayMac');
+          let macStr = '';
+          if (mac && mac.length >= 6) {
+            macStr = Array.from(mac.subarray(0, 6)).map((b) => b.toString(16).padStart(2, '0').toUpperCase()).join(':');
+          }
+          sigs.set(guid.toLowerCase(), {
+            gwMac: macStr,
+            dnsSuffix: H.getValueString(s, 'DnsSuffix', ''),
+            first: H.getValueData(s, 'FirstNetwork'),
+            source: src,
+          });
+        }
+      }
+
+      const profiles = root.getSubkey('Profiles');
+      if (!profiles) { ctx.rptMsg('Profiles key not found (signatures only, below).'); }
+      const t = ctx.table(['Profile GUID', 'Name', 'Category', 'Type', 'Date Created', 'Last Connected', 'Gateway MAC', 'DNS suffix', 'Signature']);
+      if (profiles) {
+        for (const p of profiles.getSubkeys()) {
+          const dcRaw = H.getValueData(p, 'DateCreated');
+          const lcRaw = H.getValueData(p, 'DateLastConnected');
+          const ft = (raw) => {
+            if (!raw) return null;
+            if (raw.length === 12) return H.filetimeFromBinary(raw, 4); // Win10 quirk: FT in last 8 of 12
+            return H.filetimeFromBinary(raw, 0);
+          };
+          const cat = H.getValueDword(p, 'Category', null);
+          const ntype = H.getValueDword(p, 'NameType', null);
+          const sig = sigs.get(p.name.toLowerCase()) || {};
+          t.row([
+            p.name,
+            H.getValueString(p, 'ProfileName', '(unnamed)'),
+            cat != null ? (CATEGORIES[cat] || String(cat)) : '-',
+            ntype != null ? (NAMETYPES[ntype] || '0x' + ntype.toString(16)) : '-',
+            ft(dcRaw) ? H.formatDate(ft(dcRaw)) : '-',
+            ft(lcRaw) ? H.formatDate(ft(lcRaw)) : '-',
+            sig.gwMac || '-',
+            sig.dnsSuffix || '-',
+            sig.source || '-',
+          ]);
+        }
+      }
+      if (sigs.size > 0 && (!profiles || profiles.getSubkeys().length === 0)) {
+        const st = ctx.table(['Profile GUID', 'First Network', 'Gateway MAC', 'DNS suffix', 'Source']);
+        for (const [guid, s] of sigs) st.row([guid, s.first || '-', s.gwMac || '-', s.dnsSuffix || '-', s.source]);
+      }
+    },
+  });
+
+  R.register({
+    name: 'emdmgmt',
+    hives: ['software'],
+    category: 'devices',
+    version: '20260901',
+    shortDescr: 'EMDMgmt volume serial numbers — correlates USB/removable media across machines',
+    run(hive, ctx) {
+      ctx.section('EMDMgmt (volume serials)');
+      const base = 'Microsoft\\Windows NT\\CurrentVersion\\EMDMgmt';
+      const key = H.subkey(hive, base);
+      if (!key) { ctx.rptMsg(base + ' not found.'); return; }
+      const t = ctx.table(['Volume key name', 'Label', 'VSN', 'Last Tested (UTC)']);
+      let rows = 0;
+      for (const k of key.getSubkeys()) {
+        // Key names embed the volume serial as the last '_'-separated hex token
+        // (8 hex chars → XXXX-XXXX), the label second-to-last.
+        const parts = k.name.split('_');
+        let vsn = '-';
+        let label = '-';
+        if (parts.length >= 2) {
+          const last = parts[parts.length - 1];
+          if (/^[0-9a-f]{8}$/i.test(last)) {
+            const h = last.toUpperCase();
+            vsn = `${h.slice(0, 4)}-${h.slice(4)}`;
+            label = parts[parts.length - 2] || 'Unknown Volume';
+          }
+        }
+        const lt = H.getValueData(k, 'LastTestedTime');
+        const d = lt && lt.length >= 8 ? H.filetimeFromBinary(lt, 0) : null;
+        t.row([k.name, label, vsn, d ? H.formatDate(d) : '-']);
+        rows++;
+        if (rows >= H.MAX_PLUGIN_ROWS) { ctx.note('(truncated)'); break; }
+      }
+      if (rows === 0) ctx.rptMsg('(no volume entries)');
+    },
+  });
+
+  R.register({
+    name: 'portabledevices',
+    hives: ['software'],
+    category: 'devices',
+    version: '20260901',
+    shortDescr: 'MTP/PTP portable devices (phones, tablets) — FriendlyName, model, firmware',
+    run(hive, ctx) {
+      ctx.section('Portable Devices');
+      const base = 'Microsoft\\Windows Portable Devices\\Devices';
+      const key = H.subkey(hive, base);
+      if (!key) { ctx.rptMsg(base + ' not found.'); return; }
+      const t = ctx.table(['FriendlyName', 'Manufacturer', 'Model', 'Firmware', 'LastWrite (UTC)']);
+      let rows = 0;
+      for (const d of key.getSubkeys()) {
+        const name = H.getValueString(d, 'FriendlyName', '') || d.name;
+        t.row([
+          name,
+          H.getValueString(d, 'Manufacturer', '-') || '-',
+          H.getValueString(d, 'ModelName', '-') || '-',
+          H.getValueString(d, 'FirmwareVersion', '-') || '-',
+          H.formatDate(d.lastWriteDate),
+        ]);
+        rows++;
+        if (rows >= H.MAX_PLUGIN_ROWS) { ctx.note('(truncated)'); break; }
+      }
+      if (rows === 0) ctx.rptMsg('(no devices)');
+      ctx.note('Correlate with SYSTEM\\...\\Enum\\SWD\\WPDBUSENUM (wpdbusenum plugin) for device GUIDs and times.');
+    },
+  });
 })(window.RV);

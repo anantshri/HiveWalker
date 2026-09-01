@@ -24,7 +24,10 @@ plausible.init()
     <a id="github-link" href="https://github.com/anantshri/HiveWalker" target="_blank" rel="noopener"
        title="HiveWalker on GitHub — source, issues, releases">GitHub</a>
     <label id="open-btn" for="file-input">Open hive…</label>
-    <input id="file-input" type="file" hidden>
+    <input id="file-input" type="file" hidden multiple>
+    <label id="add-btn" for="add-file-input" hidden title="Attach another hive (e.g. SYSTEM alongside SAM) for cross-hive reports">+ Add hive…</label>
+    <input id="add-file-input" type="file" hidden multiple>
+    <select id="hive-select" hidden title="Switch the viewed hive"></select>
     <span id="file-name" title=""></span>
     <input id="search-input" type="search" placeholder="Search keys, value names, data…"
            autocomplete="off" spellcheck="false" disabled>
@@ -91,13 +94,30 @@ plausible.init()
 <script src="src/reg/11-value-data.js"></script>
 <script src="src/reg/12-hive.js"></script>
 <script src="src/reg/13-index.js"></script>
+<script src="src/crypto/00-util.js"></script>
+<script src="src/crypto/01-md4.js"></script>
+<script src="src/crypto/02-md5.js"></script>
+<script src="src/crypto/03-sha1.js"></script>
+<script src="src/crypto/04-rc4.js"></script>
+<script src="src/crypto/05-des.js"></script>
+<script src="src/crypto/06-aes.js"></script>
+<script src="src/crypto/07-desede.js"></script>
+<script src="src/crypto/08-selftest.js"></script>
+<script src="src/decoders/00-sid.js"></script>
+<script src="src/decoders/01-secdesc.js"></script>
+<script src="src/decoders/02-shimcache.js"></script>
+<script src="src/decoders/03-samfv.js"></script>
 <script src="src/plugins/30-runtime.js"></script>
 <script src="src/plugins/31-helpers.js"></script>
 <script src="src/plugins/32-simple.js"></script>
+<script src="src/plugins/33-session.js"></script>
 <script src="src/plugins/40-system.js"></script>
 <script src="src/plugins/41-software.js"></script>
 <script src="src/plugins/42-ntuser.js"></script>
 <script src="src/plugins/43-sam.js"></script>
+<script src="src/plugins/44-security.js"></script>
+<script src="src/plugins/45-amcache.js"></script>
+<script src="src/plugins/46-offense.js"></script>
 <script src="src/plugins/50-descriptors.js"></script>
 <script src="src/ui/20-view-model.js"></script>
 <script src="src/ui/21-app.js"></script>

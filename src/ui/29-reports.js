@@ -185,7 +185,7 @@
           ? `Run ${pl.name}`
           : `Run ${pl.name} (hive type ${pl.hiveTypes.join('/')} not detected — run anyway)`;
         btn.addEventListener('click', () => {
-          showResults([RV.plugins.runtime.run(pl.name, hive)]);
+          showResults([RV.plugins.runtime.run(pl.name, hive, { session: RV.plugins.session })]);
         });
         li.appendChild(btn);
         ul.appendChild(li);
@@ -206,7 +206,7 @@
     runAllBtn.type = 'button';
     runAllBtn.addEventListener('click', () => {
       const controller = new AbortController();
-      const { results } = RV.plugins.runtime.runAll(hive, { signal: controller.signal });
+      const { results } = RV.plugins.runtime.runAll(hive, { signal: controller.signal, session: RV.plugins.session });
       showResults(results);
     });
     controls.appendChild(runAllBtn);
@@ -230,5 +230,20 @@
     showResults(lastResults);
   }
 
-  RV.ui.reports = { render, showResults };
+  /**
+   * Mark displayed results stale after a session change (hive attached or
+   * removed). Cross-hive plugins (SAM hash decryption, LSA secrets) may now
+   * have more data than the last run saw. Prompt instead of silently
+   * re-running — deterministic and testable.
+   */
+  function invalidate() {
+    if (lastResults.length === 0) { render(); return; }
+    const output = document.getElementById('report-output');
+    if (!output) return;
+    const note = el('div', 'report-note session-note',
+      'Session changed (hive attached/removed) — re-run to refresh cross-hive results such as SAM hash decryption.');
+    output.insertBefore(note, output.firstChild);
+  }
+
+  RV.ui.reports = { render, showResults, invalidate };
 })(window.RV);

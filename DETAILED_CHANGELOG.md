@@ -9,6 +9,77 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-01 — Crypto/DFIR/offense expansion: 21 new plugins, multi-hive sessions, in-browser SAM hash decryption
+
+**Why:** the tool covered 150 RegRipper-style plugins but the highest-value
+forensic artifacts — account hashes/details, Amcache/ShimCache execution
+traces, BAM/DAM, TaskCache, NetworkList, RDP history, the entire SECURITY
+hive, defense-posture auditing and service-key ACL review — were all in the
+"deferred" bucket (they need bespoke binary decoding, not declarative
+descriptors). The user (security professional) chose the full sweep
+including the offense pack, plus full in-browser hash decryption via
+SAM+SYSTEM sessions.
+
+**What changed:**
+
+- `src/crypto/00-util.js`–`08-selftest.js` — hand-rolled MD4 (RFC 1320),
+  MD5 (RFC 1321), SHA-1 (FIPS 180-1), RC4, DES + NTLM string-to-key +
+  per-RID key schedule (FIPS 46-3/DCE-RPC), 3DES-EDE-CBC, AES-128/256 CBC
+  (FIPS 197/SP 800-38A), plus `selfTest()` with all spec KATs. No
+  `crypto.subtle` (file:// is not a secure context); no dependencies.
+- `src/decoders/00-sid.js`–`03-samfv.js` — SID parse/format + well-known
+  map, self-relative SECURITY_DESCRIPTOR parse (MS-DTYP), ShimCache format
+  detection/parse (XP/2003/Win7/Win8/8.1/Win10 incl. Creators offset), SAM
+  F/V value structures (offsets validated against MIT-licensed regipy as a
+  format reference — reimplemented, not copied).
+- `src/plugins/33-session.js` + `30-runtime.js` `opts.session` — DOM-free
+  multi-hive session store; `ctx.session.byType('system')` for cross-hive
+  plugins.
+- `src/ui/21-app.js` / `29-reports.js` / `main.js` / `index.html` —
+  `loadFiles`/`addHives`/`removeHive`/`setPrimaryHive`, topbar hive
+  `<select>` + `+ Add hive…`, multi-file drop, `reports.invalidate()`
+  stale-session prompt.
+- New plugins: `bootkey`, `shimcache`, `bam`, `wpdbusenum`, `svcacls`
+  (40-system); `taskcache`, `networklist`, `emdmgmt`, `portabledevices`
+  (41-software); `tsclient`, `wordwheelquery`, `mountpoints2`,
+  `opensavepidl` (42-ntuser); `samhashes` + full `samparse` F/V upgrade
+  (43-sam); `machine_sid`, `auditpol`, `lsasecrets` (44-security — the
+  SECURITY hive previously had zero plugins); `amcache_file`, `amcache_app`
+  (45-amcache + hive-type detection); `autostarts`, `defposture`
+  (46-offense). 171 plugins total.
+- Parser: `readSkDescriptor` (08-sk) + `NkKey.getSecurityDescriptor()`
+  (12-hive); `HiveBuilder` gained `security:`/sk-cell emission for
+  end-to-end ACL fixtures.
+- Docs: `docs/crypto-notes.md` (every constant with its public citation;
+  UNVERIFIED entries ship disabled), NOTICE provenance section,
+  `docs/regripper-plugins.md` new-plugins table, status JSON updated
+  (31 done-bespoke / 12 done-bespoke-new / 161 deferred).
+
+**Deliberate limitations (never-guess policy):** Vista→Win10-1607 SAM RC4
+layer and the Win10+ LSA-Secrets AES key schedule are UNVERIFIED against a
+primary source — blobs are reported undecrypted with a note instead of
+fabricating plaintext. Full shellbag parsing, BCD, SRUM, DCC2 cracking and
+DPAPI decryption remain future work (recorded in the plan file).
+
+**Commands run:** `node --test tests/<file>` per phase; `npm test`;
+ground-truth cross-checks `openssl dgst -md4 -provider legacy`,
+`openssl enc -des-ecb/-aes-256-cbc -provider legacy`, node `crypto` SHA-1.
+
+**Verification:** 307/307 tests pass (55 new: crypto KATs, decoder byte
+fixtures, bootkey scramble/decrypt round-trips, encrypt-direction SAM
+fixtures that `samhashes` then decrypts, session UI via dom-stub, and
+found/not-found/corrupt paths per new plugin). NUL-byte scan clean over all
+touched files; `aidc-scan` clean after fixes.
+
+**Notes:** DES/AES were initially written in a compact byte-indexed style
+and produced wrong output despite correct tables; both were rewritten in a
+direct-from-spec structure and validated against FIPS 81 / FIPS 197 C.1 /
+SP 800-38A vectors plus openssl cross-checks — the lesson (validate every
+crypto module against published vectors *before* building on it) is now
+enforced by `RV.crypto.selfTest()` running in the test suite.
+
+---
+
 ## 2026-09-01 — Values pane below tree on fresh sessions (two-track panes grid)
 
 **Symptom:** Operator reported the viewer showing values *below* the tree

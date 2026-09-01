@@ -93,6 +93,9 @@
     if (has('Policy\\Accounts') && has('Policy\\PolAdtEv')) tags.add('security');
     if (has('Software\\Microsoft\\Windows\\CurrentVersion') && has('Software\\Microsoft\\Windows NT\\CurrentVersion')) tags.add('ntuser');
     if (has('Local Settings\\Software') && has('lnkfile')) tags.add('usrclass');
+    // Amcache.hve — Win8/8.1 shape (Root\File) or Win10/11 shape
+    // (Root\InventoryApplicationFile); embedded filename 'Amcache' also tags.
+    if (has('Root\\File') || has('Root\\InventoryApplicationFile') || has('Root\\InventoryApplication')) tags.add('amcache');
     if (tags.size === 0) tags.add('unknown');
     return tags;
   }
@@ -189,6 +192,52 @@
     });
   }
 
+  // ---------------------------------------------------------------------------
+  // SysKey bootkey — derive the 16-byte bootkey from a SYSTEM hive's
+  // Control\Lsa\{JD,Skew1,GBG,Data} key class names (public format fact; see
+  // docs/crypto-notes.md). Returns {bootKey:Uint8Array, parts:{}} or null.
+
+  const BOOTKEY_PBOX = Object.freeze([0x8, 0x5, 0x4, 0x2, 0xb, 0x9, 0xd, 0x3, 0x0, 0x6, 0x1, 0xc, 0xe, 0xa, 0xf, 0x7]);
+
+  function getBootKey(systemHive) {
+    if (!systemHive) return null;
+    const { name: ccs } = getControlSet(systemHive);
+    const base = ccs ? ccs + '\\Control\\Lsa' : 'ControlSet001\\Control\\Lsa';
+    const lsa = subkey(systemHive, base);
+    if (!lsa) return null;
+    const parts = {};
+    for (const nm of ['JD', 'Skew1', 'GBG', 'Data']) {
+      const k = lsa.getSubkey(nm);
+      parts[nm] = k ? k.className : null;
+    }
+    const hex = (parts.JD || '') + (parts.Skew1 || '') + (parts.GBG || '') + (parts.Data || '');
+    if (!/^[0-9a-fA-F]{32}$/.test(hex)) return null;
+    const scrambled = RV.crypto.hexToBytes(hex.toLowerCase());
+    const bootKey = new Uint8Array(16);
+    for (let i = 0; i < 16; i++) bootKey[i] = scrambled[BOOTKEY_PBOX[i]];
+    return { bootKey, parts, lsaPath: base };
+  }
+
+  // Extract printable UTF-16LE runs from a binary blob (pidl/shell-item
+  // scraping — a documented simplification, not full shellbag parsing).
+  function utf16Runs(bytes, minChars) {
+    const min = minChars || 2;
+    const out = [];
+    if (!bytes) return out;
+    let cur = '';
+    for (let i = 0; i + 1 < bytes.length; i += 2) {
+      const c = bytes[i] | (bytes[i + 1] << 8);
+      const printable = (c >= 0x20 && c <= 0x7e) || ' \\/:._-+@#$%&()[]{}\',~'.includes(String.fromCharCode(c));
+      if (printable) cur += String.fromCharCode(c);
+      else {
+        if (cur.length >= min) out.push(cur);
+        cur = '';
+      }
+    }
+    if (cur.length >= min) out.push(cur);
+    return out;
+  }
+
   RV.plugins.helpers = {
     MAX_PLUGIN_ROWS,
     makeContext,
@@ -202,5 +251,7 @@
     unixToDate,
     formatDate,
     rot13,
+    getBootKey,
+    utf16Runs,
   };
 })(window.RV);

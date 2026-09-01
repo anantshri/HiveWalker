@@ -12,6 +12,29 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Added
 
+- **Crypto/DFIR/offense expansion (21 new plugins, 171 total):** SAM account
+  details + NT/LM hash extraction (`samparse` F/V decode, new `samhashes`
+  with XP-generation decryption via the SysKey bootkey), Amcache.hve support
+  (`amcache_file`/`amcache_app`, Win8 + Win10 shapes), ShimCache
+  (`shimcache`, XP→Win10 formats), BAM/DAM execution traces, scheduled tasks
+  incl. hidden-task detection (`taskcache`), network profiles
+  (`networklist`), outbound RDP (`tsclient`), Explorer searches
+  (`wordwheelquery`), mount history (`mountpoints2`, `emdmgmt`,
+  `wpdbusenum`, `portabledevices`), Open/Save MRUs (`opensavepidl`), the
+  SECURITY-hive pack (`machine_sid`, `auditpol`, `lsasecrets`), a
+  consolidated autostart sweep with StartupApproved decode (`autostarts`),
+  a defense-posture audit (`defposture`) and an offline accesschk for
+  service-key ACLs (`svcacls`, T1574.011). New hand-rolled crypto
+  (MD4/MD5/SHA-1/RC4/DES/3DES/AES, spec KATs) and binary decoders (SID,
+  security descriptors, ShimCache, SAM F/V) with provenance in
+  `docs/crypto-notes.md`; unverified derivations report data undecrypted
+  rather than guessing.
+- **Multi-hive sessions:** load several hives at once (multi-select,
+  multi-file drop, `+ Add hive…`) with a topbar hive switcher. Cross-hive
+  plugins (SAM hash decryption, LSA secrets) use the session — attach SYSTEM
+  alongside SAM, re-run, and `samhashes` decrypts via the bootkey. Session
+  changes prompt a re-run instead of silently re-running.
+
 - **RegRipper acknowledgment:** the Reports plugin layer is now properly
   credited to its source, **RegRipper by H. Carvey (keydet89)** — new
   [`NOTICE.md`](NOTICE.md), an Acknowledgments section in the README, and

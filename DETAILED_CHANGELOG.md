@@ -64,6 +64,33 @@ empty via WebFetch, so the STIX bundle (not the website) was the source of
 truth. The count of unique IDs dropped 62→59 because three retired IDs
 collapsed onto successors already used elsewhere.
 
+**Semantic-correctness pass (do the IDs *match* the artifact?):** existence
+isn't correctness, so every marker was then checked against the technique's
+ATT&CK *description*, not just its name. The project's own pattern (established
+by `shimcache`/`amcache_file`, which carry no `mitre`) is: tag a plugin only
+when the registry key *is* the mechanism/enabler of the technique, and leave
+pure execution-*evidence* artifacts unmapped. Six plugins violated that pattern
+and were corrected to unmapped:
+
+| Plugin | Was | Why removed |
+| --- | --- | --- |
+| `bam` | T1059 | BAM is execution evidence; T1059 is *interpreter abuse* |
+| `userassist` | T1204 | execution evidence, not user-execution-of-malware |
+| `runmru` | T1204 | Run-dialog MRU artifact |
+| `officemru` | T1204 | file-access MRU artifact |
+| `pcaexec` | T1059 | PCA logs any GUI program; not interpreter abuse |
+| `execsummary` | T1204 | a correlation of evidence sources, not one technique |
+
+Kept after review (technique = the mechanism the key records/enables):
+`officetrust` T1204.002 (enabling macros *is* user execution of a malicious
+file), `firewallrules` T1686, `svcunquoted` T1574.009, `winrm` T1021.006,
+`comhijack` T1546.015, `appcompatlayers` T1546.011 (the AppCompat framework —
+T1546.011 explicitly covers privilege *elevation* via shims; note also cites
+T1548.002), `tsclient` T1021.001 (outbound RDP history = RDP lateral movement),
+and the persistence/credential/discovery mappings (T1547.*, T1003.*, T1082,
+T1016, T1053.005, T1574.011). `samparse` T1136.001 was flagged as marginal
+(SAM is the store where attacker-created local accounts appear) but kept.
+
 ## 2026-09-02 — Infosec/DFIR plugin pack (9 new plugins, issue #6)
 
 **What:** nine new bespoke plugins for infosec/DFIR use cases, in response to
@@ -86,10 +113,13 @@ LastLoggedOnUser, InprocServer32 enumeration (exist as descriptors), WLAN
 | `winrm` | SOFTWARE+SYSTEM | WinRM service Start (SYSTEM) + policy weak-auth (Basic/Unencrypted/TrustedHosts=*) | T1021.006 |
 | `appcompatlayers` | NTUSER+SOFTWARE | `AppCompatFlags\Layers` per-exe shims; flags RUNASADMIN/RUNASHIGHEST elevation | T1546.011 |
 | `officetrust` | NTUSER | `Trusted Documents\TrustRecords` — FILETIME + trailing `0x7FFFFFFF` flag = macros enabled | T1204.002 |
-| `officemru` | NTUSER | Office `File/Place MRU` — `[T<ft-hex>]…*path` decode | T1204 |
+| `officemru` | NTUSER | Office `File/Place MRU` — `[T<ft-hex>]…*path` decode | — (evidence) |
 | `comhijack` | NTUSER+UsrClass | user-hive CLSID `InprocServer32`/`LocalServer32`/`TreatAs`; flags writable-path servers | T1546.015 |
-| `pcaexec` | NTUSER+SOFTWARE | Compatibility Assistant `Store`/`Persisted` executable list (execution evidence) | T1059 |
-| `execsummary` | NTUSER/SYSTEM/Amcache | flagship: runs userassist/bam/amcache_file/shimcache across session hives, harvests their table rows, merges into one newest-first timeline | T1204 |
+| `pcaexec` | NTUSER+SOFTWARE | Compatibility Assistant `Store`/`Persisted` executable list (execution evidence) | — (evidence) |
+| `execsummary` | NTUSER/SYSTEM/Amcache | flagship: runs userassist/bam/amcache_file/shimcache across session hives, harvests their table rows, merges into one newest-first timeline | — (evidence) |
+
+(MITRE columns above reflect the post-review mappings — see the "MITRE marker
+audit" entry: execution-evidence plugins are intentionally left unmapped.)
 
 **How:**
 

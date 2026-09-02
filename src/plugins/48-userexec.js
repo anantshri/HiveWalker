@@ -133,7 +133,8 @@
     name: 'officemru',
     hives: ['ntuser'],
     category: 'program execution',
-    mitre: 'T1204',
+    // File-access MRU is a data source, not a technique — left unmapped like
+    // shimcache/amcache/recentdocs. (Was T1204.)
     version: '20260902',
     shortDescr: 'Office File/Place MRU — recently opened documents with last-opened times',
     run(hive, ctx) {
@@ -228,7 +229,9 @@
     name: 'pcaexec',
     hives: ['ntuser', 'software'],
     category: 'program execution',
-    mitre: 'T1059',
+    // PCA records that a program ran — execution evidence, not an ATT&CK
+    // technique — left unmapped like shimcache/amcache. (Was T1059, which is
+    // interpreter abuse and does not describe this artifact.)
     version: '20260902',
     shortDescr: 'Program Compatibility Assistant (Store/Persisted) executables — execution evidence',
     run(hive, ctx) {

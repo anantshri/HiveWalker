@@ -210,7 +210,8 @@ test('pcaexec: lists executables from Store and Persisted', () => {
   const t = textOf('pcaexec', hive);
   assert.ok(t.includes('tool.exe') && t.includes('Store'), 'store entry');
   assert.ok(t.includes('x.exe') && t.includes('Persisted'), 'persisted entry');
-  assert.ok(t.includes('T1059'));
+  // Execution evidence is intentionally left unmapped (no ATT&CK technique).
+  assert.strictEqual(runtime.get('pcaexec').mitre || '', '');
 });
 
 test('pcaexec: none present → clean message', () => {
@@ -259,11 +260,16 @@ test('execsummary: no session, no artifacts → guidance message', () => {
 // ---------------------------------------------------------------------------
 // registration sanity
 
-test('all nine issue-#6 plugins are registered with mitre + category', () => {
-  for (const n of ['firewallrules', 'svcunquoted', 'winrm', 'appcompatlayers',
-    'officetrust', 'officemru', 'comhijack', 'pcaexec', 'execsummary']) {
+test('all nine issue-#6 plugins registered; technique-bearing ones carry a valid mitre', () => {
+  // Execution-evidence artifacts are deliberately unmapped (data source, not a
+  // technique) — matching shimcache/amcache.
+  const UNMAPPED = new Set(['officemru', 'pcaexec', 'execsummary']);
+  const MAPPED = { firewallrules: 'T1686', svcunquoted: 'T1574.009', winrm: 'T1021.006',
+    appcompatlayers: 'T1546.011', officetrust: 'T1204.002', comhijack: 'T1546.015' };
+  for (const n of [...Object.keys(MAPPED), ...UNMAPPED]) {
     const p = runtime.get(n);
-    assert.ok(p, `${n} registered`);
-    assert.ok(p.mitre && p.category && p.shortDescr, `${n} has metadata`);
+    assert.ok(p && p.category && p.shortDescr, `${n} registered with metadata`);
+    if (UNMAPPED.has(n)) assert.ok(!p.mitre, `${n} intentionally unmapped`);
+    else assert.strictEqual(p.mitre, MAPPED[n], `${n} has the expected technique`);
   }
 });

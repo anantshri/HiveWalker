@@ -78,7 +78,13 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
   `T1686`, `T1101` → `T1547.005`, `T1128` → `T1546.007` (across the offense
   pack, the new infosec pack and the RegRipper descriptors). The descriptor
   generator now carries a renumber map so future regenerations stay current.
-  Every remaining technique ID was verified to exist and be non-revoked.
+  Every remaining technique ID was verified to exist and be non-revoked. A
+  follow-up semantic-correctness pass (does the technique actually *describe*
+  the artifact?) unmapped six execution-*evidence* plugins that were tagged with
+  ill-fitting techniques — `bam`, `userassist`, `runmru`, `officemru`,
+  `pcaexec` (were T1059/T1204) and `execsummary` — matching the existing
+  `shimcache`/`amcache` convention of leaving forensic data-source artifacts
+  untagged.
 - CI/CD moved to Node 24, and every GitHub Action is pinned to its latest
   release: `checkout` v7.0.1, `setup-node` v7.0.0, `configure-pages` v6.0.0,
   `upload-pages-artifact` v5.0.0, `deploy-pages` v5.0.1 (bumped from v5.0.0),

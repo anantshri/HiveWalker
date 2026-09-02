@@ -45,7 +45,8 @@
     name: 'execsummary',
     hives: ['ntuser', 'system', 'amcache'],
     category: 'program execution (timeline)',
-    mitre: 'T1204',
+    // A correlation of execution-evidence data sources, not a single technique
+    // — left unmapped. (Was T1204.)
     version: '20260902',
     shortDescr: 'Unified execution timeline merging UserAssist, BAM/DAM, Amcache and ShimCache',
     run(hive, ctx) {

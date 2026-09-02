@@ -47,7 +47,7 @@
       "ntuser"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20210217",
     "shortDescr": "Gets user's AMSIEnable value",
     "mode": "named",
@@ -280,7 +280,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20201012",
     "shortDescr": "Gets the contents of the FilesNotToSnapshot, KeysNotToRestore, and FilesNotToBackup keys",
     "mode": "values",
@@ -297,7 +297,7 @@
       "ntuser"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20221129",
     "shortDescr": "Gets user's BitBucket settings",
     "mode": "subkeys",
@@ -332,7 +332,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562",
+    "mitre": "T1685",
     "version": "20220110",
     "shortDescr": "Check EnableCertPaddingCheck value",
     "mode": "named",
@@ -545,7 +545,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220921",
     "shortDescr": "Determine if SMB over NetBIOS is disabled",
     "mode": "named",
@@ -563,7 +563,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220614",
     "shortDescr": "Check DisableFileSyncNGSC value",
     "mode": "named",
@@ -616,7 +616,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20200911",
     "shortDescr": "Gets the value that turns System Restore either on or off",
     "mode": "named",
@@ -683,7 +683,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220927",
     "shortDescr": "Get DUO config",
     "mode": "values",
@@ -963,7 +963,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562",
+    "mitre": "T1685",
     "version": "20210312",
     "shortDescr": "Get values related to ",
     "mode": "named",
@@ -1043,7 +1043,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220419",
     "shortDescr": "Get WER LocalDumps settings",
     "mode": "subkeys",
@@ -1117,7 +1117,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20210326",
     "shortDescr": "Check for MaintenanceDisabled value",
     "mode": "named",
@@ -1198,7 +1198,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20221114",
     "shortDescr": "Get Windows Defender NetworkProtection settings",
     "mode": "named",
@@ -1545,7 +1545,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562",
+    "mitre": "T1685",
     "version": "20220101",
     "shortDescr": "Get setting for remote UAC",
     "mode": "named",
@@ -1562,7 +1562,7 @@
       "ntuser"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20210111",
     "shortDescr": "Gets RestartManager\\Session0000 values",
     "mode": "values",
@@ -1751,7 +1751,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20221108",
     "shortDescr": "Check Windows Defender SmartScreen settings",
     "mode": "named",
@@ -1771,7 +1771,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562",
+    "mitre": "T1685",
     "version": "20220101",
     "shortDescr": "Get SMB server settings (v1, v2, v3)",
     "mode": "named",
@@ -2054,7 +2054,7 @@
       "ntuser"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220301",
     "shortDescr": "Settings associated with wiper found in the Ukraine",
     "mode": "named",
@@ -2072,7 +2072,7 @@
       "software"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20220826",
     "shortDescr": "Get Select User Account Control (UAC) Values from HKLMSOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystem",
     "mode": "named",
@@ -2124,7 +2124,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562",
+    "mitre": "T1685",
     "version": "20220101",
     "shortDescr": "Get USN change journal settings on Windows Server",
     "mode": "named",
@@ -2191,7 +2191,7 @@
       "system"
     ],
     "category": "defense evasion",
-    "mitre": "T1562.001",
+    "mitre": "T1685",
     "version": "20201229",
     "shortDescr": "Get WDFilter Altitude value",
     "mode": "named",

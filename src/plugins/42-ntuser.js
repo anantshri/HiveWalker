@@ -14,7 +14,8 @@
     name: 'userassist',
     hives: ['ntuser'],
     category: 'program execution',
-    mitre: 'T1204',
+    // Execution evidence (a data source), not a technique — left unmapped like
+    // shimcache/amcache. (Was T1204, which is user-execution of malicious content.)
     version: '20230710',
     shortDescr: 'Displays contents of UserAssist subkeys',
     run(hive, ctx) {
@@ -146,7 +147,8 @@
     name: 'runmru',
     hives: ['ntuser'],
     category: 'execution',
-    mitre: 'T1204',
+    // Run-dialog MRU is an execution-evidence artifact, not a technique — left
+    // unmapped. (Was T1204.)
     version: '20201005',
     shortDescr: "Gets contents of user's RunMRU key",
     run(hive, ctx) {

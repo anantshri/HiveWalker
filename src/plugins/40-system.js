@@ -306,7 +306,8 @@
     name: 'bam',
     hives: ['system'],
     category: 'program execution',
-    mitre: 'T1059',
+    // Execution evidence (a data source), not an ATT&CK technique — left
+    // unmapped like shimcache/amcache. (Was T1059, which is interpreter abuse.)
     version: '20260901',
     shortDescr: 'Background Activity Moderator per-SID program execution times (Win10+)',
     run(hive, ctx) {

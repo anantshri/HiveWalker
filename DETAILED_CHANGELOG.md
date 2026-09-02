@@ -9,6 +9,345 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-02 — MITRE ATT&CK marker audit + v19 renumbering
+
+**What:** audited every MITRE technique ID referenced anywhere in the plugin
+layer against the authoritative, machine-readable ATT&CK STIX data, and fixed
+the ones the v19 release retired.
+
+**Why:** guarding against hallucinated/stale technique IDs — the operator
+specifically asked to verify older markers too, not just the newly added ones.
+
+**How:**
+
+- Extracted all 62 unique `T####[.###]` IDs used across `src/plugins/*.js`.
+- Downloaded the official `mitre-attack/attack-stix-data` bundle and validated
+  each ID offline (exact `external_id` → object lookup, no LLM in the loop).
+  First pass used `master`; on discovering post-cutoff revocations, re-pinned to
+  the **released `enterprise-attack-19.2.json`** (== current `master`) and
+  selected the *current* object per ID (skipping revoked/deprecated duplicates).
+- Five IDs were revoked by ATT&CK v19 (the "Impair Defenses" subtree was
+  promoted to standalone techniques, and two SSP/Netsh IDs consolidated). Read
+  the STIX `revoked-by` relationships for the official successors:
+
+  | Retired | → Successor | Name |
+  | --- | --- | --- |
+  | T1562 | T1685 | Disable or Modify Tools |
+  | T1562.001 | T1685 | Disable or Modify Tools |
+  | T1562.004 | T1686 | Disable or Modify System Firewall |
+  | T1101 | T1547.005 | Security Support Provider |
+  | T1128 | T1546.007 | Netsh Helper DLL |
+
+- Applied the remap in `src/plugins/47-infosec.js` (T1562.004→T1686, field +
+  note), `src/plugins/46-offense.js` (T1101→T1547.005, T1128→T1546.007,
+  defposture T1562.001→T1685), and `src/plugins/50-descriptors.js` (20 entries:
+  T1562/T1562.001→T1685). Added a `MITRE_RENUMBER` map to
+  `scripts/regripper/assemble.js` so regenerating the descriptors keeps them
+  current. Updated the two tests that asserted on the old IDs.
+
+**Commands:**
+
+```
+curl -fsSL …/attack-stix-data/…/enterprise-attack-19.2.json   # authoritative
+python3 (validate 62 IDs; resolve revoked-by successors)      # offline exact match
+node --test                                                   # 339 pass
+aidc-scan                                                     # clean
+```
+
+**Verification:** re-ran the offline validator after the edits — all 59
+remaining unique IDs exist in ATT&CK v19.2 and none are revoked or deprecated
+(0 problems). The 9 newly authored plugins' IDs were additionally confirmed by
+name against attack.mitre.org. Full suite 339/339; scan clean.
+
+**Notes:** the live `attack.mitre.org` pages render client-side and returned
+empty via WebFetch, so the STIX bundle (not the website) was the source of
+truth. The count of unique IDs dropped 62→59 because three retired IDs
+collapsed onto successors already used elsewhere.
+
+**Semantic-correctness pass (do the IDs *match* the artifact?):** existence
+isn't correctness, so every marker was then checked against the technique's
+ATT&CK *description*, not just its name. The project's own pattern (established
+by `shimcache`/`amcache_file`, which carry no `mitre`) is: tag a plugin only
+when the registry key *is* the mechanism/enabler of the technique, and leave
+pure execution-*evidence* artifacts unmapped. Six plugins violated that pattern
+and were corrected to unmapped:
+
+| Plugin | Was | Why removed |
+| --- | --- | --- |
+| `bam` | T1059 | BAM is execution evidence; T1059 is *interpreter abuse* |
+| `userassist` | T1204 | execution evidence, not user-execution-of-malware |
+| `runmru` | T1204 | Run-dialog MRU artifact |
+| `officemru` | T1204 | file-access MRU artifact |
+| `pcaexec` | T1059 | PCA logs any GUI program; not interpreter abuse |
+| `execsummary` | T1204 | a correlation of evidence sources, not one technique |
+
+Kept after review (technique = the mechanism the key records/enables):
+`officetrust` T1204.002 (enabling macros *is* user execution of a malicious
+file), `firewallrules` T1686, `svcunquoted` T1574.009, `winrm` T1021.006,
+`comhijack` T1546.015, `appcompatlayers` T1546.011 (the AppCompat framework —
+T1546.011 explicitly covers privilege *elevation* via shims; note also cites
+T1548.002), `tsclient` T1021.001 (outbound RDP history = RDP lateral movement),
+and the persistence/credential/discovery mappings (T1547.*, T1003.*, T1082,
+T1016, T1053.005, T1574.011). `samparse` T1136.001 was flagged as marginal
+(SAM is the store where attacker-created local accounts appear) but kept.
+
+## 2026-09-02 — Infosec/DFIR plugin pack (9 new plugins, issue #6)
+
+**What:** nine new bespoke plugins for infosec/DFIR use cases, in response to
+GitHub issue #6 ("identify more infosec use-case scenarios that can be created
+as a plugin"). All pure-registry, no backend, and each *decodes or correlates*
+rather than dumping keys.
+
+**Why these nine:** grepped existing coverage (41 bespoke + 133 declarative
+descriptors) to find high-value artifacts with *zero* current coverage, then
+confirmed with the operator. Rejected as already-covered/low-value: PortProxy,
+LastLoggedOnUser, InprocServer32 enumeration (exist as descriptors), WLAN
+(native `networklist`).
+
+**New plugins:**
+
+| Plugin | Hive(s) | Artifact / decode | MITRE |
+| --- | --- | --- | --- |
+| `firewallrules` | SYSTEM | `SharedAccess…\FirewallRules` value strings → Action/Dir/Proto/Port/App; flags inbound-allow + writable-path apps; per-profile on/off | T1686 |
+| `svcunquoted` | SYSTEM | Service `ImagePath` unquoted-with-space + writable-dir binaries | T1574.009 |
+| `winrm` | SOFTWARE+SYSTEM | WinRM service Start (SYSTEM) + policy weak-auth (Basic/Unencrypted/TrustedHosts=*) | T1021.006 |
+| `appcompatlayers` | NTUSER+SOFTWARE | `AppCompatFlags\Layers` per-exe shims; flags RUNASADMIN/RUNASHIGHEST elevation | T1546.011 |
+| `officetrust` | NTUSER | `Trusted Documents\TrustRecords` — FILETIME + trailing `0x7FFFFFFF` flag = macros enabled | T1204.002 |
+| `officemru` | NTUSER | Office `File/Place MRU` — `[T<ft-hex>]…*path` decode | — (evidence) |
+| `comhijack` | NTUSER+UsrClass | user-hive CLSID `InprocServer32`/`LocalServer32`/`TreatAs`; flags writable-path servers | T1546.015 |
+| `pcaexec` | NTUSER+SOFTWARE | Compatibility Assistant `Store`/`Persisted` executable list (execution evidence) | — (evidence) |
+| `execsummary` | NTUSER/SYSTEM/Amcache | flagship: runs userassist/bam/amcache_file/shimcache across session hives, harvests their table rows, merges into one newest-first timeline | — (evidence) |
+
+(MITRE columns above reflect the post-review mappings — see the "MITRE marker
+audit" entry: execution-evidence plugins are intentionally left unmapped.)
+
+**How:**
+
+- New files `src/plugins/47-infosec.js` (firewallrules, svcunquoted, winrm),
+  `48-userexec.js` (appcompatlayers, officetrust, officemru, comhijack,
+  pcaexec), `49-execsummary.js`; registered in `index.html` between
+  `46-offense.js` and `50-descriptors.js`.
+- `execsummary` deliberately *reuses* the existing, tested decoders via
+  `runtime.run(...)` rather than re-implementing binary parsing (esp.
+  ShimCache); it locates each source's time/exe columns by header substring, so
+  it is resilient to column reordering. Fixed-width `YYYY-MM-DD HH:MM:SS UTC`
+  timestamps sort chronologically by plain string compare.
+- Cross-hive plugins (`winrm`, `execsummary`) resolve companion hives from
+  `ctx.session.byType(...)`, falling back to the invoked hive.
+
+**Commands:**
+
+```
+node --test tests/plugins-infosec.test.js              # 19 pass
+node --test                                            # 339 pass
+node --test --experimental-test-coverage \
+  tests/plugins-infosec.test.js                        # 47/48/49: 100% lines
+node -e "…runAll on a multi-hive session…"             # 61 plugins, 0 errors
+aidc-scan                                              # clean
+```
+
+**Verification:** unit tests cover each plugin's happy path + a negative/edge
+case; an end-to-end smoke attaches a SYSTEM hive to a session and runs
+`runtime.runAll` (61 applicable plugins, 0 errors) confirming the new plugins
+register, apply to the right hive types, and render. `firewallrules` decoded a
+planted inbound-allow backdoor rule end-to-end. `aidc-scan` clean; index.html
+remains self-contained (CI release-ready check mirrored locally).
+
+**Notes:** `pcaexec` intentionally does not fabricate per-entry timestamps (the
+Store blob's time layout is not reliably documented) — it reports the
+executable + source only. `execsummary` prints an explicit per-artifact
+time-semantics caveat (UserAssist/BAM = execution; Amcache/ShimCache =
+file-modified/presence) so the merged timeline isn't over-read.
+
+## 2026-09-02 — CI on Node 24; all GitHub Actions bumped to latest
+
+**What:** raised the CI/deploy Node runtime from 22 to 24 and moved every
+GitHub Action pin to its newest release.
+
+**Why:** requested standardisation on Node 24 and current action versions. Kept
+scope to CI/CD only — the devcontainer `Dockerfile` (NodeSource node 22) and
+`package.json` `engines` (`>=18`) were intentionally left untouched per the
+operator ("focus on github actions").
+
+**How — resolved each action's latest tag to its commit SHA against the live
+upstream (no `gh`; `git ls-remote`), then updated pins:**
+
+| Action | Was | Now |
+| --- | --- | --- |
+| actions/checkout | v7 (`3d3c42e5`) | v7.0.1 (`3d3c42e5`, same SHA) |
+| actions/setup-node | v7 (`82076278`) | v7.0.0 (`82076278`, same SHA) |
+| actions/configure-pages | v6 (`45bfe019`) | v6.0.0 (`45bfe019`, same SHA) |
+| actions/upload-pages-artifact | v5 (`fc324d35`) | v5.0.0 (`fc324d35`, same SHA) |
+| actions/deploy-pages | v5.0.0 (`cd2ce8fc`) | **v5.0.1 (`368f8252`)** |
+| actions/upload-artifact | v7 (`043fb46d`) | v7.0.1 (`043fb46d`, same SHA) |
+
+Only `deploy-pages` had a newer commit (v5.0.0→v5.0.1); the rest were already at
+the latest SHA but pinned to a moving major-tag comment — the comments now name
+the exact immutable patch version. `node-version: 22 → 24` in both `ci.yml`
+(test matrix) and `deploy-pages.yml`.
+
+**Files:** `.github/workflows/ci.yml`, `.github/workflows/deploy-pages.yml`,
+`.github/workflows/sbom.yml`.
+
+**Commands:**
+
+```
+git ls-remote --tags --refs https://github.com/actions/<name>   # discover latest tag
+git ls-remote https://github.com/actions/<name> 'refs/tags/<tag>^{}'  # tag → commit SHA
+python3 -c "import yaml; ..."                                    # all three workflows parse
+aidc-scan                                                       # clean
+```
+
+**Verification:** each new SHA confirmed to be the peeled commit of the named
+tag on the upstream repo; all three workflow files parse as YAML; `aidc-scan`
+clean. Not exercised on a live runner (no push/tag made) — the pins and
+`node-version` are declarative and were validated statically.
+
+**Notes:** pinning to full commit SHAs is retained (supply-chain hygiene); the
+trailing `# vX.Y.Z` comment is now the exact release rather than the major so a
+reviewer can see at a glance that the SHA matches an immutable tag.
+
+## 2026-09-02 — Cache-busting: content-hash query strings for local assets
+
+**Symptom:** a freshly exported PDF
+(`hivewalker-report-all-57plugins-20260901-1930.pdf`) opened blank even though
+the "PDF object numbering off by one" fix (2026-09-01) had already landed and
+its regression test passed.
+
+**Diagnosis:** the blank file was a *Frankenstein* build, not a code defect.
+Its `/Pages /Kids` listed `6 0 R 9 0 R 12 0 R …` (the pre-fix numbering, where
+those slots were pages) while its objects were laid out the *post-fix* way
+(slot 6 = content stream, slot 8 = `/Type /Page`). pypdf confirmed the result:
+**0 resolvable pages** → blank. That mix exists in no committed version: the
+pre-fix code was self-consistent and so is the post-fix code (verified by
+generating a PDF from current `src/ui/30-pdf.js` — pypdf reads 5 pages with
+extractable text, all 14 pdf tests + the reference-graph walk pass). It can
+only arise when a browser (or CDN) serves a *cached* copy of one `src/*.js`
+alongside a freshly fetched copy of another. The app loads ~50 unbundled
+classic scripts directly from `index.html` with no versioning, so every deploy
+is exposed to this class of stale-blend bug.
+
+**Change:**
+
+- `scripts/stamp-cache-bust.js` (new): stamps `?v=<sha256[:10]>` onto every
+  local `src`/`href` in an assembled site's `index.html`, hashing each
+  referenced file's bytes. External (`https:`, `//`, `mailto:`) and anchor
+  (`#…`) URLs are skipped; existing `?v=` is replaced (re-stamp is stable);
+  `#fragment` is preserved; assets resolving outside the site root are refused
+  (path-traversal guard) and left unstamped. Idempotent and dependency-free.
+- `.github/workflows/deploy-pages.yml`: pinned `actions/setup-node@…v7`
+  (node 22, matching CI), a new **Cache-bust local assets** step running the
+  stamper against `_site`, and the self-contained check now strips `?…` before
+  resolving each reference to a file. Working-tree `index.html` is left
+  untouched — only the published `_site` is stamped, so diffs stay readable and
+  the test loader (`tests/helpers/load-src.js`, which reads plain `src` paths
+  from the HTML) keeps working.
+- `tests/stamp-cache-bust.test.js` (new): 10 tests — hashing determinism,
+  external/anchor detection, script/link/img rewriting, hash-tracks-content,
+  missing-asset passthrough, re-stamp idempotency, fragment preservation,
+  in-place `stampSite`, and the path-traversal refusal.
+
+**Commands:**
+
+```
+node --test tests/stamp-cache-bust.test.js            # 10 pass
+node --test                                           # 320 pass
+node --test --experimental-test-coverage \
+  tests/stamp-cache-bust.test.js                      # 100% funcs; only CLI dispatch uncovered
+node scripts/stamp-cache-bust.js /tmp/_site           # deploy simulation (assemble→stamp→check)
+aidc-scan                                             # clean
+```
+
+**Verification:**
+
+- Reproduced the blank file's defect with pypdf (`pages: 0`) and proved the
+  current writer is correct (`pages: 5`, text extracted) — the blank was a
+  stale-bundle artifact, not a writer bug.
+- Ran the full deploy sequence locally (copy tree → `stamp-cache-bust.js`
+  `_site` → self-contained check): all local assets (`styles.css`,
+  `favicon.svg`, `docs/logo.svg`, every `src/*.js`) gained a `?v=` stamp;
+  remote (plausible, github) references untouched; self-contained check passed.
+- `aidc-scan` initially flagged a semgrep `<script>`-tag XSS heuristic on test
+  fixtures; resolved by building the fixtures with `<img>`/`<link>` tags (the
+  stamper is tag-agnostic — same code path, no literal `<script>`), not by
+  suppressing the rule. Re-scan clean.
+
+**Notes:** this protects *deployed* releases. For the local edit/test loop the
+remedy is a hard refresh (Ctrl/Cmd+Shift+R); considered stamping the committed
+`index.html` too but rejected it — it would break `load-src.js` and noise up
+every diff. pdf.js was floated as an alternative but it is a *renderer*, not a
+generator, and the hand-rolled writer was already proven correct; no dependency
+added.
+
+## 2026-09-01 — PDF export fix: per-page object numbering was off by one slot
+
+**Symptom:** `hivewalker-report-*.pdf` downloads flagged as corrupt (or
+rendered blank) by strict PDF viewers, e.g. the 166KB
+`hivewalker-report-all-57plugins-20260901-1828.pdf` produced via Reports →
+Run all → Export PDF.
+
+**Diagnosis:** the file's byte structure was sound — all 89 xref offsets
+matched their `N 0 obj` declarations exactly, every `/Length` matched the
+actual stream bytes, header/trailer/`startxref` were correct. The defect was
+semantic: `src/ui/30-pdf.js` emitted each page's three objects in the order
+content-stream → link-annot → page (so they landed at slots `6+3i`, `7+3i`,
+`8+3i`) but computed references as if the page came first
+(`pageNum = base + 3i`, `contentNum = base + 3i + 1`, `linkNum = base + 3i +
+2`). Every cross-reference was therefore shifted one slot: `/Kids` listed
+content streams, `/Contents` pointed at link annotations, `/Annots` pointed
+at the page itself (self-reference), and each annotation's `/P` back-pointer
+targeted a content stream. Viewers that build the page tree strictly reject
+it; lenient ones render nothing.
+
+**Why tests missed it:** `tests/pdf.test.js` validated xref offsets point at
+*some* object declaration, counted `/Type /Page` occurrences, and grepped
+content strings — but never resolved the reference graph.
+
+**Change:**
+
+- `src/ui/30-pdf.js`: replaced the three inline computations with named
+  helpers matching actual emission order — `contentNumAt(i) = base + 3i`,
+  `linkNumAt(i) = base + 3i + 1`, `pageNumAt(i) = base + 3i + 2` — used for
+  `/Kids`, `/Contents`, `/Annots`, and the annot `/P` back-pointer alike.
+- `tests/pdf.test.js`: new test `makePdf: reference graph resolves` — parses
+  objects, walks catalog → pages tree → each Kid asserting it is a `/Type
+  /Page`, its `/Contents` is a stream object, its `/Annots` are Link
+  annotations whose `/P` points back at that page, and that no object
+  self-references via `/Contents` or `/Annots` (the off-by-one signature).
+
+**Commands:**
+
+```
+node --test tests/pdf.test.js             # 14 pass
+node --test                               # 310 pass
+node --test --experimental-test-coverage  # 30-pdf.js: 100% lines
+aidc-scan                                 # clean (1 Blocking finding fixed en route)
+```
+
+**Verification:**
+
+- Confirmed the new test fails against the unfixed writer (stashed the fix →
+  `not ok … reference graph resolves`, re-applied → passes) — a true
+  regression guard, not a tautology.
+- Structural re-validation of the shipped file (xref offsets, `/Length`
+  accuracy, EOF) performed with a Python script during diagnosis; the writer
+  itself unchanged apart from the numbering. No PDF viewer available in the
+  container — operator should open a freshly exported PDF to confirm.
+
+**Security finding (fixed):** `aidc-scan` flagged **Blocking**
+`detect-non-literal-regexp` on the new test helper (`new RegExp('/' + key + …)`,
+keys hardcoded). Rewritten as a lookup of four literal regexes; scan clean.
+
+**Notes:**
+
+- The corrupted artifact remains in the repo root as the diagnostic exemplar;
+  regenerate with Reports → Run all → Export PDF after this fix.
+- The off-by-one also explains why permissive viewers could still open the
+  file: streams and page dicts were all present and individually valid, only
+  the wiring between them was wrong.
+
+---
+
 ## 2026-09-01 — Crypto/DFIR/offense expansion: 21 new plugins, multi-hive sessions, in-browser SAM hash decryption
 
 **Why:** the tool covered 150 RegRipper-style plugins but the highest-value

@@ -12,6 +12,19 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Added
 
+- **Infosec/DFIR plugin pack (9 new, issue #6):** decode/synthesis plugins that
+  surface meaning rather than dump keys — `firewallrules` (decode Windows
+  Firewall rule strings; flag inbound-allow and binaries in writable paths),
+  `svcunquoted` (unquoted service `ImagePath` + writable-binary privesc),
+  `winrm` (PSRemoting exposure and Basic/Unencrypted/TrustedHosts=* weak auth),
+  `appcompatlayers` (per-exe compat shims incl. `RUNASADMIN` elevation),
+  `officetrust` (Office Trusted Documents — files where the user enabled
+  macros), `officemru` (recently opened Office documents with times),
+  `comhijack` (user-hive COM `InprocServer32`/`TreatAs` hijacks to writable
+  paths), `pcaexec` (Program Compatibility Assistant execution evidence), and
+  the flagship `execsummary` (a cross-artifact execution timeline merging
+  UserAssist + BAM/DAM + Amcache + ShimCache, time-sorted). All pure-registry,
+  no backend; MITRE-tagged.
 - **Crypto/DFIR/offense expansion (21 new plugins, 171 total):** SAM account
   details + NT/LM hash extraction (`samparse` F/V decode, new `samhashes`
   with XP-generation decryption via the SysKey bootkey), Amcache.hve support
@@ -60,6 +73,12 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
 
 ### Changed
 
+- MITRE ATT&CK markers audited against the released **v19.2** STIX bundle and
+  updated for the v19 renumbering: `T1562`/`T1562.001` → `T1685`, `T1562.004` →
+  `T1686`, `T1101` → `T1547.005`, `T1128` → `T1546.007` (across the offense
+  pack, the new infosec pack and the RegRipper descriptors). The descriptor
+  generator now carries a renumber map so future regenerations stay current.
+  Every remaining technique ID was verified to exist and be non-revoked.
 - CI/CD moved to Node 24, and every GitHub Action is pinned to its latest
   release: `checkout` v7.0.1, `setup-node` v7.0.0, `configure-pages` v6.0.0,
   `upload-pages-artifact` v5.0.0, `deploy-pages` v5.0.1 (bumped from v5.0.0),

@@ -9,6 +9,126 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-02 — MITRE ATT&CK marker audit + v19 renumbering
+
+**What:** audited every MITRE technique ID referenced anywhere in the plugin
+layer against the authoritative, machine-readable ATT&CK STIX data, and fixed
+the ones the v19 release retired.
+
+**Why:** guarding against hallucinated/stale technique IDs — the operator
+specifically asked to verify older markers too, not just the newly added ones.
+
+**How:**
+
+- Extracted all 62 unique `T####[.###]` IDs used across `src/plugins/*.js`.
+- Downloaded the official `mitre-attack/attack-stix-data` bundle and validated
+  each ID offline (exact `external_id` → object lookup, no LLM in the loop).
+  First pass used `master`; on discovering post-cutoff revocations, re-pinned to
+  the **released `enterprise-attack-19.2.json`** (== current `master`) and
+  selected the *current* object per ID (skipping revoked/deprecated duplicates).
+- Five IDs were revoked by ATT&CK v19 (the "Impair Defenses" subtree was
+  promoted to standalone techniques, and two SSP/Netsh IDs consolidated). Read
+  the STIX `revoked-by` relationships for the official successors:
+
+  | Retired | → Successor | Name |
+  | --- | --- | --- |
+  | T1562 | T1685 | Disable or Modify Tools |
+  | T1562.001 | T1685 | Disable or Modify Tools |
+  | T1562.004 | T1686 | Disable or Modify System Firewall |
+  | T1101 | T1547.005 | Security Support Provider |
+  | T1128 | T1546.007 | Netsh Helper DLL |
+
+- Applied the remap in `src/plugins/47-infosec.js` (T1562.004→T1686, field +
+  note), `src/plugins/46-offense.js` (T1101→T1547.005, T1128→T1546.007,
+  defposture T1562.001→T1685), and `src/plugins/50-descriptors.js` (20 entries:
+  T1562/T1562.001→T1685). Added a `MITRE_RENUMBER` map to
+  `scripts/regripper/assemble.js` so regenerating the descriptors keeps them
+  current. Updated the two tests that asserted on the old IDs.
+
+**Commands:**
+
+```
+curl -fsSL …/attack-stix-data/…/enterprise-attack-19.2.json   # authoritative
+python3 (validate 62 IDs; resolve revoked-by successors)      # offline exact match
+node --test                                                   # 339 pass
+aidc-scan                                                     # clean
+```
+
+**Verification:** re-ran the offline validator after the edits — all 59
+remaining unique IDs exist in ATT&CK v19.2 and none are revoked or deprecated
+(0 problems). The 9 newly authored plugins' IDs were additionally confirmed by
+name against attack.mitre.org. Full suite 339/339; scan clean.
+
+**Notes:** the live `attack.mitre.org` pages render client-side and returned
+empty via WebFetch, so the STIX bundle (not the website) was the source of
+truth. The count of unique IDs dropped 62→59 because three retired IDs
+collapsed onto successors already used elsewhere.
+
+## 2026-09-02 — Infosec/DFIR plugin pack (9 new plugins, issue #6)
+
+**What:** nine new bespoke plugins for infosec/DFIR use cases, in response to
+GitHub issue #6 ("identify more infosec use-case scenarios that can be created
+as a plugin"). All pure-registry, no backend, and each *decodes or correlates*
+rather than dumping keys.
+
+**Why these nine:** grepped existing coverage (41 bespoke + 133 declarative
+descriptors) to find high-value artifacts with *zero* current coverage, then
+confirmed with the operator. Rejected as already-covered/low-value: PortProxy,
+LastLoggedOnUser, InprocServer32 enumeration (exist as descriptors), WLAN
+(native `networklist`).
+
+**New plugins:**
+
+| Plugin | Hive(s) | Artifact / decode | MITRE |
+| --- | --- | --- | --- |
+| `firewallrules` | SYSTEM | `SharedAccess…\FirewallRules` value strings → Action/Dir/Proto/Port/App; flags inbound-allow + writable-path apps; per-profile on/off | T1686 |
+| `svcunquoted` | SYSTEM | Service `ImagePath` unquoted-with-space + writable-dir binaries | T1574.009 |
+| `winrm` | SOFTWARE+SYSTEM | WinRM service Start (SYSTEM) + policy weak-auth (Basic/Unencrypted/TrustedHosts=*) | T1021.006 |
+| `appcompatlayers` | NTUSER+SOFTWARE | `AppCompatFlags\Layers` per-exe shims; flags RUNASADMIN/RUNASHIGHEST elevation | T1546.011 |
+| `officetrust` | NTUSER | `Trusted Documents\TrustRecords` — FILETIME + trailing `0x7FFFFFFF` flag = macros enabled | T1204.002 |
+| `officemru` | NTUSER | Office `File/Place MRU` — `[T<ft-hex>]…*path` decode | T1204 |
+| `comhijack` | NTUSER+UsrClass | user-hive CLSID `InprocServer32`/`LocalServer32`/`TreatAs`; flags writable-path servers | T1546.015 |
+| `pcaexec` | NTUSER+SOFTWARE | Compatibility Assistant `Store`/`Persisted` executable list (execution evidence) | T1059 |
+| `execsummary` | NTUSER/SYSTEM/Amcache | flagship: runs userassist/bam/amcache_file/shimcache across session hives, harvests their table rows, merges into one newest-first timeline | T1204 |
+
+**How:**
+
+- New files `src/plugins/47-infosec.js` (firewallrules, svcunquoted, winrm),
+  `48-userexec.js` (appcompatlayers, officetrust, officemru, comhijack,
+  pcaexec), `49-execsummary.js`; registered in `index.html` between
+  `46-offense.js` and `50-descriptors.js`.
+- `execsummary` deliberately *reuses* the existing, tested decoders via
+  `runtime.run(...)` rather than re-implementing binary parsing (esp.
+  ShimCache); it locates each source's time/exe columns by header substring, so
+  it is resilient to column reordering. Fixed-width `YYYY-MM-DD HH:MM:SS UTC`
+  timestamps sort chronologically by plain string compare.
+- Cross-hive plugins (`winrm`, `execsummary`) resolve companion hives from
+  `ctx.session.byType(...)`, falling back to the invoked hive.
+
+**Commands:**
+
+```
+node --test tests/plugins-infosec.test.js              # 19 pass
+node --test                                            # 339 pass
+node --test --experimental-test-coverage \
+  tests/plugins-infosec.test.js                        # 47/48/49: 100% lines
+node -e "…runAll on a multi-hive session…"             # 61 plugins, 0 errors
+aidc-scan                                              # clean
+```
+
+**Verification:** unit tests cover each plugin's happy path + a negative/edge
+case; an end-to-end smoke attaches a SYSTEM hive to a session and runs
+`runtime.runAll` (61 applicable plugins, 0 errors) confirming the new plugins
+register, apply to the right hive types, and render. `firewallrules` decoded a
+planted inbound-allow backdoor rule end-to-end. `aidc-scan` clean; index.html
+remains self-contained (CI release-ready check mirrored locally).
+
+**Notes:** `pcaexec` intentionally does not fabricate per-entry timestamps (the
+Store blob's time layout is not reliably documented) — it reports the
+executable + source only. `execsummary` prints an explicit per-artifact
+time-semantics caveat (UserAssist/BAM = execution; Amcache/ShimCache =
+file-modified/presence) so the merged timeline isn't over-read.
+
 ## 2026-09-02 — CI on Node 24; all GitHub Actions bumped to latest
 
 **What:** raised the CI/deploy Node runtime from 22 to 24 and moved every

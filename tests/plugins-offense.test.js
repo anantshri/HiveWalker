@@ -64,7 +64,7 @@ test('autostarts: LSA packages via SYSTEM hive ccs paths', () => {
   }).toBuffer());
   const t = text('autostarts', hive);
   assert.ok(t.includes('allinthemem.dll'), 'LSA Security Packages swept');
-  assert.ok(t.includes('T1101'));
+  assert.ok(t.includes('T1547.005')); // ATT&CK v19 renumber of former T1101
 });
 
 test('autostarts: Active Setup StubPath + Netsh helpers', () => {

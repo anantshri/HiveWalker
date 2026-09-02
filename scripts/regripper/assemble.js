@@ -23,6 +23,19 @@ for (const f of fs.readdirSync(path.join(ROOT, 'src', 'plugins')).sort()) {
 const VALID_MODES = new Set(['values', 'named', 'subkeys', 'mru']);
 const KNOWN_HIVES = new Set(['system', 'software', 'ntuser', 'usrclass', 'sam', 'security', 'amcache', 'bcd']);
 
+// RegRipper 4.0 predates ATT&CK v19, which revoked/renumbered several
+// techniques. Upgrade retired IDs to their official revoked-by successors
+// (verified against the released enterprise-attack-19.2 STIX bundle) so
+// descriptors don't carry dead IDs. Extend as future ATT&CK releases retire more.
+const MITRE_RENUMBER = {
+  T1562: 'T1685',       // Impair Defenses → Disable or Modify Tools
+  'T1562.001': 'T1685', // Disable or Modify Tools (sub) → T1685
+  'T1562.004': 'T1686', // Disable or Modify System Firewall → T1686
+  T1101: 'T1547.005',   // Security Support Provider
+  T1128: 'T1546.007',   // Netsh Helper DLL
+};
+const normMitre = (m) => MITRE_RENUMBER[m] || m || '';
+
 let all = [];
 const skips = [];
 const batchFiles = fs.readdirSync('/tmp').filter((f) => /^rr_desc_\d+\.json$/.test(f)).sort();
@@ -54,7 +67,7 @@ for (const d of all) {
   if (mode === 'named' && (!Array.isArray(d.names) || d.names.length === 0)) why.push('named without names');
   if (why.length) { rejected.push({ name: d && d.name, why: why.join(', ') }); continue; }
   // Normalise: keep only known fields.
-  const clean = { name: d.name, hives: d.hives, category: d.category || '', mitre: d.mitre || '',
+  const clean = { name: d.name, hives: d.hives, category: d.category || '', mitre: normMitre(d.mitre),
     version: String(d.version || ''), shortDescr: d.shortDescr || '', mode: mode, paths: d.paths };
   if (d.ccs) clean.ccs = true;
   if (mode === 'named') clean.names = d.names;

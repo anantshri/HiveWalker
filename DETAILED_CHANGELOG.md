@@ -9,6 +9,126 @@ below; drop sections that genuinely don't apply.
 
 ---
 
+## 2026-09-02 — CI on Node 24; all GitHub Actions bumped to latest
+
+**What:** raised the CI/deploy Node runtime from 22 to 24 and moved every
+GitHub Action pin to its newest release.
+
+**Why:** requested standardisation on Node 24 and current action versions. Kept
+scope to CI/CD only — the devcontainer `Dockerfile` (NodeSource node 22) and
+`package.json` `engines` (`>=18`) were intentionally left untouched per the
+operator ("focus on github actions").
+
+**How — resolved each action's latest tag to its commit SHA against the live
+upstream (no `gh`; `git ls-remote`), then updated pins:**
+
+| Action | Was | Now |
+| --- | --- | --- |
+| actions/checkout | v7 (`3d3c42e5`) | v7.0.1 (`3d3c42e5`, same SHA) |
+| actions/setup-node | v7 (`82076278`) | v7.0.0 (`82076278`, same SHA) |
+| actions/configure-pages | v6 (`45bfe019`) | v6.0.0 (`45bfe019`, same SHA) |
+| actions/upload-pages-artifact | v5 (`fc324d35`) | v5.0.0 (`fc324d35`, same SHA) |
+| actions/deploy-pages | v5.0.0 (`cd2ce8fc`) | **v5.0.1 (`368f8252`)** |
+| actions/upload-artifact | v7 (`043fb46d`) | v7.0.1 (`043fb46d`, same SHA) |
+
+Only `deploy-pages` had a newer commit (v5.0.0→v5.0.1); the rest were already at
+the latest SHA but pinned to a moving major-tag comment — the comments now name
+the exact immutable patch version. `node-version: 22 → 24` in both `ci.yml`
+(test matrix) and `deploy-pages.yml`.
+
+**Files:** `.github/workflows/ci.yml`, `.github/workflows/deploy-pages.yml`,
+`.github/workflows/sbom.yml`.
+
+**Commands:**
+
+```
+git ls-remote --tags --refs https://github.com/actions/<name>   # discover latest tag
+git ls-remote https://github.com/actions/<name> 'refs/tags/<tag>^{}'  # tag → commit SHA
+python3 -c "import yaml; ..."                                    # all three workflows parse
+aidc-scan                                                       # clean
+```
+
+**Verification:** each new SHA confirmed to be the peeled commit of the named
+tag on the upstream repo; all three workflow files parse as YAML; `aidc-scan`
+clean. Not exercised on a live runner (no push/tag made) — the pins and
+`node-version` are declarative and were validated statically.
+
+**Notes:** pinning to full commit SHAs is retained (supply-chain hygiene); the
+trailing `# vX.Y.Z` comment is now the exact release rather than the major so a
+reviewer can see at a glance that the SHA matches an immutable tag.
+
+## 2026-09-02 — Cache-busting: content-hash query strings for local assets
+
+**Symptom:** a freshly exported PDF
+(`hivewalker-report-all-57plugins-20260901-1930.pdf`) opened blank even though
+the "PDF object numbering off by one" fix (2026-09-01) had already landed and
+its regression test passed.
+
+**Diagnosis:** the blank file was a *Frankenstein* build, not a code defect.
+Its `/Pages /Kids` listed `6 0 R 9 0 R 12 0 R …` (the pre-fix numbering, where
+those slots were pages) while its objects were laid out the *post-fix* way
+(slot 6 = content stream, slot 8 = `/Type /Page`). pypdf confirmed the result:
+**0 resolvable pages** → blank. That mix exists in no committed version: the
+pre-fix code was self-consistent and so is the post-fix code (verified by
+generating a PDF from current `src/ui/30-pdf.js` — pypdf reads 5 pages with
+extractable text, all 14 pdf tests + the reference-graph walk pass). It can
+only arise when a browser (or CDN) serves a *cached* copy of one `src/*.js`
+alongside a freshly fetched copy of another. The app loads ~50 unbundled
+classic scripts directly from `index.html` with no versioning, so every deploy
+is exposed to this class of stale-blend bug.
+
+**Change:**
+
+- `scripts/stamp-cache-bust.js` (new): stamps `?v=<sha256[:10]>` onto every
+  local `src`/`href` in an assembled site's `index.html`, hashing each
+  referenced file's bytes. External (`https:`, `//`, `mailto:`) and anchor
+  (`#…`) URLs are skipped; existing `?v=` is replaced (re-stamp is stable);
+  `#fragment` is preserved; assets resolving outside the site root are refused
+  (path-traversal guard) and left unstamped. Idempotent and dependency-free.
+- `.github/workflows/deploy-pages.yml`: pinned `actions/setup-node@…v7`
+  (node 22, matching CI), a new **Cache-bust local assets** step running the
+  stamper against `_site`, and the self-contained check now strips `?…` before
+  resolving each reference to a file. Working-tree `index.html` is left
+  untouched — only the published `_site` is stamped, so diffs stay readable and
+  the test loader (`tests/helpers/load-src.js`, which reads plain `src` paths
+  from the HTML) keeps working.
+- `tests/stamp-cache-bust.test.js` (new): 10 tests — hashing determinism,
+  external/anchor detection, script/link/img rewriting, hash-tracks-content,
+  missing-asset passthrough, re-stamp idempotency, fragment preservation,
+  in-place `stampSite`, and the path-traversal refusal.
+
+**Commands:**
+
+```
+node --test tests/stamp-cache-bust.test.js            # 10 pass
+node --test                                           # 320 pass
+node --test --experimental-test-coverage \
+  tests/stamp-cache-bust.test.js                      # 100% funcs; only CLI dispatch uncovered
+node scripts/stamp-cache-bust.js /tmp/_site           # deploy simulation (assemble→stamp→check)
+aidc-scan                                             # clean
+```
+
+**Verification:**
+
+- Reproduced the blank file's defect with pypdf (`pages: 0`) and proved the
+  current writer is correct (`pages: 5`, text extracted) — the blank was a
+  stale-bundle artifact, not a writer bug.
+- Ran the full deploy sequence locally (copy tree → `stamp-cache-bust.js`
+  `_site` → self-contained check): all local assets (`styles.css`,
+  `favicon.svg`, `docs/logo.svg`, every `src/*.js`) gained a `?v=` stamp;
+  remote (plausible, github) references untouched; self-contained check passed.
+- `aidc-scan` initially flagged a semgrep `<script>`-tag XSS heuristic on test
+  fixtures; resolved by building the fixtures with `<img>`/`<link>` tags (the
+  stamper is tag-agnostic — same code path, no literal `<script>`), not by
+  suppressing the rule. Re-scan clean.
+
+**Notes:** this protects *deployed* releases. For the local edit/test loop the
+remedy is a hard refresh (Ctrl/Cmd+Shift+R); considered stamping the committed
+`index.html` too but rejected it — it would break `load-src.js` and noise up
+every diff. pdf.js was floated as an alternative but it is a *renderer*, not a
+generator, and the hand-rolled writer was already proven correct; no dependency
+added.
+
 ## 2026-09-01 — PDF export fix: per-page object numbering was off by one slot
 
 **Symptom:** `hivewalker-report-*.pdf` downloads flagged as corrupt (or

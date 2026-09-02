@@ -58,8 +58,23 @@ right heading. Record the blow-by-blow detail (commands, diffs, reasoning) in
   are entirely local. Non-Latin-1 characters are substituted and noted in
   the footer; copy-to-text export remains fully lossless.
 
+### Changed
+
+- CI/CD moved to Node 24, and every GitHub Action is pinned to its latest
+  release: `checkout` v7.0.1, `setup-node` v7.0.0, `configure-pages` v6.0.0,
+  `upload-pages-artifact` v5.0.0, `deploy-pages` v5.0.1 (bumped from v5.0.0),
+  `upload-artifact` v7.0.1. Pins stay full-commit-SHA with the exact version in
+  the trailing comment.
+
 ### Fixed
 
+- Deployed releases now cache-bust every local asset. The site loads ~50
+  unbundled scripts straight from `index.html`, so a new release could leave a
+  browser running a *mix* of old and new files — the failure mode behind a
+  recent blank PDF export (the writer's page-tree numbering was updated but a
+  cached copy computed `/Kids` the old way). Deploy now stamps each local
+  `src`/`href` with a `?v=<content-hash>` query, so browsers re-fetch exactly
+  the files that changed and can never blend versions.
 - Exported PDFs no longer open as corrupt/blank in strict viewers. The
   writer's per-page object numbering was off by one slot: `/Kids` pointed at
   content streams instead of `/Type /Page` objects, each page's `/Contents`
